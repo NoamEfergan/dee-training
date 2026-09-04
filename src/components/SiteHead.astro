@@ -42,7 +42,11 @@ const schemas = extraJsonLd ? (Array.isArray(extraJsonLd) ? extraJsonLd : [extra
 <meta name="description" content={description} />
 {robots && <meta name="robots" content={robots} />}
 <link rel="canonical" href={formatURL(canonicalURL)} />
-<link rel="icon" href="/social-card-app-icon.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 {localeAlternates.map(({ lang, href }) => <link rel="alternate" hreflang={lang} href={formatURL(href)} />)}
 
