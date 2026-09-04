@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+import appIcon from '@/assets/dee/app-icon.png'
+import SiteHead from '@/components/SiteHead.astro'
+import '@/styles/dee.css'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <SiteHead exactTitle={`${title} | Dee`} description={description} />
+    <link rel="preload" href="/fonts/barlow-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-condensed-black.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header legal-header" aria-label="Dee">
+      <a class="brand" href="/" aria-label="Dee home">
+        <Image src={appIcon} alt="" width={44} height={44} loading="eager" />
+        <span>DEE</span>
+      </a>
+      <nav class="section-nav" aria-label="Legal and support">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/support/">Support</a>
+      </nav>
+      <a class="legal-store-link" href="https://apps.apple.com/app/id6788483296" rel="noopener noreferrer">App Store ↗</a>
+    </header>
+    <main id="main" class="legal-shell">
+      <article class="legal-copy">
+        <slot />
+      </article>
+    </main>
+    <footer class="dee-footer">
+      <div class="section-shell dee-footer__inner">
+        <div class="dee-footer__brand"><span>DEE</span><small>MUAY THAI COACH</small></div>
+        <p>Dee is for general sport and fitness. Train within your limits.</p>
+        <nav aria-label="Legal">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/support/">Support</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

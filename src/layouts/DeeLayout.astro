@@ -1,0 +1,58 @@
+---
+import SiteHead from '@/components/SiteHead.astro'
+import { deeAvailability, deeContent, deeLocales, deePath, type DeeContent } from '@/content/content'
+import '@/styles/dee.css'
+
+interface Props {
+  content: DeeContent
+}
+
+const { content } = Astro.props
+const canonical = new URL(deePath(content.locale), Astro.site)
+const localeAlternates = [
+  ...deeLocales.map((locale) => ({
+    lang: deeContent[locale].htmlLang,
+    href: new URL(deePath(locale), Astro.site),
+  })),
+  { lang: 'x-default', href: new URL('/', Astro.site) },
+]
+
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Dee: Muay Thai Coach',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'iOS 26 or later; iPadOS 26 or later',
+  description: content.seo.description,
+  url: canonical.toString(),
+  installUrl: deeAvailability.appStoreURL,
+  image: new URL('/social-card-app-icon.png', Astro.site).toString(),
+  availableLanguage: deeLocales.map((locale) => deeContent[locale].htmlLang),
+}
+---
+
+<!doctype html>
+<html lang={content.htmlLang} dir={content.direction}>
+  <head>
+    <SiteHead
+      exactTitle={content.seo.title}
+      description={content.seo.description}
+      image={{ src: '/social-card-app-icon.png', alt: 'Dee: Muay Thai Coach app icon' }}
+      canonical={canonical}
+      locale={content.htmlLang}
+      localeAlternates={localeAlternates}
+      extraJsonLd={softwareApplicationSchema}
+    />
+    <link rel="preload" href="/fonts/barlow-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-condensed-black.woff2" as="font" type="font/woff2" crossorigin />
+    {content.direction === 'rtl' && (
+      <>
+        <link rel="preload" href="/fonts/heebo-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/heebo-hebrew-900-normal.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

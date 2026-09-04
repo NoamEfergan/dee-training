@@ -1,0 +1,177 @@
+---
+import { Image } from 'astro:assets'
+import appIcon from '@/assets/dee/app-icon.png'
+import type { DeeContent } from '@/content/content'
+import { deeAvailability, deeContent, deeLocales, deePath } from '@/content/content'
+import DeeLayout from '@/layouts/DeeLayout.astro'
+import PhonePreview from '@/components/PhonePreview.astro'
+
+interface Props {
+  content: DeeContent
+}
+
+const { content } = Astro.props
+const iconPath = 'M12 2v20M5 6.2l14 11.6M19 6.2 5 17.8'
+---
+
+<DeeLayout content={content}>
+  <a class="skip-link" href="#main">{content.a11y.skip}</a>
+  <header class="site-header" aria-label="Dee">
+    <a class="brand" href={deePath(content.locale)} aria-label={content.a11y.home}>
+      <Image src={appIcon} alt="" width={44} height={44} loading="eager" />
+      <span>DEE</span>
+    </a>
+    <nav class="section-nav" aria-label={content.a11y.navigation}>
+      <a href="#plan">{content.nav.plan}</a>
+      <a href="#rounds">{content.nav.rounds}</a>
+      <a href="#privacy">{content.nav.privacy}</a>
+      <a href="#faq">{content.nav.faq}</a>
+    </nav>
+    <div class="header-actions">
+      <details class="language-picker">
+        <summary aria-label={content.a11y.language}>{content.nativeName}</summary>
+        <div class="language-menu">
+          {deeLocales.map((locale) => (
+            <a href={deePath(locale)} lang={deeContent[locale].htmlLang} dir={deeContent[locale].direction} aria-current={locale === content.locale ? 'page' : undefined}>
+              {deeContent[locale].nativeName}
+            </a>
+          ))}
+        </div>
+      </details>
+      <span class="status"><span aria-hidden="true"></span>{content.status}</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero__copy reveal reveal--one">
+        <p class="eyebrow">{content.hero.eyebrow}</p>
+        <h1 id="hero-title">{content.hero.title}</h1>
+        <p class="hero__body">{content.hero.body}</p>
+        <div class="hero__actions">
+          <a class="availability" href={deeAvailability.appStoreURL} rel="noopener noreferrer">
+            <span aria-hidden="true"></span>{content.status}
+          </a>
+          <a class="text-link" href="#plan">{content.hero.explore}<span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero__visual reveal reveal--two">
+        <div class="hero__halo" aria-hidden="true"></div>
+        <PhonePreview src={content.screenshots.welcome.src} alt={content.screenshots.welcome.alt} eager />
+        <div class="corner-mark corner-mark--top" aria-hidden="true"><span class="corner-mark__token" dir="ltr">01</span></div>
+        <div class="corner-mark corner-mark--bottom" aria-hidden="true"><span class="corner-mark__token" dir="ltr">DEE / MT</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label={content.a11y.essentials}>
+      <div class="section-shell trust-strip__inner">
+        {content.trust.map((item, index) => (
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={index === 3 ? 'M7 2h10v20H7zM10 19h4' : iconPath} /></svg>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="plan" class="proof proof--light section-shell">
+      <div class="proof__copy">
+        <p class="eyebrow"><bdi dir="ltr">01 / </bdi>{content.proofs.plan.eyebrow}</p>
+        <h2>{content.proofs.plan.title}</h2>
+        <p>{content.proofs.plan.body}</p>
+        <ul class="proof-list">
+          {content.proofs.plan.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </div>
+      <div class="proof__visual proof__visual--schedule">
+        <div class="schedule-note" aria-hidden="true">
+          <span dir="ltr">{content.decorative.scheduleDays[0]}</span><i></i><span dir="ltr">{content.decorative.scheduleDays[1]}</span><i></i><span dir="ltr">{content.decorative.scheduleDays[2]}</span>
+        </div>
+        <PhonePreview src={content.screenshots.schedule.src} alt={content.screenshots.schedule.alt} />
+      </div>
+    </section>
+
+    <section id="rounds" class="proof-band proof-band--dark">
+      <div class="section-shell proof proof--reverse">
+        <div class="proof__copy">
+          <p class="eyebrow"><bdi dir="ltr">02 / </bdi>{content.proofs.rounds.eyebrow}</p>
+          <h2>{content.proofs.rounds.title}</h2>
+          <p>{content.proofs.rounds.body}</p>
+          <ul class="proof-list">
+            {content.proofs.rounds.points.map((point) => <li>{point}</li>)}
+          </ul>
+        </div>
+        <div class="proof__visual proof__visual--rounds">
+          <PhonePreview src={content.screenshots.workout.src} alt={content.screenshots.workout.alt} />
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="proof-band proof-band--teal">
+      <div class="section-shell proof proof--privacy">
+        <div class="proof__copy">
+          <p class="eyebrow"><bdi dir="ltr">03 / </bdi>{content.proofs.privacy.eyebrow}</p>
+          <h2>{content.proofs.privacy.title}</h2>
+          <p>{content.proofs.privacy.body}</p>
+          <ul class="proof-list">
+            {content.proofs.privacy.points.map((point) => <li>{point}</li>)}
+          </ul>
+        </div>
+        <div class="privacy-seal" aria-hidden="true" dir={content.direction === 'rtl' ? content.direction : 'ltr'}>
+          <div class="privacy-seal__orbit"><span>{content.decorative.privacyOrbit[0]}</span><span>{content.decorative.privacyOrbit[1]}</span><span>{content.decorative.privacyOrbit[2]}</span></div>
+          <svg viewBox="0 0 96 112"><path d="M48 5 86 19v31c0 25-15 45-38 57C25 95 10 75 10 50V19L48 5Z" /><path d="m31 56 11 11 24-27" /></svg>
+          <strong>{content.decorative.privacyBadge}</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq section-shell" aria-labelledby="faq-title">
+      <div class="faq__heading">
+        <p class="eyebrow">{content.decorative.faqEyebrow}</p>
+        <h2 id="faq-title">{content.faqTitle}</h2>
+      </div>
+      <div class="faq__list">
+        {content.faqs.map((faq, index) => (
+          <details>
+            <summary><span dir="ltr">{String(index + 1).padStart(2, '0')}</span>{faq.question}<i aria-hidden="true"></i></summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="section-shell closing__inner">
+        <div class="closing__copy">
+          <p class="eyebrow">{content.closing.eyebrow}</p>
+          <h2>{content.closing.title}</h2>
+          <p>{content.closing.body}</p>
+          {deeAvailability.state === 'available' && (
+            <a class="primary-cta" href={deeAvailability.appStoreURL} rel="noopener noreferrer">
+              {content.closing.cta}<span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
+        <div class="closing__visual" aria-hidden="true">
+          <div class="closing__visual-token" dir="ltr">
+            <Image src={appIcon} alt="" width={120} height={120} />
+            <span>DEE</span>
+            <small>MUAY THAI COACH</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dee-footer">
+    <div class="section-shell dee-footer__inner">
+      <div class="dee-footer__brand" dir="ltr"><span>DEE</span><small>MUAY THAI COACH</small></div>
+      <p>{content.footer.disclaimer}</p>
+      <nav aria-label={content.a11y.legal}>
+        <a href="/privacy/">{content.footer.privacy}</a>
+        <a href="/terms/">{content.footer.terms}</a>
+        <a href="/support/">Support</a>
+      </nav>
+    </div>
+  </footer>
+</DeeLayout>

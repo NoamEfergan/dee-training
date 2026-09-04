@@ -1,0 +1,243 @@
+---
+import SiteHead from '@/components/SiteHead.astro'
+import '@/styles/dee.css'
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <SiteHead exactTitle="Try Dee — Muay Thai Coach" description="Open a quick Dee training taster in an App Clip." image={{ src: '/app-clip-card.png', alt: 'Dee Muay Thai Coach' }} />
+    <meta name="apple-itunes-app" content="app-id=6788483296, app-clip-bundle-id=dev.nowham.Dee.Clip" />
+    <style>
+      .try-page {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: clamp(18px, 4vw, 56px);
+        background:
+          radial-gradient(circle at 78% 22%, rgba(10, 158, 184, .18), transparent 25rem),
+          linear-gradient(rgba(241, 244, 248, .035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(241, 244, 248, .035) 1px, transparent 1px),
+          var(--dee-slate);
+        background-size: auto, 42px 42px, 42px 42px, auto;
+        color: var(--dee-paper);
+      }
+
+      .try-shell {
+        position: relative;
+        width: min(1120px, 100%);
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+        border: 1px solid rgba(241, 244, 248, .2);
+        background: rgba(8, 13, 19, .88);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, .42);
+        overflow: hidden;
+      }
+
+      .try-shell::before {
+        position: absolute;
+        inset: 0 50% auto 0;
+        height: 4px;
+        background: var(--dee-teal);
+        content: '';
+      }
+
+      .try-copy-panel {
+        display: flex;
+        min-height: 690px;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(34px, 7vw, 86px);
+      }
+
+      .try-mark {
+        color: var(--dee-teal);
+        font: 900 clamp(2.3rem, 6vw, 4.6rem)/.85 'Barlow Condensed', sans-serif;
+        letter-spacing: .04em;
+      }
+
+      .try-kicker {
+        margin: 34px 0 14px;
+        color: #8be5f1;
+        font: 600 .78rem/1 'Barlow', sans-serif;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 9ch;
+        margin: 0;
+        font: 900 clamp(4rem, 8vw, 7.4rem)/.79 'Barlow Condensed', sans-serif;
+        letter-spacing: -.025em;
+        text-transform: uppercase;
+      }
+
+      .try-copy {
+        max-width: 35rem;
+        margin: 30px 0 0;
+        color: rgba(241, 244, 248, .78);
+        font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+      }
+
+      .try-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+        margin-top: 36px;
+      }
+
+      .try-button {
+        display: inline-flex;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        background: var(--dee-teal);
+        color: #061217;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 160ms ease, transform 160ms ease;
+      }
+
+      .try-button:hover,
+      .try-button:focus-visible {
+        background: #8be5f1;
+        transform: translateY(-2px);
+      }
+
+      .try-button--app-clip,
+      .mobile-launch-note {
+        display: none;
+      }
+
+      .try-link {
+        display: inline-flex;
+        min-height: 50px;
+        align-items: center;
+        color: var(--dee-paper);
+        font-weight: 600;
+      }
+
+      .code-panel {
+        position: relative;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        padding: clamp(34px, 5vw, 62px);
+        border-inline-start: 1px solid rgba(241, 244, 248, .16);
+        background:
+          linear-gradient(145deg, rgba(10, 158, 184, .2), transparent 48%),
+          rgba(18, 23, 31, .9);
+      }
+
+      .code-step {
+        width: min(330px, 100%);
+        margin: 0 0 18px;
+        color: #8be5f1;
+        font: 600 .75rem/1 'Barlow', sans-serif;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+
+      .code-frame {
+        width: min(330px, 100%);
+        padding: clamp(18px, 3vw, 26px);
+        background: #fff;
+        box-shadow: 16px 16px 0 rgba(10, 158, 184, .22);
+      }
+
+      .app-clip-code {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .code-title {
+        width: min(330px, 100%);
+        margin: 34px 0 8px;
+        font: 900 clamp(1.7rem, 3vw, 2.3rem)/.95 'Barlow Condensed', sans-serif;
+        letter-spacing: .01em;
+        text-transform: uppercase;
+      }
+
+      .code-instruction {
+        width: min(330px, 100%);
+        margin: 0;
+        color: rgba(241, 244, 248, .72);
+        font-size: .98rem;
+      }
+
+      .code-note {
+        width: min(330px, 100%);
+        margin: 20px 0 0;
+        padding-top: 18px;
+        border-top: 1px solid rgba(241, 244, 248, .15);
+        color: rgba(241, 244, 248, .55);
+        font-size: .78rem;
+        letter-spacing: .04em;
+      }
+
+      @media (max-width: 820px) {
+        .try-shell { grid-template-columns: 1fr; }
+        .try-shell::before { inset-inline-end: 0; }
+        .try-copy-panel { min-height: auto; }
+        .try-button--app-clip { display: inline-flex; }
+        .try-button--store {
+          border: 1px solid rgba(241, 244, 248, .32);
+          background: transparent;
+          color: var(--dee-paper);
+        }
+        .try-button--store:hover,
+        .try-button--store:focus-visible {
+          border-color: #8be5f1;
+          background: rgba(139, 229, 241, .08);
+        }
+        .mobile-launch-note {
+          display: block;
+          max-width: 34rem;
+          margin: 18px 0 0;
+          color: rgba(241, 244, 248, .62);
+          font-size: .88rem;
+        }
+        .code-panel { display: none; }
+      }
+
+      @media (max-width: 480px) {
+        .try-page { padding: 12px; }
+        .try-copy-panel, .code-panel { padding: 34px 24px; }
+        h1 { font-size: clamp(3.6rem, 19vw, 5.2rem); }
+        .code-frame { box-shadow: 10px 10px 0 rgba(10, 158, 184, .22); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .try-button { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="try-page">
+      <section class="try-shell" aria-labelledby="try-title">
+        <div class="try-copy-panel">
+          <div class="try-mark" aria-hidden="true">DEE</div>
+          <p class="try-kicker">A focused Muay Thai taster</p>
+          <h1 id="try-title">Train where you are.</h1>
+          <p class="try-copy">Open the App Clip to preview a short guided session and feel how Dee turns your next round into a clear, doable plan. No account or download is needed for this quick taste.</p>
+          <div class="try-actions">
+            <a class="try-button try-button--app-clip" href="https://appclip.apple.com/id?p=dev.nowham.Dee.Clip">Open Dee App Clip ↗</a>
+            <a class="try-button try-button--store" href="https://apps.apple.com/app/apple-store/id6788483296" rel="noopener noreferrer">Get Dee on the App Store ↗</a>
+            <a class="try-link" href="/">Explore the full Dee site</a>
+          </div>
+          <p class="mobile-launch-note">Already on your iPhone? No camera needed—tap “Open Dee App Clip” to start.</p>
+        </div>
+        <div class="code-panel">
+          <p class="code-step">01 / Start instantly</p>
+          <div class="code-frame">
+            <img class="app-clip-code" src="/app-clip-qr.png" alt="QR code for opening Dee’s quick Muay Thai App Clip" width="888" height="888" />
+          </div>
+          <h2 class="code-title">Scan. Choose. Train.</h2>
+          <p class="code-instruction">Open Camera on your iPhone and point it at the code. Tap the Dee card to start a guided session—no App Store detour.</p>
+          <p class="code-note">QR to Dee App Clip · iPhone required</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

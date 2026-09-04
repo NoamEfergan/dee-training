@@ -1,0 +1,119 @@
+import LegalLayout from '@/layouts/LegalLayout.astro'
+
+<LegalLayout title="Privacy Policy" description="Privacy Policy for the Dee apps on iOS and Android.">
+
+# Dee Privacy Policy
+
+Last updated: August 28, 2026
+
+This Privacy Policy explains how Dee handles information when you use the Dee app on iOS or Android.
+
+Dee is provided by Noam Efergan. If you have questions about this policy or your data, contact [info@nowham.dev](mailto:info@nowham.dev).
+
+## Summary
+
+Dee is a Muay Thai training planner and workout companion. The app stores your training profile, plans, settings, and workout history on your device. On iOS, that data can also sync through your private iCloud database when iCloud is available. The Android app currently keeps this app data on the device and does not sync it to iCloud or another Dee account.
+
+Dee does not require a Dee account, sell your personal information, or include advertising or cross-app tracking SDKs.
+
+When you open Dee's App Clip, the same privacy commitments apply. The App Clip may send TelemetryDeck limited, pseudonymous product signals such as the controlled source or placement that opened it, selections you make, flow milestones, and whether the taster completed. It does not send the full invocation URL, query parameters, your name, email address, or other free-form personal information. Signals can be queued on the device while offline and sent when connectivity returns. App Clip data remains governed by this policy and is kept separate from any Dee app data unless you choose to continue into the full app.
+
+## Information Dee Handles
+
+Dee may store the information you enter or generate in the app, including:
+
+- Your onboarding choices, such as training goals, experience level, preferred schedule, session duration, available equipment, stance, training obstacles, and limitations or injury notes you choose to provide.
+- Generated training plans, session details, safety notes, and plan adjustments.
+- Workout history, such as completed workout title, completion date, duration, completed block count, and related session identifier.
+- App settings, such as voice cues, countdowns, sound, haptics, speech rate, and speech volume.
+- A local app user identifier used for app data structure and migration support.
+
+Dee does not require you to provide a name or email address for app identity. It does not use Sign in with Apple or Google Sign-In for a Dee account.
+
+## Local Storage and Platform Sync
+
+Dee stores app data locally using platform storage technologies.
+
+On iOS, Dee may sync your profile, plans, settings, and workout history through your private iCloud database when iCloud is available for the app. iCloud sync is provided by Apple and is associated with your Apple Account. Dee does not receive your Apple Account password or other Apple sign-in credentials. If iCloud is unavailable, restricted, or you are not signed in, Dee can continue working with local device storage.
+
+On Android, Dee currently stores this app data locally on your device. The Android app does not use iCloud, Google Drive, or a Dee cloud account to sync your training data.
+
+## Plan Generation
+
+How Dee generates or adapts training plans depends on the platform and available features.
+
+On iOS, Dee prefers Apple-provided models when available, including on-device processing and Apple Private Cloud Compute where supported. If Apple model generation is unavailable or fails, Dee may use a remote AI fallback through AIProxy, which forwards structured generation requests to an OpenAI-compatible model service. Those requests can include training-planning context needed to generate or adapt a plan, such as your level, goals, preferred schedule, equipment, stance, obstacles, limitations or injury notes, current session blocks, and allowed exercise options. When that fallback is used, AIProxy also receives a device-level identifier supplied by iOS and network information such as an IP address so it can enforce usage limits, prevent abuse, operate the service, and measure its performance. Dee treats that context and technical information as potentially associated with the device, but does not use it to identify you by name, create a Dee account, advertise to you, or track you across apps.
+
+When the iOS app uses remote translation for Hebrew plan text, the request includes only the text needed to produce the translation. It does not include your Apple Account details.
+
+In the current Android release, plan creation uses logic included in the app. The Android remote AI route is disabled, so the Android app does not send your training profile or limitation notes to Cloudflare, OpenAI, or another remote AI provider for plan generation.
+
+Do not enter information in Dee that you do not want handled for training-plan generation. Dee is designed for general sport and fitness planning, not medical diagnosis or treatment.
+
+## Analytics
+
+The full iOS app uses Mostly Good Metrics (MGM), a privacy-focused analytics service, to understand how the app is used so it can be improved. Earlier full-app releases used TelemetryDeck; new full-app releases do not send analytics events to TelemetryDeck. Dee's separate App Clip uses TelemetryDeck only for the limited App Clip signals described in the Summary above.
+
+MGM generates and stores a random analytics-only installation identifier for Dee and creates a new identifier for each app session. Dee does not reuse its former TelemetryDeck identifier and does not call MGM's user-identification feature. MGM receives app lifecycle events; device model and type; locale and timezone; app, platform, operating-system, and version information; and Dee's explicit product-usage events and properties. Examples include which tab was selected, which plan engine produced a plan, workout duration in seconds, whether Dee Pro is active, the app locale, and the source revision. The installation identifier is not derived from an advertising identifier or from the device identifier used by Dee's remote AI fallback. MGM does not receive your name, email address, or free-form text you enter in the app, and Dee does not connect MGM's anonymous identifiers to your training profile.
+
+Existing pseudonymous analytics signals sent by earlier releases may remain in TelemetryDeck during the provider transition under TelemetryDeck's retention practices. The new iOS integration starts with fresh MGM analytics history and does not import those historical events.
+
+These analytics are not used for advertising, cross-app tracking, or profiling you across other companies' apps or websites. Dee does not request App Tracking Transparency permission on iOS for this analytics use and does not use the Android advertising ID for it.
+
+## Subscriptions and Store Attribution
+
+Dee uses RevenueCat together with Apple's App Store / StoreKit on iOS and Google Play Billing on Android to provide and manage subscriptions. When you view, purchase, restore, or use a subscription, RevenueCat receives an anonymous app user identifier, subscription purchase history, and related store receipt or transaction information. RevenueCat uses this information to validate purchases, provide Dee Pro entitlements, prevent fraud, support app functionality, and provide subscription analytics.
+
+Dee and RevenueCat do not receive your payment-card details from Apple or Google. Dee does not connect RevenueCat's anonymous app user identifier to your name, email address, or training profile.
+
+On iOS only, Dee uses Apple's AdServices framework to measure whether an install or redownload resulted from Dee's own Apple Ads campaign. Dee sends an Apple attribution token to RevenueCat. RevenueCat requests and stores Apple's standard attribution information, which may include attribution status and campaign, ad-group, keyword, ad, country-or-region, conversion-type, and claim-type fields. The standard attribution used by Dee does not provide the IDFA, click or impression timestamps, or information that identifies a user or device. Dee does not use Apple Ads attribution on Android.
+
+Dee and RevenueCat do not use subscription or attribution information to serve third-party advertising, track you across other companies' apps or websites, or sell personal information.
+
+## Third-Party Services
+
+Depending on your platform and the features you use, Dee relies on:
+
+- Apple iCloud and CloudKit for optional private-database sync on iOS.
+- Apple on-device model, translation, and Private Cloud Compute technologies where available on iOS.
+- AIProxy and an OpenAI-compatible model service for remote AI fallback on iOS when Apple generation is unavailable or fails.
+- Mostly Good Metrics for pseudonymous product analytics in the current full iOS app; TelemetryDeck for limited App Clip analytics and historical signals from earlier full-app releases.
+- Apple's App Store / StoreKit for purchases and AdServices for Dee's own Apple Ads attribution on iOS.
+- Google Play Billing for subscription purchases on Android.
+- RevenueCat for purchase validation, Dee Pro entitlements, subscription analytics, and Apple Ads attribution on iOS.
+
+Dee does not use advertising networks or tracking SDKs that profile users across apps or websites.
+
+## Deleting Your Data
+
+You can delete Dee app data from the app's Settings screen. This removes your Dee profile, plans, settings, and workout history from that device. On iOS, if iCloud sync is active, the deletion is also intended to sync to your private iCloud database. On Android, Dee's training data is local to the device, so the in-app control removes the locally stored data.
+
+You can also remove local app data by uninstalling Dee or using the storage controls provided by iOS or Android. On iOS, Apple may also provide controls for managing app data in iCloud settings.
+
+Analytics signals sent to Mostly Good Metrics or by the App Clip to TelemetryDeck, and historical full-app signals previously sent to TelemetryDeck, are pseudonymous and are retained according to those providers' retention practices. Subscription and attribution records already received by Apple, Google, or RevenueCat are not deleted by Dee's in-app Delete Data control and may be retained under those providers' policies. Contact [info@nowham.dev](mailto:info@nowham.dev) for a privacy request concerning those records.
+
+## Retention
+
+Dee keeps locally stored app data until you delete it, clear the app's storage, or uninstall the app. On iOS, iCloud-synced app data remains until you delete it, remove the relevant iCloud data, or Apple platform retention behavior removes it.
+
+When iOS remote AI fallback is used, remote providers may process requests according to their service operations and policies. Apple, Google, RevenueCat, Mostly Good Metrics, and TelemetryDeck (for App Clip and historical full-app analytics) may retain the records they process according to their own legal obligations, service operations, and retention policies.
+
+## Children's Privacy
+
+Dee is not directed to children under 13. If you are under the age of majority in your location, use Dee only with permission from a parent or guardian.
+
+## Health and Fitness Information
+
+Dee may handle fitness-related preferences and limitation notes that you choose to enter. On iOS, when remote AI fallback is used, those preferences and notes can be included in the structured plan-generation request described above. In the current Android release, that information remains in the app's local storage and is not sent through a remote AI route.
+
+Dee does not connect to Apple HealthKit or Google Health Connect and is not a medical device. The app's training plans are for general sport and fitness purposes only.
+
+## Changes to This Policy
+
+This policy may be updated when Dee changes how it handles information. The updated policy will be posted on this page with a new "Last updated" date.
+
+## Contact
+
+For privacy questions or data requests, contact [info@nowham.dev](mailto:info@nowham.dev).
+
+</LegalLayout>

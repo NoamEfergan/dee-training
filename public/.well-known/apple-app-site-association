@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["4J7W4CYA5S.dev.nowham.Dee"],
+        "components": [
+          { "/": "/try" },
+          { "/": "/try/" }
+        ]
+      }
+    ]
+  },
+  "appclips": {
+    "apps": ["4J7W4CYA5S.dev.nowham.Dee.Clip"]
+  }
+}

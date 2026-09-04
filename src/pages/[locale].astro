@@ -1,0 +1,19 @@
+---
+import DeePage from '@/components/DeePage.astro'
+import { deeContent, deeLocaleFromSlug, deeLocales } from '@/content/content'
+
+export function getStaticPaths() {
+  return deeLocales
+    .map((locale) => deeContent[locale].routeSlug)
+    .filter((routeSlug) => routeSlug !== '')
+    .map((locale) => ({ params: { locale } }))
+}
+
+const locale = deeLocaleFromSlug(Astro.params.locale ?? '')
+
+if (!locale) {
+  throw new Error(`Unsupported Dee locale: ${Astro.params.locale}`)
+}
+---
+
+<DeePage content={deeContent[locale]} />

@@ -1,0 +1,64 @@
+---
+interface Props {
+  exactTitle: string
+  description: string
+  image?: { src: string; alt?: string }
+  canonical?: string | URL
+  locale?: string
+  localeAlternates?: Array<{ lang: string; href: string | URL }>
+  extraJsonLd?: Record<string, unknown> | Array<Record<string, unknown>>
+  robots?: string
+}
+
+const {
+  exactTitle,
+  description,
+  image = { src: '/social-card.png', alt: 'Dee: Muay Thai Coach' },
+  canonical: canonicalOverride,
+  locale = 'en-GB',
+  localeAlternates = [],
+  extraJsonLd,
+  robots,
+} = Astro.props
+
+const canonicalURL = new URL(canonicalOverride?.toString() ?? Astro.url.pathname, Astro.site)
+canonicalURL.search = ''
+canonicalURL.hash = ''
+
+const formatURL = (value: string | URL) => {
+  const url = new URL(value.toString(), Astro.site)
+  const lastSegment = url.pathname.split('/').pop()
+  if (!url.search && !lastSegment?.includes('.') && !url.pathname.endsWith('/')) url.pathname += '/'
+  return url.toString()
+}
+
+const resolvedImage = new URL(image.src, Astro.site).toString()
+const schemas = extraJsonLd ? (Array.isArray(extraJsonLd) ? extraJsonLd : [extraJsonLd]) : []
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{exactTitle}</title>
+<meta name="description" content={description} />
+{robots && <meta name="robots" content={robots} />}
+<link rel="canonical" href={formatURL(canonicalURL)} />
+<link rel="icon" href="/social-card-app-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+{localeAlternates.map(({ lang, href }) => <link rel="alternate" hreflang={lang} href={formatURL(href)} />)}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Dee: Muay Thai Coach" />
+<meta property="og:url" content={formatURL(canonicalURL)} />
+<meta property="og:title" content={exactTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content={locale.replace('-', '_')} />
+<meta property="og:image" content={resolvedImage} />
+{image.alt && <meta property="og:image:alt" content={image.alt} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={exactTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedImage} />
+{image.alt && <meta name="twitter:image:alt" content={image.alt} />}
+
+{schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
