@@ -1540,3 +1540,9 @@ html[dir='rtl'] .corner-mark {
 .hero__actions .availability { min-height: 48px; text-align: center; justify-content: center; }
 
 .proof-band--teal { overflow: clip; }
+
+/* The English solo-practice headline is longer than the localized originals. */
+html[lang='en-GB'] .hero h1 {
+  font-size: clamp(3rem, 6.5vw, 5.6rem);
+  overflow-wrap: normal;
+}

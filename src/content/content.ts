@@ -138,9 +138,9 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     status: 'Available on iOS and Android',
     googlePlayCTA: 'Get Dee on Google Play',
     hero: {
-      eyebrow: 'Your Muay Thai corner, in your pocket',
-      title: 'Muay Thai built around you.',
-      body: 'Dee designs a custom training plan for your goals and your real level, then runs every round for you with a spoken corner: a voice, a bell, and haptics, so you just train.',
+      eyebrow: 'Muay Thai practice between classes',
+      title: 'Your next solo Muay Thai session, ready when you are.',
+      body: 'Make time between classes count. Plan a session around your time and equipment, then follow spoken drill and round cues. For bag work or space to shadowbox.',
       explore: 'Explore Dee',
       previewLabel: 'Dee onboarding preview',
     },
@@ -160,7 +160,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       },
       privacy: {
         eyebrow: 'Yours, privately',
-        title: 'Your plan stays on your device.',
+        title: 'Saved plans, ready to train.',
         body: 'Saved plans and workout playback work offline. On iOS, plan generation may use an online service. Android builds plans in the app.',
         points: ['No sign-in, ever', 'Train at home or at the gym without a connection', 'Private iCloud (iOS) sync across your devices'],
       },
@@ -189,7 +189,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['MON', 'WED', 'SAT'],
       privacyOrbit: ['LOCAL', 'OFFLINE', 'PRIVATE'],
-      privacyBadge: 'ON DEVICE',
+      privacyBadge: 'SAVED PLANS',
       faqEyebrow: 'FAQ',
     },
   },
@@ -254,7 +254,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['LUN', 'MIÉ', 'SÁB'],
       privacyOrbit: ['LOCAL', 'SIN RED', 'PRIVADO'],
-      privacyBadge: 'EN EL DISPOSITIVO',
+      privacyBadge: 'PLANES GUARDADOS',
       faqEyebrow: 'FAQ',
     },
   },
@@ -319,7 +319,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['LUN', 'MER', 'SAM'],
       privacyOrbit: ['LOCAL', 'HORS LIGNE', 'PRIVÉ'],
-      privacyBadge: 'SUR L’APPAREIL',
+      privacyBadge: 'PLANS ENREGISTRÉS',
       faqEyebrow: 'FAQ',
     },
   },
@@ -384,7 +384,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['MO', 'MI', 'SA'],
       privacyOrbit: ['LOKAL', 'OFFLINE', 'PRIVAT'],
-      privacyBadge: 'AUF DEM GERÄT',
+      privacyBadge: 'GESPEICHERTE PLÄNE',
       faqEyebrow: 'FAQ',
     },
   },
@@ -449,7 +449,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['MA', 'WO', 'ZA'],
       privacyOrbit: ['LOKAAL', 'OFFLINE', 'PRIVÉ'],
-      privacyBadge: 'OP HET TOESTEL',
+      privacyBadge: 'OPGESLAGEN PLANNEN',
       faqEyebrow: 'FAQ',
     },
   },
@@ -514,7 +514,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['SEG', 'QUA', 'SÁB'],
       privacyOrbit: ['LOCAL', 'OFFLINE', 'PRIVADO'],
-      privacyBadge: 'NO APARELHO',
+      privacyBadge: 'PLANOS SALVOS',
       faqEyebrow: 'FAQ',
     },
   },
@@ -596,7 +596,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     decorative: {
       scheduleDays: ['ב׳', 'ד׳', 'ש׳'],
       privacyOrbit: ['מקומי', 'ללא חיבור', 'פרטי'],
-      privacyBadge: 'במכשיר',
+      privacyBadge: 'תוכניות שמורות',
       faqEyebrow: 'שאלות נפוצות',
     },
   },

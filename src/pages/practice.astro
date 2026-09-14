@@ -1,0 +1,44 @@
+---
+import SiteHead from '@/components/SiteHead.astro'
+import '@/styles/dee.css'
+const contact = 'mailto:info@dee.training?subject=Dee%20solo%20practice%20research'
+---
+<!doctype html>
+<html lang="en-GB">
+  <head><SiteHead exactTitle="Help test a solo Muay Thai session | Dee" description="Five research places for UK adults who attend Muay Thai classes. Help us understand how Dee fits your solo practice." /></head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><a class="brand" href="/" aria-label="Dee home">DEE</a></header>
+    <main id="main" class="research">
+      <p class="eyebrow">Dee research · UK · Five places</p>
+      <h1>What do you train between classes?</h1>
+      <p class="intro">We’re looking for five Muay Thai students to help us test a solo session with Dee and tell us how it compares with their usual routine.</p>
+      <h2>Who this is for</h2>
+      <p>You’re 18 or older, live in the UK and currently attend Muay Thai classes. You sometimes practise alone, using a bag or space to shadowbox. This research uses an iPhone running iOS 26 or later.</p>
+      <h2>What taking part means</h2>
+      <ul>
+        <li>We arrange a first session and ask you to show us how you normally plan and start solo practice.</li>
+        <li>You try Dee, then tell us what helped, what got in the way and what you would choose next.</li>
+        <li>You receive 14 days of complimentary research access. We do not ask you to buy a subscription, leave a review or recommend Dee.</li>
+        <li>We check in about whether you chose to use it again. You can stop taking part at any time.</li>
+      </ul>
+      <p>We agree on the session format and consent before you start. We won’t record your session or publish your name, image or feedback without separate permission. Dee is a training companion; the research is not a coached lesson.</p>
+      <h2>Interested?</h2>
+      <p>Email us with “practice” and confirm that you meet the criteria above. Tell us whether you usually use a bag or shadowbox, and a couple of times that could work. Please don’t send health information or injury details.</p>
+      <a class="availability" href={contact}>Email about a research place</a>
+      <p class="small">We’ll confirm a place before arranging access. Five places is the size of this study, not a claim about app availability. Contact details are used to arrange this research; they are not added to a marketing list.</p>
+      <p class="small">Dee is also available on Android. This particular study focuses on the iOS experience.</p>
+    </main>
+    <footer class="site-header"><a href="/privacy/">Privacy</a><a href="/support/">Support</a></footer>
+  </body>
+</html>
+<style>
+  .research { max-width: 780px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3rem, 9vw, 5.5rem); line-height: .98; max-width: 12ch; text-transform: uppercase; margin: 1rem 0 2rem; }
+  h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; }
+  p, li { line-height: 1.65; }
+  .intro { font-size: 1.3rem; }
+  ul { padding-left: 1.4rem; } li + li { margin-top: .75rem; }
+  .small { font-size: .9rem; opacity: .75; margin-top: 1.5rem; }
+  .availability { margin-top: .5rem; }
+</style>
