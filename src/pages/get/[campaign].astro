@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { deeAvailability } from '@/content/content'
 import SiteHead from '@/components/SiteHead.astro'
 import appIcon from '@/assets/dee/app-icon.png'
 import planSummary from '@/assets/dee/paid/build33-plan-summary.png'
@@ -17,7 +18,7 @@ export function getStaticPaths() {
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
     meta_heard: {
-      hook: 'Your next round should be heard, not searched for.',
+      hook: 'Hear every drill. Keep your hands moving.',
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_heard&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
   } as const
@@ -34,7 +35,7 @@ interface Props {
 }
 
 const { hook, storeURL } = Astro.props as Props
-const description = 'Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
+const description = 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
 ---
 
 <!doctype html>
@@ -62,7 +63,7 @@ const description = 'Build your next solo Muay Thai session with Dee, then train
             <p class="eyebrow">Muay Thai · Your session, built around you</p>
             <h1 id="campaign-title">{hook}</h1>
             <p class="proof-copy">
-              Dee builds a training plan around your goals, level, weekly schedule and available equipment—then calls out drills and round transitions with spoken cues, bells and haptics.
+              Dee builds a training plan around your goals, level, weekly schedule and available equipment, then calls out drills and round transitions with spoken cues, bells and haptics.
             </p>
 
             <div class="actions">
@@ -73,7 +74,8 @@ const description = 'Build your next solo Muay Thai session with Dee, then train
                   <path d="M14.65 4.84c.68-.82 1.14-1.96 1.02-3.09-1 .04-2.22.67-2.93 1.49-.64.73-1.2 1.89-1.05 2.98 1.12.09 2.27-.57 2.96-1.38Zm2.49 7.92c-.02-2.33 1.9-3.46 1.98-3.52a4.24 4.24 0 0 0-3.34-1.81c-1.4-.15-2.76.84-3.47.84-.73 0-1.83-.82-3.02-.79a4.43 4.43 0 0 0-3.73 2.27c-1.61 2.78-.41 6.87 1.13 9.12.77 1.1 1.67 2.33 2.86 2.28 1.16-.05 1.6-.73 3-.73 1.39 0 1.8.73 3.01.7 1.25-.02 2.04-1.1 2.78-2.21a9.1 9.1 0 0 0 1.27-2.59 4.05 4.05 0 0 1-2.47-3.72Z" />
                 </svg>
               </a>
-              <span class="release-note">Real Dee interface · Version 1.0.6</span>
+              <a class="store-cta" href={deeAvailability.googlePlayURL} aria-label="Get Dee on Google Play"><span>Get Dee on</span><strong>Google Play</strong></a>
+              <span class="release-note">Available on iOS and Android · Real Dee interface · Version 1.0.6</span>
             </div>
           </div>
 

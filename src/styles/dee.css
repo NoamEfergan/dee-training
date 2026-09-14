@@ -388,6 +388,7 @@ html[dir='rtl'] .corner-mark {
 
 .hero__actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 28px;
   margin-top: 34px;
@@ -1532,3 +1533,10 @@ html[dir='rtl'] .corner-mark {
     padding: 34px 22px;
   }
 }
+
+/* Store choices wrap independently at narrow widths and in translated layouts. */
+.download-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.download-actions .primary-cta { max-width: 100%; text-align: center; }
+.hero__actions .availability { min-height: 48px; text-align: center; justify-content: center; }
+
+.proof-band--teal { overflow: clip; }
