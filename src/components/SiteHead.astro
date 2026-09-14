@@ -1,4 +1,5 @@
 ---
+import WebAnalytics from './WebAnalytics.astro'
 interface Props {
   exactTitle: string
   description: string
@@ -66,3 +67,5 @@ const schemas = extraJsonLd ? (Array.isArray(extraJsonLd) ? extraJsonLd : [extra
 {image.alt && <meta name="twitter:image:alt" content={image.alt} />}
 
 {schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+
+<WebAnalytics />

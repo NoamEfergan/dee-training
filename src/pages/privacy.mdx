@@ -60,6 +60,10 @@ Existing pseudonymous analytics signals sent by earlier releases may remain in T
 
 These analytics are not used for advertising, cross-app tracking, or profiling you across other companies' apps or websites. Dee does not request App Tracking Transparency permission on iOS for this analytics use and does not use the Android advertising ID for it.
 
+## Website Measurement
+
+Dee’s website uses Mostly Good Metrics to count page views and clicks to the App Store or Google Play. We send a controlled page path, a known campaign name where present, the selected store, event time, and random identifiers that last only for the current page. We do not save analytics cookies or identifiers in browser storage, collect form contents, send URL query strings or fragments, or join these website identifiers to app or subscription records. The service receives network information such as an IP address when a request reaches it. Browser Do Not Track and Global Privacy Control signals disable this website measurement. These counts cannot identify a returning person across page loads.
+
 ## Subscriptions and Store Attribution
 
 Dee uses RevenueCat together with Apple's App Store / StoreKit on iOS and Google Play Billing on Android to provide and manage subscriptions. When you view, purchase, restore, or use a subscription, RevenueCat receives an anonymous app user identifier, subscription purchase history, and related store receipt or transaction information. RevenueCat uses this information to validate purchases, provide Dee Pro entitlements, prevent fraud, support app functionality, and provide subscription analytics.

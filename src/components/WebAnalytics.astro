@@ -1,0 +1,6 @@
+<script>
+  import { startAnalytics } from '@/lib/web-analytics.mjs'
+  // Browser ingestion only. Configure a separate key restricted to dee.training.
+  // Missing configuration disables reporting, not the store links.
+  startAnalytics({ apiKey: import.meta.env.PUBLIC_DEE_WEB_INGEST_KEY })
+</script>
