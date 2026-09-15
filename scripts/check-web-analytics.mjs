@@ -3,6 +3,10 @@ import { pageContext, storeDestination, eventPayload, startAnalytics } from '../
 const context = pageContext('https://dee.training/get/meta_between/?email=private@example.com&token=secret#private');
 assert.equal(context.campaign, 'meta_between');
 assert.equal(context.url, 'https://dee.training/get/meta_between/');
+const audioContext = pageContext('https://dee.training/get/meta_audio_round_v1/?qa=growth&token=private');
+assert.equal(audioContext.campaign, 'meta_audio_round_v1');
+assert.equal(audioContext.url, 'https://dee.training/get/meta_audio_round_v1/');
+assert.equal(eventPayload(audioContext, 'Dee.Web.StoreClicked', 'page-only-session', 'app_store').events[0].name, 'Dee.Web.QA.Dee.Web.StoreClicked');
 assert.equal(pageContext('http://localhost:4331/'), null);
 assert.equal(pageContext('https://dee.training/private-person-name/'), null);
 assert.equal(storeDestination('https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between'), 'app_store');

@@ -21,6 +21,10 @@ export function getStaticPaths() {
       hook: 'Hear every drill. Keep your hands moving.',
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_heard&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
+    meta_audio_round_v1: {
+      hook: 'Hear every drill. Keep your hands moving.',
+      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_audio_round_v1&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+    },
   } as const
 
   return Object.entries(pages).map(([campaign, props]) => ({
@@ -65,6 +69,12 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
             <p class="proof-copy">
               Dee builds a training plan around your goals, level, weekly schedule and available equipment, then calls out drills and round transitions with spoken cues, bells and haptics.
             </p>
+            <p class="proof-copy">
+              On iPhone with iOS 26 or later, new eligible users get one full workout free.
+              More workouts require a subscription; no subscription starts automatically.
+              Saving a finish, including an early finish, uses the free workout.
+              Existing users keep their current access arrangements.
+            </p>
 
             <div class="actions">
               <a class="store-cta" href={storeURL} aria-label="Get Dee on the App Store">
@@ -75,7 +85,7 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
                 </svg>
               </a>
               <a class="store-cta" href={deeAvailability.googlePlayURL} aria-label="Get Dee on Google Play"><span>Get Dee on</span><strong>Google Play</strong></a>
-              <span class="release-note">Available on iOS and Android · Real Dee interface · Version 1.0.6</span>
+              <span class="release-note">Available on iOS and Android · Real Dee interface</span>
             </div>
           </div>
 

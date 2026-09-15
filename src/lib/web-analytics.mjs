@@ -1,5 +1,5 @@
 // Aggregate acquisition measurement. No cookies, storage, identity joins or raw query data.
-export const pages = new Set(['/', '/practice/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/PrivacyPolicy/', '/TermsAndConditions/']);
+export const pages = new Set(['/', '/practice/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/PrivacyPolicy/', '/TermsAndConditions/']);
 export function pageContext(href) {
   const url = new URL(href);
   if (url.hostname !== 'dee.training') return null;
