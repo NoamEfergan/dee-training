@@ -1,0 +1,14 @@
+import React,{useEffect,useState} from 'react';
+import {AbsoluteFill,Img,OffthreadVideo,continueRender,delayRender,staticFile,useCurrentFrame,interpolate} from 'remotion';
+export const file=(path:string)=>staticFile('press/'+path);
+export const Screen=({path,watch=false,video=false,start=0}:{path:string;watch?:boolean;video?:boolean;start?:number})=> <div style={{height:watch?420:540,width:watch?345:248,borderRadius:watch?58:25,overflow:'hidden',border:watch?'9px solid #27323e':'5px solid #101820',boxShadow:'0 24px 45px #0d12192b',background:'#000',flexShrink:0}}>{video?<OffthreadVideo src={file(path)} startFrom={start} muted style={{height:'100%',width:'100%',objectFit:'contain'}}/>:<Img src={file(path)} style={{height:'100%',width:'100%',objectFit:'contain'}}/>}</div>;
+export const Frame=({kicker,title,body,caption,children,dark=false}:{kicker:string;title:React.ReactNode;body:string;caption:string;children:React.ReactNode;dark?:boolean})=>{
+ const frame=useCurrentFrame();const [handle]=useState(()=>delayRender('Load Dee fonts'));
+ useEffect(()=>{Promise.all([document.fonts.load('900 100px DeeDisplay'),document.fonts.load('400 30px DeeBody')]).then(()=>continueRender(handle)).catch(()=>continueRender(handle));},[handle]);
+ return <AbsoluteFill style={{background:dark?'#0d1219':'#f1f4f8',color:dark?'#f1f4f8':'#0d1219',fontFamily:'DeeBody',padding:48}}>
+ <style>{`@font-face{font-family:DeeDisplay;src:url('${staticFile('fonts/barlow-condensed-black.woff2')}')}@font-face{font-family:DeeBody;src:url('${staticFile('fonts/barlow-regular.woff2')}')}`}</style>
+ <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',borderBottom:`1px solid ${dark?'#34404e':'#ccd5df'}`,paddingBottom:17}}><span style={{fontFamily:'DeeDisplay',fontSize:40,letterSpacing:-1}}>DEE</span><span style={{fontSize:13,letterSpacing:2,textTransform:'uppercase'}}>Muay Thai · In your corner</span></div>
+ <div style={{display:'flex',gap:55,flex:1,alignItems:'center'}}><div style={{width:595,transform:`translateY(${interpolate(frame,[0,14],[12,0],{extrapolateRight:'clamp'})}px)`,opacity:interpolate(frame,[0,12],[0,1],{extrapolateRight:'clamp'})}}><p style={{fontSize:15,letterSpacing:2,textTransform:'uppercase',color:dark?'#63d7df':'#04778c',margin:'0 0 23px'}}>{kicker}</p><h1 style={{fontFamily:'DeeDisplay',fontSize:92,lineHeight:.94,letterSpacing:-2,textTransform:'uppercase',margin:'0 0 27px'}}>{title}</h1><p style={{fontSize:27,lineHeight:1.4,margin:0,maxWidth:570,color:dark?'#c8d5e2':'#586476'}}>{body}</p></div><div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',gap:18}}>{children}</div></div>
+ <div style={{position:'absolute',bottom:23,left:48,right:48,display:'flex',justifyContent:'space-between',gap:24,fontSize:13,color:dark?'#b4c2d1':'#586476'}}><span>{caption}</span><span>dee.training</span></div>
+ </AbsoluteFill>;
+};

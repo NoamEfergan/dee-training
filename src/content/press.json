@@ -1,0 +1,549 @@
+{
+  "name": "Dee: Muay Thai Coach",
+  "updated": "15 September 2026",
+  "creator": "Noam Efergan",
+  "contact": "info@dee.training",
+  "url": "https://dee.training/press/",
+  "appStore": "https://apps.apple.com/app/id6788483296",
+  "googlePlay": "https://play.google.com/store/apps/details?id=dev.nowham.dee",
+  "tagline": "Your plan. Your round. Your corner.",
+  "shortDescription": "Dee builds Muay Thai training around your goals, time and equipment, then guides every round with spoken cues. Sync a plan to Apple Watch and train without your phone. Available for iPhone, iPad, Apple Watch and Android.",
+  "extendedDescription": "Dee is an independent Muay Thai training app for the sessions between coached classes. Choose your goals, experience, schedule and equipment, then follow a structured plan with shadowboxing, heavy-bag work, technique and conditioning. Adjust a workout when your time or equipment changes. During training, timed rounds, drill instructions, spoken cues, bells and haptics help you stay with the session. On Apple Watch, sync your plan from the iPhone app first, then start and run a workout without the phone. Saved workouts play offline. Training history, weekly progress and Fight Camp milestones make it easier to return for the next session. Dee is available in seven languages, including Hebrew with a right-to-left interface. Built by Noam Efergan, Dee is available on the App Store and Google Play.",
+  "storyAngles": [
+    {
+      "title": "Leave the phone in your bag.",
+      "body": "Muay Thai puts your hands inside gloves. Dee puts the round on your wrist: sync a plan from the app, then start, pause and finish an independent Apple Watch workout with voice and haptic guidance."
+    },
+    {
+      "title": "A training partner that speaks your language.",
+      "body": "Seven languages across the interface, drill content and coaching, including Hebrew and right-to-left layouts. Three coaching voices let each athlete choose the tone of a session."
+    },
+    {
+      "title": "Built for the sessions between classes.",
+      "body": "An independent app born from a practical training need: arrive at the gym with a plan that fits today’s time and equipment, and spend the session training instead of managing a screen."
+    }
+  ],
+  "watch": {
+    "title": "Sync once. Train without your phone.",
+    "body": "Apple Watch workouts already run independently. First, open Dee on your iPhone and sync the plan to the Watch. Once the plan is available on the Watch, you can leave the phone behind and start your session from the Watch’s workout library.",
+    "steps": [
+      "Create or choose a plan on iPhone, with the paired Watch nearby. Let the plan finish syncing.",
+      "Open Dee on Apple Watch, confirm the session appears in the library and allow workout recording in Apple Health when prompted.",
+      "Set the phone aside. Start the session on Watch and follow the rounds, voice cues and haptics.",
+      "Pause, resume or end the workout on your wrist. Review the recap when you finish."
+    ],
+    "note": "The initial sync needs iPhone. Standalone Watch workouts require permission to save workouts in Apple Health. Heart-rate and energy metrics depend on additional read permissions and available sensors."
+  },
+  "features": [
+    {
+      "id": "planning",
+      "title": "Planning & customization",
+      "platform": "iPhone · iPad",
+      "body": "Build a plan around goals, experience, days per week, available equipment and session duration. A curated drill library covers shadowboxing, bag work, technique and conditioning. Adjust a session’s equipment, duration or intensity as your day changes.",
+      "details": [
+        "Goal, experience, schedule and equipment choices during setup.",
+        "Structured weeks and sessions, drill instructions and work/rest prescriptions.",
+        "Session adjustments and plan customization; generated plans are checked against the drill library."
+      ]
+    },
+    {
+      "id": "workouts",
+      "title": "The workout experience",
+      "platform": "iPhone · iPad · Apple Watch",
+      "body": "Timed work and rest rounds combine readable drill instructions with spoken cues, bells and haptics. Choose Warm, Energetic or Focused coaching. Saved workouts and bundled coaching audio can play offline.",
+      "details": [
+        "Pause, resume, move between blocks and finish early.",
+        "Next-round previews keep the next drill in view.",
+        "Audio and workout sounds have separate controls. Internet is needed for online plan generation and purchases, not for playing a saved workout."
+      ]
+    },
+    {
+      "id": "watch-health",
+      "title": "Apple Watch & Health",
+      "platform": "Apple Watch · iPhone",
+      "body": "After a plan sync from iPhone, start and run the workout independently on Watch. Wrist controls, voice and haptic guidance, Now Playing and a workout recap keep the session close at hand.",
+      "details": [
+        "The iPhone is needed for the initial plan sync; it does not need to accompany the workout.",
+        "Standalone Watch workouts require permission to save workouts in Apple Health. Heart-rate and active-energy readings depend on the relevant read permissions and supported sensors.",
+        "Apple Health recording is optional for iPhone workouts. You can manage Health permissions through Apple’s system controls. Dee is not a medical device."
+      ]
+    },
+    {
+      "id": "progress",
+      "title": "Progress that brings you back",
+      "platform": "iPhone · iPad",
+      "body": "See training history, weekly activity and the next session in your plan. Fight Camp brings streaks, ranks and milestones together; reminders help you make time, and shareable summaries mark completed workouts.",
+      "details": [
+        "Training history and weekly progress.",
+        "Fight Camp streaks, ranks and milestone moments.",
+        "Optional reminders and shareable workout recaps."
+      ]
+    },
+    {
+      "id": "apple",
+      "title": "At home across Apple devices",
+      "platform": "iPhone · iPad · Apple Watch",
+      "body": "Dee includes layouts for iPad, optional iCloud sync, widgets and Live Activities with Dynamic Island on supported iPhones. An App Clip offers a short introduction to a guided workout.",
+      "details": [
+        "iPad layouts use the larger screen for planning and training.",
+        "iCloud sync is optional and requires an Apple Account with iCloud available.",
+        "Live Activities and Dynamic Island surface the current round; system settings and device support apply.",
+        "The App Clip is a sample experience, not the full app."
+      ]
+    },
+    {
+      "id": "accessibility",
+      "title": "More ways to follow a round",
+      "platform": "iPhone · iPad",
+      "body": "Dee includes VoiceOver labels and spoken status information, text that follows Larger Text, and adaptations for Reduce Motion and Reduce Transparency. Work and rest are identified in words as well as color, with optional audio and haptic cues.",
+      "details": [
+        "Workout controls expose labels and state; the timer exposes a readable time value.",
+        "Typography responds to Dynamic Type, with larger-text adaptations in key layouts.",
+        "Reduced-motion settings limit decorative animation; reduced transparency uses solid surfaces.",
+        "Dark text carries the main drill and timer information. Text and icons identify states in addition to accent color; contrast can vary across secondary elements.",
+        "Use the reviewer walkthrough to explore the experience with your preferred settings. Accessibility can vary by screen and text size; contact us about a barrier."
+      ]
+    },
+    {
+      "id": "localization",
+      "title": "Seven languages, in and out of the round",
+      "platform": "Apple apps · Android",
+      "body": "English, Spanish, French, Brazilian Portuguese, German, Dutch and Hebrew cover the interface, drill content and coaching. Hebrew includes right-to-left layout. Warm, Energetic and Focused voices are available in all seven languages.",
+      "details": [
+        "The localized gallery shows the same workout screen in every supported language.",
+        "Screenshots use sample training data. Generated plan names or free-form content may vary by generation provider.",
+        "Some safety-note text remains in English in the German and Dutch sample captures. These images are supplied as captured."
+      ]
+    },
+    {
+      "id": "ai-privacy",
+      "title": "Plan generation, offline use & privacy",
+      "platform": "iPhone · iPad",
+      "body": "The current iOS plan-generation flow can use OpenAI through AIProxy, with a local rules-based fallback when online generation is unavailable. Creating a full plan does not require an Apple Intelligence-capable device. Saved workout playback runs locally.",
+      "details": [
+        "Full-plan generation and workout customization use the configured online route when available. Training preferences and requests are sent for online generation.",
+        "Apple Foundation Models integration exists in Dee’s code, but full multi-week plans do not use the on-device model in this release. Active Private Cloud Compute use is not claimed for this release.",
+        "There is no separate Dee account to create. Store purchases use your platform’s store account. Optional iCloud sync uses your Apple Account. Standalone Watch workouts require Apple Health workout-recording permission.",
+        "Delete Data in Settings removes the local profile, plans, settings and workout history. With iCloud sync active, deletion is also intended to sync to the private iCloud database. Provider-held subscription and analytics records follow those providers’ retention practices; see the privacy policy."
+      ]
+    }
+  ],
+  "android": {
+    "title": "Dee on Android",
+    "body": "The same idea, built for Android: a plan that fits your goals and a guided round timer that lets you focus on training. Android uses an on-device rules-based planner, rather than the Apple app’s online AI route.",
+    "features": [
+      "Goals, experience, schedule and equipment-based plans.",
+      "Timed rounds, drill instructions and spoken coaching, with saved workouts available offline.",
+      "Training progress and workout history, with seven-language interface and coaching coverage.",
+      "No separate Dee account. Data is stored on the device."
+    ],
+    "requirements": "Android 9 or later. Current release: 1.0.4.",
+    "access": "Free download with optional Dee Pro subscriptions through Google Play. Check the in-app offer for current local prices and included access. Google Play purchases are separate from App Store purchases.",
+    "differences": "Apple Watch, HealthKit, iCloud, Live Activities, Dynamic Island and the App Clip are Apple-platform features."
+  },
+  "release": {
+    "ios": "1.0.11",
+    "iosDate": "14 September 2026",
+    "android": "1.0.4",
+    "requirements": "iOS / iPadOS 26 or later; watchOS 26 or later. Android 9 or later.",
+    "news": "Dee 1.0.11 shortens onboarding and gives eligible new users one full workout before subscribing. Existing access is preserved.",
+    "access": "On iOS, eligible new users can complete one full workout free. Saving a workout, including an early finish, uses that allowance. Further workouts require a monthly or annual Dee Pro subscription unless you already have access. Trying the free workout does not start a subscription. Prices, offers and eligibility are shown in your local store and in the app.",
+    "pricingNote": "App Store and Google Play subscriptions are purchased and managed separately. Local prices and offers can change; the current purchase screen is authoritative."
+  },
+  "founder": {
+    "title": "Built from a real training need.",
+    "body": "Noam Efergan created Dee because he wanted to walk into the gym knowing what to work on. He wanted training that fitted his goals and available equipment, with spoken guidance that let him keep his hands in his gloves. That personal need became an independent app: practical sessions, room to adjust, and coaching in the language you prefer.",
+    "image": "/press/assets/noam-efergan.jpg",
+    "caption": "Noam Efergan, creator of Dee. Image supplied by Dee."
+  },
+  "article": {
+    "title": "Devs for Devs: From XCUITest to Promo Video",
+    "publication": "Those Who Swift",
+    "date": "16 August 2026",
+    "url": "https://thosewhoswift.substack.com/p/devs-for-devs-from-xcuitest-to-promo",
+    "description": "Noam’s guest article about turning deterministic app captures into promotional video."
+  },
+  "reviewer": [
+    {
+      "title": "Set up a plan",
+      "body": "Download from the App Store or Google Play. Choose your goals, experience, available days and equipment. On Apple devices, keep an internet connection available while generating a plan."
+    },
+    {
+      "title": "Make it fit today",
+      "body": "Open the plan and inspect a session’s drills. Explore the available customization controls for time, equipment and intensity."
+    },
+    {
+      "title": "Run a round",
+      "body": "Start a workout. Listen to a coaching voice, inspect the next-round preview, pause and resume. Try a saved workout without an internet connection."
+    },
+    {
+      "title": "Leave the phone behind",
+      "body": "On Apple devices, sync a plan to the paired Watch first and confirm it appears in the Watch library. Allow Apple Health workout recording when prompted. Then set the phone aside and start a session directly on Watch."
+    },
+    {
+      "title": "Finish and explore",
+      "body": "Complete or save a workout, view the recap and training history, and explore Fight Camp. On iOS, saving an early finish uses the eligible free-workout allowance."
+    },
+    {
+      "title": "Try your preferred settings",
+      "body": "Explore Larger Text and VoiceOver, Reduce Motion and Reduce Transparency. Switch the app language, including Hebrew, and try onboarding, a workout, the purchase screen and Settings. No purchase is required to inspect an offer."
+    }
+  ],
+  "reviewerAccess": "For additional review access, interviews or a specific capture, email info@dee.training. We will arrange the appropriate access directly. The public store releases are the recommended starting point.",
+  "credits": "These assets are supplied by Dee for editorial coverage of Dee. Please credit “Dee” for app images and “Noam Efergan / Dee” for the creator image. Screenshots use illustrative training data. Keep app screens accurate; do not imply Apple or Google endorsement. Cropping for layout is welcome. Contact info@dee.training for other uses.",
+  "captureNote": "Apple app images and demonstrations use simulator captures with sample workout data. Android images are app-rendered sample screens. Presentation images are labelled separately; original screenshots are also provided.",
+  "assets": [
+    {
+      "id": "iphone-goals",
+      "title": "Choose your goals",
+      "caption": "Goal selection during setup.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-goals.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-schedule",
+      "title": "Make time for training",
+      "caption": "A training schedule built around available days.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-schedule.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-plan",
+      "title": "Your plan, ready",
+      "caption": "A sample training plan summary.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-plan.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-home",
+      "title": "Today’s training",
+      "caption": "A sample plan and the next sessions on the home screen.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-home.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-en",
+      "title": "Stay in the round",
+      "caption": "Timed work, readable drill instructions and next-round information.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-round-en.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-rest",
+      "title": "A moment to reset",
+      "caption": "Rest time and the next drill at a glance.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-rest.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-larger-text",
+      "title": "A round in Larger Text",
+      "caption": "A workout using an accessibility text size. Content continues in a scrollable view. Simulator video-frame capture.",
+      "platform": "iPhone",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/iphone-larger-text.png",
+      "width": 1206,
+      "height": 2622
+    },
+    {
+      "id": "ipad-plan",
+      "title": "Room to plan",
+      "caption": "Dee’s native iPad layout with sample training data.",
+      "platform": "iPad",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/ipad-plan.png",
+      "width": 2064,
+      "height": 2752
+    },
+    {
+      "id": "ipad-round",
+      "title": "The round on iPad",
+      "caption": "Dee’s native iPad layout with sample training data.",
+      "platform": "iPad",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/ipad-round.png",
+      "width": 2064,
+      "height": 2752
+    },
+    {
+      "id": "watch-library",
+      "title": "Choose a workout",
+      "caption": "After syncing from iPhone, choose a stored session on Apple Watch. Simulator capture.",
+      "platform": "Apple Watch",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/watch-library.png",
+      "width": 368,
+      "height": 448
+    },
+    {
+      "id": "watch-active",
+      "title": "Train without your phone",
+      "caption": "An independent workout running on Apple Watch with a preloaded sample plan. Simulator capture.",
+      "platform": "Apple Watch",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/watch-active.png",
+      "width": 368,
+      "height": 448
+    },
+    {
+      "id": "watch-controls",
+      "title": "Control the round",
+      "caption": "Pause, resume and manage the workout from your wrist. Simulator capture.",
+      "platform": "Apple Watch",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/watch-controls.png",
+      "width": 368,
+      "height": 448
+    },
+    {
+      "id": "watch-recap",
+      "title": "Finish on your wrist",
+      "caption": "The workout recap on Apple Watch. Simulator capture.",
+      "platform": "Apple Watch",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/watch-recap.png",
+      "width": 368,
+      "height": 448
+    },
+    {
+      "id": "android-plan",
+      "title": "Your Android plan",
+      "caption": "A sample Android training plan. App-rendered screenshot.",
+      "platform": "Android",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/android-plan.png",
+      "width": 360,
+      "height": 800
+    },
+    {
+      "id": "android-round",
+      "title": "Rounds on Android",
+      "caption": "The native Android workout player with sample data. App-rendered screenshot.",
+      "platform": "Android",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/android-round.png",
+      "width": 360,
+      "height": 640
+    },
+    {
+      "id": "android-progress",
+      "title": "Keep showing up",
+      "caption": "Android home and training progress with sample data. App-rendered screenshot.",
+      "platform": "Android",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/android-progress.png",
+      "width": 360,
+      "height": 800
+    },
+    {
+      "id": "iphone-round-es",
+      "title": "Spanish",
+      "caption": "The same workout view in Spanish.",
+      "platform": "iPhone",
+      "language": "es",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-es.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-fr",
+      "title": "French",
+      "caption": "The same workout view in French.",
+      "platform": "iPhone",
+      "language": "fr",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-fr.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-pt-BR",
+      "title": "Brazilian Portuguese",
+      "caption": "The same workout view in Brazilian Portuguese.",
+      "platform": "iPhone",
+      "language": "pt-BR",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-pt-BR.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-de",
+      "title": "German",
+      "caption": "The same workout view in German.",
+      "platform": "iPhone",
+      "language": "de",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-de.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-nl",
+      "title": "Dutch",
+      "caption": "The same workout view in Dutch.",
+      "platform": "iPhone",
+      "language": "nl",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-nl.png",
+      "width": 1320,
+      "height": 2868
+    },
+    {
+      "id": "iphone-round-he",
+      "title": "Hebrew",
+      "caption": "The same workout view in Hebrew. Right-to-left layout.",
+      "platform": "iPhone",
+      "language": "he",
+      "group": "localized",
+      "file": "/press/screenshots/iphone-round-he.png",
+      "width": 1206,
+      "height": 2622
+    }
+  ],
+  "videos": [
+    {
+      "id": "overview",
+      "title": "Dee in 30 seconds",
+      "duration": "0:30",
+      "caption": "Planning, spoken rounds, independent Watch workouts and progress. Simulator demonstration with sample data.",
+      "file": "/press/video/dee-overview.mp4",
+      "captions": "/press/video/dee-overview.vtt",
+      "poster": "/press/assets/overview-poster.jpg",
+      "cues": [
+        [
+          0,
+          6,
+          "Choose your goals, time and equipment. Arrive with a plan."
+        ],
+        [
+          6,
+          6.5,
+          "Spoken coaching and timed rounds."
+        ],
+        [
+          6.5,
+          8,
+          "[Dee coaching voice] Prepare."
+        ],
+        [
+          8,
+          12,
+          "Drill instructions and the next round stay in view."
+        ],
+        [
+          12,
+          16,
+          "Sync the plan from iPhone first. Confirm it is on your Watch."
+        ],
+        [
+          16,
+          21,
+          "Once synced, start and train on Watch without your phone."
+        ],
+        [
+          21,
+          27,
+          "Training history, weekly progress and Fight Camp milestones."
+        ],
+        [
+          27,
+          30,
+          "Dee: Muay Thai Coach. iPhone, iPad, Apple Watch and Android."
+        ]
+      ]
+    },
+    {
+      "id": "watch-demo",
+      "title": "Sync once. Train without your phone.",
+      "duration": "0:24",
+      "caption": "How the Watch workflow works after the initial iPhone sync. Simulator demonstration with a preloaded sample plan.",
+      "file": "/press/video/dee-watch.mp4",
+      "captions": "/press/video/dee-watch.vtt",
+      "poster": "/press/assets/watch-poster.jpg",
+      "cues": [
+        [
+          0,
+          8,
+          "First sync the plan from iPhone and confirm the session is in the Watch library."
+        ],
+        [
+          8,
+          16,
+          "Set the phone aside. Start and run the workout on Apple Watch."
+        ],
+        [
+          16,
+          24,
+          "Pause, resume or finish on your wrist. Simulator demonstration with a preloaded sample plan."
+        ]
+      ]
+    },
+    {
+      "id": "accessibility-demo",
+      "title": "More ways to follow a round",
+      "duration": "0:20",
+      "caption": "A visual tour of accessible workout information and Larger Text. Simulator demonstration; not a screen-reader audio recording.",
+      "file": "/press/video/dee-accessibility.mp4",
+      "captions": "/press/video/dee-accessibility.vtt",
+      "poster": "/press/assets/accessibility-poster.jpg",
+      "cues": [
+        [
+          0,
+          7,
+          "Dee follows Larger Text. Scroll through the drill with workout controls available."
+        ],
+        [
+          7,
+          14,
+          "VoiceOver labels expose the timer, drill and controls. Work and rest also have text labels."
+        ],
+        [
+          14,
+          20,
+          "Choose audio and sound cues. Reduce Motion and Reduce Transparency adapt supported surfaces."
+        ]
+      ]
+    }
+  ],
+  "factSheet": {
+    "ai": "iOS plans can use OpenAI through AIProxy, with a local rules-based fallback. Full plans do not use the on-device Apple model in this release; active PCC use is not claimed. Saved workouts play offline.",
+    "android": "Android uses an on-device rules-based planner. Goals, equipment, guided rounds, spoken coaching, progress and seven languages are available. Free download with optional Google Play subscriptions; see the app for local prices and included access.",
+    "account": "No separate Dee account. Store purchases use your platform account. iCloud sync is optional. Standalone Watch workouts require Health workout-recording permission. See dee.training/privacy for data controls and provider details."
+  }
+}

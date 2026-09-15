@@ -1,0 +1,216 @@
+{
+  "updated": "15 September 2026",
+  "url": "https://dee.training/press/",
+  "files": [
+    {
+      "path": "assets/README.txt",
+      "bytes": 772,
+      "sha256": "3808898fd175787600df1a09db46e4c6c91be1ac824f982199cd1dc9e4256b4e"
+    },
+    {
+      "path": "assets/accessibility-poster.jpg",
+      "bytes": 61899,
+      "sha256": "81794d8f7e294bb91744644e0d448835293c02336b6cdae0821d1efbce8aba4f"
+    },
+    {
+      "path": "assets/dee-android-icon.png",
+      "bytes": 58213,
+      "sha256": "5d158469d1fb400eabc9a3ccd31507af00f284baebfaebc2d0fb66033b9f7527"
+    },
+    {
+      "path": "assets/dee-app-icon.png",
+      "bytes": 1785948,
+      "sha256": "ef733d4c383a6355191663eea64af471ef9005dc18b8806ad9a91df490650eda"
+    },
+    {
+      "path": "assets/dee-presentation.png",
+      "bytes": 92174,
+      "sha256": "836751bf571276c5f895480af211fa30f23a48244c919946d7a9f082d7dfb5f3"
+    },
+    {
+      "path": "assets/dee-wordmark.svg",
+      "bytes": 1364,
+      "sha256": "24d07acd0f7130f1fb5b1f5c404d5fe3ce01ebfadfd63eb77fbed827fd26eeb9"
+    },
+    {
+      "path": "assets/noam-efergan.jpg",
+      "bytes": 51782,
+      "sha256": "21d9acb6061c68f1a7f521cac5ac01e1c6a0ec94a377e52eca4356d20f9c3e6c"
+    },
+    {
+      "path": "assets/overview-poster.jpg",
+      "bytes": 53647,
+      "sha256": "d7b8a83bc9ef8014324d049eee5becdc4c1947a4229b492d4604170024406db3"
+    },
+    {
+      "path": "assets/watch-poster.jpg",
+      "bytes": 56101,
+      "sha256": "29f6a930d60f53fb7368cedf60a9546e085929d75bb3c17156c4e868966e6544"
+    },
+    {
+      "path": "dee-editorial-copy.txt",
+      "bytes": 14500,
+      "sha256": "ba6e90919d7ed3ba96a24d6d34475850b47d1758b7dd24afd8311d15448bcec5"
+    },
+    {
+      "path": "dee-fact-sheet.pdf",
+      "bytes": 611405,
+      "sha256": "9994408cbe89212d860bbb1cb188b5670ee7966f9a07d5c121c600d3bc5df417"
+    },
+    {
+      "path": "screenshots/android-plan.png",
+      "bytes": 45953,
+      "sha256": "b81f19bf37ff575b4bda2afa96b05d17d21522b443a81cb9c19989b24aac04fc"
+    },
+    {
+      "path": "screenshots/android-progress.png",
+      "bytes": 48897,
+      "sha256": "d1f0d7b1138371a6dba1b35fec331a5fff7f13b4452d672c34e550271f1a2e6a"
+    },
+    {
+      "path": "screenshots/android-round.png",
+      "bytes": 27334,
+      "sha256": "6a8c9e627710b86675fe4415e1b8a1e8b2d014c587b263873c1c53ab54ae956b"
+    },
+    {
+      "path": "screenshots/ipad-plan.png",
+      "bytes": 304331,
+      "sha256": "b03d92b5efd48f227703c7859e573756082963d851ebd946957b2594df668707"
+    },
+    {
+      "path": "screenshots/ipad-round.png",
+      "bytes": 195035,
+      "sha256": "9ec3321616c4b4133f6a2ccb0decb3e7ffbe167cd27ef33481aef6ddf5a4ee21"
+    },
+    {
+      "path": "screenshots/iphone-goals.png",
+      "bytes": 507597,
+      "sha256": "6a34705372946f4451a9a7abaaad3f9d6484a2e9cf4163086629fb53ee07f486"
+    },
+    {
+      "path": "screenshots/iphone-home.png",
+      "bytes": 682022,
+      "sha256": "4451448c7fd03a4a420cc7e3bb3d0feb1bc2c849c8666f239dbb7c393f17480f"
+    },
+    {
+      "path": "screenshots/iphone-larger-text.png",
+      "bytes": 478384,
+      "sha256": "a13dbab4b3616c04f3bcd3dcb9e0b1474474d5f23766d7228850052d239eb019"
+    },
+    {
+      "path": "screenshots/iphone-plan.png",
+      "bytes": 314727,
+      "sha256": "21a4446da061da3adb0b69e1d7b7f8ad05b92f057b8b622525bb46a1f912a097"
+    },
+    {
+      "path": "screenshots/iphone-rest.png",
+      "bytes": 139259,
+      "sha256": "d921315d009957f38eaba9147d96d12a81885c7805e130259bf8a820a05f0a48"
+    },
+    {
+      "path": "screenshots/iphone-round-de.png",
+      "bytes": 210763,
+      "sha256": "f5e1a4cad20df7eadc1ea078940bdac968665a2fe3c1007a6e411fe8be32a925"
+    },
+    {
+      "path": "screenshots/iphone-round-en.png",
+      "bytes": 195813,
+      "sha256": "5dbf76b1438e9da8091d21753e1272999def91f281050d431c5402f8c548c277"
+    },
+    {
+      "path": "screenshots/iphone-round-es.png",
+      "bytes": 209850,
+      "sha256": "4926ead7a2021b1e4ee18d8cdf863f1bbb9a99a217783dd300490437cb29e9f4"
+    },
+    {
+      "path": "screenshots/iphone-round-fr.png",
+      "bytes": 204080,
+      "sha256": "137fc51ac363d6566fc92482d247c7f1d6e074291136f549a4a30cc07177a484"
+    },
+    {
+      "path": "screenshots/iphone-round-he.png",
+      "bytes": 169003,
+      "sha256": "e8635b7109d3cba8cf073d3314e68b0873cf86f97db74e152aaf4b63a080a104"
+    },
+    {
+      "path": "screenshots/iphone-round-nl.png",
+      "bytes": 202714,
+      "sha256": "86edcfdd108a6ed149ea9b7f83259653362d554f204c69ad70d402ab80f1f0b3"
+    },
+    {
+      "path": "screenshots/iphone-round-pt-BR.png",
+      "bytes": 207118,
+      "sha256": "6acb21d6a25133597d832fc9da29be9373ef1e371d9a3e9cae395888dc97d97a"
+    },
+    {
+      "path": "screenshots/iphone-schedule.png",
+      "bytes": 575029,
+      "sha256": "e7ac0728ef644c2222b53650d4e5c14a0c29de081799ba52f03106235526286f"
+    },
+    {
+      "path": "screenshots/watch-active.png",
+      "bytes": 26158,
+      "sha256": "44eeea5368316722d8d8c9cba91ea293b94222ce89357ab7eda460305d2ede62"
+    },
+    {
+      "path": "screenshots/watch-controls.png",
+      "bytes": 31289,
+      "sha256": "22f456c592b2e5cf6d7cd13c10bd01a818d7617a109e6f9f889c2d8f39d860cf"
+    },
+    {
+      "path": "screenshots/watch-library.png",
+      "bytes": 31454,
+      "sha256": "a2e8a7678c9149581559edba2da63e332e62160d18a31370a0ea025a128fed8b"
+    },
+    {
+      "path": "screenshots/watch-recap.png",
+      "bytes": 32117,
+      "sha256": "6541818028b00b13b32a233cd527635150f081cadac40940efb6c400547f28c9"
+    },
+    {
+      "path": "video/dee-accessibility.mp4",
+      "bytes": 1221628,
+      "sha256": "3c1b632f5033af12d8ddbc8765d0f3ac21c95a4242b63b55bcd1023b918445e9"
+    },
+    {
+      "path": "video/dee-accessibility.vtt",
+      "bytes": 374,
+      "sha256": "3d5bc501104ea2b56b27b302f3c3d3f5f73a5f0dfd0f573a0af274f0f4896342"
+    },
+    {
+      "path": "video/dee-overview.mp4",
+      "bytes": 936319,
+      "sha256": "a9498c019e4f79b4319ce60a38525fc535308829baa26556f26d39749b2a356f"
+    },
+    {
+      "path": "video/dee-overview.vtt",
+      "bytes": 688,
+      "sha256": "75267457598401fee6200ab508140e0d5b25ce3795effc1f9379cbbba4dca230"
+    },
+    {
+      "path": "video/dee-watch.mp4",
+      "bytes": 1353484,
+      "sha256": "43ef0bfa08edc5463457a03eb4b4d7c308d47a5a59a15a2275f825682a02fdf8"
+    },
+    {
+      "path": "video/dee-watch.vtt",
+      "bytes": 343,
+      "sha256": "b9e316a2e527b58fc23d1b8e4a68ee5135831562ca590d966446522a97492e77"
+    },
+    {
+      "path": "video/source-accessibility.mp4",
+      "bytes": 5386305,
+      "sha256": "13f6c39e0fdbe89bdb621c508626e0fdfa6bd06970f182bebb445c306a507332"
+    },
+    {
+      "path": "video/source-round.mp4",
+      "bytes": 1309873,
+      "sha256": "c704cb1e955ee69cc4a81cc74383e063053598b5e16b281a6407b26742fc396e"
+    },
+    {
+      "path": "video/source-watch.mp4",
+      "bytes": 551818,
+      "sha256": "4cf89220e7660b6bf96f5919bfc653b215b04bebc7fd3bc8922192753c5fca48"
+    }
+  ]
+}
