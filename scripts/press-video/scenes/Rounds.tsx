@@ -1,0 +1,2 @@
+import React from'react';import{Audio}from'@remotion/media';import{Sequence}from'remotion';import{Frame,Screen,file}from'../Frame';
+export const Rounds=()=> <><Frame kicker="02 / Sound on" title={<>Hear the cue.<br/>Stay in the round.</>} body="Spoken coaching, timed rounds and the next drill in view." caption="Actual Dee audio: “Prepare.” · Simulator capture"><Screen path="video/source-round.mp4" video start={45}/></Frame><Sequence from={15} durationInFrames={75}><Audio src={file('video/prepare.m4a')}/></Sequence></>;

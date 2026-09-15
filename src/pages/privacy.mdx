@@ -4,7 +4,7 @@ import LegalLayout from '@/layouts/LegalLayout.astro'
 
 # Dee Privacy Policy
 
-Last updated: September 4, 2026
+Last updated: September 15, 2026
 
 This Privacy Policy explains how Dee handles information when you use the Dee app on iOS or Android.
 
@@ -42,7 +42,7 @@ On Android, Dee currently stores this app data locally on your device. The Andro
 
 How Dee generates or adapts training plans depends on the platform and available features.
 
-On iOS, Dee prefers Apple-provided models when available, including on-device processing and Apple Private Cloud Compute where supported. If Apple model generation is unavailable or fails, Dee may use a remote AI fallback through AIProxy, which forwards structured generation requests to an OpenAI-compatible model service. Those requests can include training-planning context needed to generate or adapt a plan, such as your level, goals, preferred schedule, equipment, stance, obstacles, limitations or injury notes, current session blocks, and allowed exercise options. When that fallback is used, AIProxy also receives a device-level identifier supplied by iOS and network information such as an IP address so it can enforce usage limits, prevent abuse, operate the service, and measure its performance. Dee treats that context and technical information as potentially associated with the device, but does not use it to identify you by name, create a Dee account, advertise to you, or track you across apps.
+In the current iOS release, full-plan generation and workout customization can use AIProxy, which forwards structured generation requests to an OpenAI-compatible model service. A local rules-based planner provides a fallback when online plan generation is unavailable. Full multi-week plans do not use the on-device Apple model in this release, and active Apple Private Cloud Compute use is not claimed. Dee also contains Apple Foundation Models integration for supported operations. Those requests can include training-planning context needed to generate or adapt a plan, such as your level, goals, preferred schedule, equipment, stance, obstacles, limitations or injury notes, current session blocks, and allowed exercise options. When that fallback is used, AIProxy also receives a device-level identifier supplied by iOS and network information such as an IP address so it can enforce usage limits, prevent abuse, operate the service, and measure its performance. Dee treats that context and technical information as potentially associated with the device, but does not use it to identify you by name, create a Dee account, advertise to you, or track you across apps.
 
 When the iOS app uses remote translation for Hebrew plan text, the request includes only the text needed to produce the translation. It does not include your Apple Account details.
 
@@ -79,7 +79,8 @@ Dee and RevenueCat do not use subscription or attribution information to serve t
 Depending on your platform and the features you use, Dee relies on:
 
 - Apple iCloud and CloudKit for optional private-database sync on iOS.
-- Apple on-device model, translation, and Private Cloud Compute technologies where available on iOS.
+- Apple Foundation Models and translation technologies for supported iOS operations. Active Private Cloud Compute use is not claimed for the current release.
+- Apple HealthKit for optional workout recording and available health metrics on Apple devices.
 - AIProxy and an OpenAI-compatible model service for remote AI fallback on iOS when Apple generation is unavailable or fails.
 - Mostly Good Metrics for pseudonymous product analytics in the current full iOS app; TelemetryDeck for limited App Clip analytics and historical signals from earlier full-app releases.
 - Apple's App Store / StoreKit for purchases and AdServices for Dee's own Apple Ads attribution on iOS.
@@ -110,7 +111,7 @@ Dee is not directed to children under 13. If you are under the age of majority i
 
 Dee may handle fitness-related preferences and limitation notes that you choose to enter. On iOS, when remote AI fallback is used, those preferences and notes can be included in the structured plan-generation request described above. In the current Android release, that information remains in the app's local storage and is not sent through a remote AI route.
 
-Dee does not connect to Apple HealthKit or Google Health Connect and is not a medical device. The app's training plans are for general sport and fitness purposes only.
+On Apple devices, Dee can connect to Apple Health with your permission to record workouts and read available workout, heart-rate and active-energy information. Apple Watch supplies supported sensor measurements during workouts. Standalone Watch workouts require permission to save workouts in Apple Health. Health recording is optional for iPhone workouts. You can manage or revoke Health permissions in Apple’s system settings. Dee does not currently connect to Google Health Connect on Android. Dee is not a medical device; its training plans are for general sport and fitness purposes only.
 
 ## Changes to This Policy
 

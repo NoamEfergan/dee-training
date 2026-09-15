@@ -1,0 +1,13 @@
+{
+  "name": "dee-press-video",
+  "private": true,
+  "scripts": {"typecheck": "tsc --noEmit", "studio": "remotion studio index.tsx --public-dir=../../public"},
+  "dependencies": {
+    "@remotion/cli": "4.0.503",
+    "@remotion/media": "4.0.503",
+    "remotion": "4.0.503",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
+  },
+  "devDependencies": {"@types/react": "18.3.31", "@types/react-dom": "18.3.7", "typescript": "5.9.3"}
+}

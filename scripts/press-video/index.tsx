@@ -1,0 +1,7 @@
+import React from'react';import{Composition,Sequence,registerRoot}from'remotion';
+import{Planning}from'./scenes/Planning';import{Rounds}from'./scenes/Rounds';import{Watch}from'./scenes/Watch';import{Progress}from'./scenes/Progress';import{Closing}from'./scenes/Closing';import{Accessibility}from'./scenes/Accessibility';
+const Overview=()=> <><Sequence durationInFrames={180}><Planning/></Sequence><Sequence from={180} durationInFrames={180}><Rounds/></Sequence><Sequence from={360} durationInFrames={270}><Watch/></Sequence><Sequence from={630} durationInFrames={180}><Progress/></Sequence><Sequence from={810} durationInFrames={90}><Closing/></Sequence></>;
+const WatchDemo=()=> <><Sequence durationInFrames={240}><Watch part="sync"/></Sequence><Sequence from={240} durationInFrames={240}><Watch part="train"/></Sequence><Sequence from={480} durationInFrames={240}><Watch part="controls"/></Sequence></>;
+const AccessibilityDemo=()=> <><Sequence durationInFrames={210}><Accessibility part={0}/></Sequence><Sequence from={210} durationInFrames={210}><Accessibility part={1}/></Sequence><Sequence from={420} durationInFrames={180}><Accessibility part={2}/></Sequence></>;
+const Root=()=> <><Composition id="DeeOverview" component={Overview} durationInFrames={900} fps={30} width={1280} height={720}/><Composition id="DeeWatch" component={WatchDemo} durationInFrames={720} fps={30} width={1280} height={720}/><Composition id="DeeAccessibility" component={AccessibilityDemo} durationInFrames={600} fps={30} width={1280} height={720}/></>;
+registerRoot(Root);
