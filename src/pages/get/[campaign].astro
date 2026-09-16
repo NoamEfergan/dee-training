@@ -3,7 +3,9 @@ import { Image } from 'astro:assets'
 import { deeAvailability } from '@/content/content'
 import SiteHead from '@/components/SiteHead.astro'
 import appIcon from '@/assets/dee/app-icon.png'
-import planSummary from '@/assets/dee/paid/build33-plan-summary.png'
+import androidHome from '@/assets/dee/paid/android-pixel-8a-home.png'
+import pixelBezel from '@/assets/dee/devices/pixel-8a-back.webp'
+import pixelMask from '@/assets/dee/devices/pixel-8a-mask.webp'
 import roundTimer from '@/assets/dee/paid/build33-round-timer.png'
 import iphoneBezel from '@/assets/dee/devices/iphone-17-pro-max-deep-blue.png'
 import '@/styles/dee.css'
@@ -88,13 +90,16 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         <div class="product-panel" aria-label="Dee app interface">
           <div class="glow glow-one"></div>
           <div class="glow glow-two"></div>
-          <figure class="phone phone-summary">
-            <Image class="phone-screen" src={planSummary} alt="Dee personalised session summary" loading="eager" />
-            <Image class="phone-bezel" src={iphoneBezel} alt="" width={588} loading="eager" />
+          <figure class="phone phone-summary phone-android">
+            <Image class="phone-bezel" src={pixelBezel} alt="" width={600} loading="eager" />
+            <Image class="android-screen" src={androidHome} alt="Dee on Android: weekly training plan and start-session button" loading="eager" />
+            <Image class="android-mask" src={pixelMask} alt="" width={540} loading="eager" />
+            <figcaption>Android</figcaption>
           </figure>
           <figure class="phone phone-round">
-            <Image class="phone-screen" src={roundTimer} alt="Dee guided round timer" loading="eager" />
+            <Image class="phone-screen" src={roundTimer} alt="Dee on iPhone: guided round timer" loading="eager" />
             <Image class="phone-bezel" src={iphoneBezel} alt="" width={588} loading="eager" />
+            <figcaption>iPhone</figcaption>
           </figure>
         </div>
       </section>
@@ -107,7 +112,7 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         <a href="/TermsAndConditions/">Terms</a>
       </nav>
       <p>Dee provides general sport and fitness information, not medical advice.</p>
-      <p class="store-credits">Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+      <p class="store-credits">Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries. Android, Google Pixel, Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </footer>
 
     <style>
@@ -304,6 +309,34 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         width: 100%;
         height: auto;
         pointer-events: none;
+      }
+
+      .phone-android {
+        aspect-ratio: 1198 / 2539;
+      }
+
+      /* Android Studio's Pixel 8a layout: 1080 × 2400 display at (57, 57). */
+      .android-screen,
+      .android-mask {
+        position: absolute;
+        left: 4.7579298831%;
+        top: 2.2449783379%;
+        width: 90.1502504174%;
+        height: 94.5254037022%;
+      }
+
+      .android-screen { border-radius: 7% / 3.15%; }
+      .android-mask { pointer-events: none; }
+
+      .phone figcaption {
+        position: absolute;
+        top: calc(100% + 8px);
+        width: 100%;
+        color: rgba(241, 244, 248, .7);
+        font-size: .7rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-align: center;
       }
 
       .phone-summary {
