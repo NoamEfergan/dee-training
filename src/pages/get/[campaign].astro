@@ -5,7 +5,6 @@ import SiteHead from '@/components/SiteHead.astro'
 import appIcon from '@/assets/dee/app-icon.png'
 import androidHome from '@/assets/dee/paid/android-pixel-8a-home.png'
 import pixelBezel from '@/assets/dee/devices/pixel-8a-back.webp'
-import pixelMask from '@/assets/dee/devices/pixel-8a-mask.webp'
 import roundTimer from '@/assets/dee/paid/build33-round-timer.png'
 import iphoneBezel from '@/assets/dee/devices/iphone-17-pro-max-deep-blue.png'
 import '@/styles/dee.css'
@@ -93,7 +92,6 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
           <figure class="phone phone-summary phone-android">
             <Image class="phone-bezel" src={pixelBezel} alt="" width={600} loading="eager" />
             <Image class="android-screen" src={androidHome} alt="Dee on Android: weekly training plan and start-session button" loading="eager" />
-            <Image class="android-mask" src={pixelMask} alt="" width={540} loading="eager" />
             <figcaption>Android</figcaption>
           </figure>
           <figure class="phone phone-round">
@@ -316,8 +314,7 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
       }
 
       /* Android Studio's Pixel 8a layout: 1080 × 2400 display at (57, 57). */
-      .android-screen,
-      .android-mask {
+      .android-screen {
         position: absolute;
         left: 4.7579298831%;
         top: 2.2449783379%;
@@ -325,8 +322,9 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         height: 94.5254037022%;
       }
 
-      /* The official mask supplies the exact corners; an extra radius exposes gaps. */
-      .android-mask { pointer-events: none; }
+      /* The frame already includes the glass edge, rounded corners and camera.
+         Keep it above the screenshot; adding the emulator mask creates a second edge. */
+      .phone-android .phone-bezel { z-index: 1; }
 
       .phone figcaption {
         position: absolute;
