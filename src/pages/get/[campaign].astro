@@ -18,11 +18,11 @@ export function getStaticPaths() {
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
     meta_heard: {
-      hook: 'Hear every drill. Keep your hands moving.',
+      hook: 'Hear every drill.',
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_heard&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
     meta_audio_round_v1: {
-      hook: 'Hear every drill. Keep your hands moving.',
+      hook: 'Your round has a voice.',
       storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_audio_round_v1&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
     },
   } as const
@@ -59,22 +59,14 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
       <section class="campaign-shell" aria-labelledby="campaign-title">
         <div class="copy-panel">
           <a class="brand-lockup" href="/" aria-label="Dee home">
-            <Image src={appIcon} alt="" width={52} height={52} loading="eager" />
+            <Image src={appIcon} alt="" width={40} height={40} loading="eager" />
             <span>DEE</span>
           </a>
 
           <div class="copy-stack">
-            <p class="eyebrow">Muay Thai · Your session, built around you</p>
+            <p class="eyebrow">Your solo Muay Thai coach</p>
             <h1 id="campaign-title">{hook}</h1>
-            <p class="proof-copy">
-              Dee builds a training plan around your goals, level, weekly schedule and available equipment, then calls out drills and round transitions with spoken cues, bells and haptics.
-            </p>
-            <p class="proof-copy">
-              On iPhone with iOS 26 or later, new eligible users get one full workout free.
-              More workouts require a subscription; no subscription starts automatically.
-              Saving a finish, including an early finish, uses the free workout.
-              Existing users keep their current access arrangements.
-            </p>
+            <p class="proof-copy">Personalised Muay Thai workouts, with spoken drills and round cues.</p>
 
             <div class="actions">
               <a class="store-cta" href={storeURL} aria-label="Get Dee on the App Store">
@@ -83,14 +75,12 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
               <a class="store-cta" href={deeAvailability.googlePlayURL} aria-label="Get Dee on Google Play">
                 <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
               </a>
-              <span class="release-note">Available on iOS and Android · Real Dee interface</span>
             </div>
-          </div>
-
-          <div class="evidence-strip" aria-label="Dee product features">
-            <span>Personalised plan</span>
-            <span>Spoken cues</span>
-            <span>Round timer</span>
+            <p class="offer-note">One free workout for new eligible iPhone users (iOS 26+). More workouts require a subscription.</p>
+            <details class="offer-details">
+              <summary>How the free workout works</summary>
+              <p>No subscription starts automatically. Saving a finish, including an early finish, uses the free workout. Existing users keep their current access arrangements.</p>
+            </details>
           </div>
         </div>
 
@@ -142,14 +132,14 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         display: grid;
         min-height: calc(100vh - 88px);
         place-items: center;
-        padding: clamp(20px, 4vw, 58px);
+        padding: clamp(20px, 3vw, 40px);
       }
 
       .campaign-shell {
         position: relative;
         display: grid;
         width: min(1180px, 100%);
-        min-height: min(760px, calc(100vh - 116px));
+        min-height: min(660px, calc(100svh - 112px));
         grid-template-columns: minmax(0, 1.06fr) minmax(360px, .94fr);
         overflow: hidden;
         border: 1px solid rgba(241, 244, 248, .17);
@@ -172,8 +162,8 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         display: flex;
         min-width: 0;
         flex-direction: column;
-        justify-content: space-between;
-        padding: clamp(28px, 6vw, 76px);
+        justify-content: center;
+        padding: clamp(24px, 3.4vw, 48px);
       }
 
       .brand-lockup {
@@ -193,11 +183,11 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
       }
 
       .copy-stack {
-        margin-block: clamp(58px, 9vh, 98px) clamp(42px, 7vh, 78px);
+        margin-top: 28px;
       }
 
       .eyebrow {
-        margin: 0 0 18px;
+        margin: 0 0 12px;
         color: #82e1ee;
         font-size: .78rem;
         font-weight: 600;
@@ -206,18 +196,18 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
       }
 
       h1 {
-        max-width: 10.5ch;
+        max-width: 12ch;
         margin: 0;
-        font: 900 clamp(4rem, 7vw, 7rem)/.82 'Barlow Condensed', sans-serif;
+        font: 900 clamp(3rem, 5.4vw, 5rem)/.9 'Barlow Condensed', sans-serif;
         letter-spacing: -.028em;
         text-transform: uppercase;
       }
 
       .proof-copy {
         max-width: 39rem;
-        margin: 30px 0 0;
+        margin: 18px 0 0;
         color: rgba(241, 244, 248, .76);
-        font-size: clamp(1.03rem, 1.5vw, 1.18rem);
+        font-size: 1rem;
         line-height: 1.55;
       }
 
@@ -225,8 +215,8 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 16px 22px;
-        margin-top: 34px;
+        gap: 16px;
+        margin-top: 24px;
       }
 
       .store-cta {
@@ -246,25 +236,19 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         outline-offset: 5px;
       }
 
-      .release-note {
-        flex-basis: 100%;
-        color: rgba(241, 244, 248, .56);
-        font-size: .78rem;
-        letter-spacing: .04em;
+      .offer-note,
+      .offer-details {
+        max-width: 35rem;
+        color: rgba(241, 244, 248, .7);
+        font-size: .8rem;
+        line-height: 1.5;
       }
 
-      .evidence-strip {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 28px;
-        padding-top: 22px;
-        border-top: 1px solid rgba(241, 244, 248, .13);
-        color: rgba(241, 244, 248, .58);
-        font-size: .75rem;
-        font-weight: 600;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-      }
+      .offer-note { margin: 16px 0 0; }
+      .offer-details { margin-top: 8px; }
+      .offer-details summary { width: fit-content; cursor: pointer; }
+      .offer-details summary:focus-visible { outline: 2px solid #82e1ee; outline-offset: 4px; }
+      .offer-details p { margin: 8px 0 0; }
 
       .product-panel {
         position: relative;
@@ -316,15 +300,15 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
 
       .phone-summary {
         z-index: 2;
-        width: min(54%, 282px);
-        top: 11%;
+        width: min(44%, 220px, 30vh);
+        top: 7%;
         left: 8%;
         transform: rotate(-6deg);
       }
 
       .phone-round {
         z-index: 3;
-        width: min(58%, 304px);
+        width: min(48%, 240px, 33vh);
         right: 6%;
         bottom: 8%;
         transform: rotate(5deg);
@@ -405,23 +389,21 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         .campaign-shell::before { right: 0; }
 
         .copy-panel {
-          padding: 24px 22px 36px;
+          padding: 22px 22px 28px;
         }
 
         .copy-stack {
-          margin-block: 64px 38px;
+          margin-top: 24px;
         }
 
         h1 {
-          max-width: 9.5ch;
-          font-size: clamp(3.75rem, 17vw, 6rem);
+          max-width: 12ch;
+          font-size: clamp(2.75rem, 12vw, 4.25rem);
         }
 
-        .proof-copy { margin-top: 24px; }
+        .proof-copy { margin-top: 16px; }
 
-        .evidence-strip {
-          gap: 10px 18px;
-        }
+        .store-cta img { height: 44px; }
 
         .product-panel {
           min-height: 580px;
@@ -455,6 +437,10 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
           grid-column: 1 / -1;
           text-align: left;
         }
+      }
+
+      @media (max-width: 359px) {
+        .store-cta img { height: 40px; }
       }
 
       @media (max-width: 390px) {
