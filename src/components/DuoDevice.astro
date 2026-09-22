@@ -7,8 +7,13 @@
   .duo-device__screen {
     position: absolute;
     /* Transparent display opening in Apple's unmodified 2194 × 1574 frame. */
-    left: 3.646%; top: 5.591%; width: 92.707%; height: 88.819%;
-    overflow: hidden; border-radius: 3%; background: #0d1219;
+    left: calc(100% * 80 / 2194); top: calc(100% * 88 / 1574);
+    width: calc(100% * 2034 / 2194); height: calc(100% * 1398 / 1574);
+    /* The top and bottom corners differ. Follow the actual display aperture,
+       with a small underlap beneath the bezel to cover antialiased edges. */
+    -webkit-mask: url('/press/duo/outer-display-mask.svg') center / 100% 100% no-repeat;
+    mask: url('/press/duo/outer-display-mask.svg') center / 100% 100% no-repeat;
+    overflow: hidden; background: #0d1219;
   }
   .duo-device__screen :global(img), .duo-device__screen :global(video) { display: block; width: 100%; height: 100%; object-fit: fill; }
   .duo-device__bezel { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
