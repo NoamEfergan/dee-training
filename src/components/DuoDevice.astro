@@ -1,0 +1,15 @@
+<div class="duo-device">
+  <div class="duo-device__screen"><slot /></div>
+  <img class="duo-device__bezel" src="/press/duo/iphone-duo-outer-landscape.png" width="2194" height="1574" alt="" aria-hidden="true" />
+</div>
+<style>
+  .duo-device { position: relative; width: 100%; aspect-ratio: 2194 / 1574; isolation: isolate; filter: drop-shadow(0 20px 24px #0d121924); }
+  .duo-device__screen {
+    position: absolute;
+    /* Transparent display opening in Apple's unmodified 2194 × 1574 frame. */
+    left: 3.646%; top: 5.591%; width: 92.707%; height: 88.819%;
+    overflow: hidden; border-radius: 3%; background: #0d1219;
+  }
+  .duo-device__screen :global(img), .duo-device__screen :global(video) { display: block; width: 100%; height: 100%; object-fit: fill; }
+  .duo-device__bezel { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+</style>

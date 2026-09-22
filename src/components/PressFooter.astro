@@ -1,0 +1,12 @@
+---
+import press from '@/content/press.json'
+---
+<footer class="press-footer"><div class="wrap">
+  <a class="press-brand" href="/">DEE</a>
+  <p>Muay Thai, in your corner.<br /><a href={`mailto:${press.contact}`}>{press.contact}</a></p>
+  <nav aria-label="Footer">
+    <a href="/">Home</a>
+    <a href="/press/" aria-current={Astro.url.pathname.replace(/\/$/, '') === '/press' ? 'page' : undefined}>Press</a>
+    <a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a>
+  </nav>
+</div></footer>
