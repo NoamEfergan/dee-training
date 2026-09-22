@@ -1,6 +1,11 @@
-<div class="duo-device">
+---
+interface Props { display?: 'outer' | 'inner' }
+const { display = 'outer' } = Astro.props
+const inner = display === 'inner'
+---
+<div class:list={['duo-device', { 'duo-device--inner': inner }]}>
   <div class="duo-device__screen"><slot /></div>
-  <img class="duo-device__bezel" src="/press/duo/iphone-duo-outer-landscape.png" width="2194" height="1574" alt="" aria-hidden="true" />
+  <img class="duo-device__bezel" src={inner ? '/press/duo/iphone-duo-inner-landscape.png' : '/press/duo/iphone-duo-outer-landscape.png'} width={inner ? 3093 : 2194} height={inner ? 2247 : 1574} loading={inner ? 'lazy' : 'eager'} alt="" aria-hidden="true" />
 </div>
 <style>
   .duo-device { position: relative; width: 100%; aspect-ratio: 2194 / 1574; isolation: isolate; filter: drop-shadow(0 20px 24px #0d121924); }
@@ -16,5 +21,12 @@
     overflow: hidden; background: #0d1219;
   }
   .duo-device__screen :global(img), .duo-device__screen :global(video) { display: block; width: 100%; height: 100%; object-fit: fill; }
+  .duo-device--inner { aspect-ratio: 3093 / 2247; }
+  .duo-device--inner .duo-device__screen {
+    left: calc(100% * 120 / 3093); top: calc(100% * 120 / 2247);
+    width: calc(100% * 2853 / 3093); height: calc(100% * 2007 / 2247);
+    -webkit-mask-image: url('/press/duo/inner-display-mask.svg');
+    mask-image: url('/press/duo/inner-display-mask.svg');
+  }
   .duo-device__bezel { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 </style>

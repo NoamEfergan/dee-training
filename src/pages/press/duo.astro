@@ -10,7 +10,7 @@ import '@/styles/press.css'
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <SiteHead exactTitle="Dee on iPhone Duo — beside the mat" description="Your Muay Thai corner beside the mat. A landscape workout preview for Duo’s outer display, with a live simulator demo." image={{src:'/press/duo/round-timer.jpg',alt:'Dee’s landscape workout on Duo’s outer display'}} />
+  <SiteHead exactTitle="Dee on iPhone Duo — beside the mat" description="Your Muay Thai corner on iPhone Duo. Explore your plan on the open display, then follow your rounds beside the mat." image={{src:'/press/duo/social-preview-v2.png',alt:'Dee on iPhone Duo: Your corner. Beside the mat. Training overview and workout shown in Apple’s official device frames.',width:1200,height:630,type:'image/png'}} />
   <link rel="preload" href="/fonts/barlow-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/barlow-condensed-black.woff2" as="font" type="font/woff2" crossorigin />
 </head>
@@ -23,7 +23,7 @@ import '@/styles/press.css'
       <p class="eyebrow">iPhone Duo / Workout preview</p>
       <h1 id="duo-title">Your corner.<br /><em>Beside<br />the mat.</em></h1>
       <p class="intro">Prop up Duo. See your round, follow your next drill, and keep your hands free to train.</p>
-      <div class="action-row"><a class="press-button" href="#live">Watch the workout <span aria-hidden="true">↓</span></a><a class="text-link" href="/press/">Full Dee press kit ↗</a></div>
+      <div class="action-row"><a class="press-button" href="#live">Watch the workout <span aria-hidden="true">↓</span></a><a class="text-link" href="#open">See Duo open ↓</a><a class="text-link" href="/press/">Full Dee press kit ↗</a></div>
       <p class="micro">Dee 1.0.12 · release preview<br />Captured in the iOS 27.1 simulator.</p>
     </div>
     <figure>
@@ -63,6 +63,28 @@ import '@/styles/press.css'
       </figure>
     </div>
   </section>
+  <section class="wrap section duo-open" id="open" aria-labelledby="open-title">
+    <div class="section-heading">
+      <p class="eyebrow">Duo / Fully open</p>
+      <h2 id="open-title">Open up.<br /><em>Make it your plan.</em></h2>
+      <p class="intro">See your week’s sessions together, then shape your training around the time you have. Here’s Dee on Duo’s larger inner display.</p>
+    </div>
+    <div class="duo-open-grid">
+      <figure>
+        <a class="duo-capture-link" href="/press/duo/home-opened.png" aria-label="View the full-resolution training overview on open Duo">
+          <DuoDevice display="inner"><img src="/press/duo/home-opened.png" width="2853" height="2007" loading="lazy" alt="Dee on the open Duo: this week’s training sessions in a two-column overview, with the next session ready to start" /></DuoDevice>
+        </a>
+        <figcaption><span class="eyebrow">01 / Your training week</span><h3>Find your next round.</h3><p>Browse this week’s sessions and start the next workout from your home screen.</p></figcaption>
+      </figure>
+      <figure>
+        <a class="duo-capture-link" href="/press/duo/plan-opened.png" aria-label="View the full-resolution plan editor on open Duo">
+          <DuoDevice display="inner"><img src="/press/duo/plan-opened.png" width="2853" height="2007" loading="lazy" alt="Dee’s Tweak your plan sheet on the open Duo, with four weekly sessions selected and the training plan visible behind it" /></DuoDevice>
+        </a>
+        <figcaption><span class="eyebrow">02 / Your own rhythm</span><h3>Make room for training.</h3><p>Adjust your weekly schedule in a focused sheet, with your plan still in view.</p></figcaption>
+      </figure>
+    </div>
+    <p class="micro duo-open-note">Actual app captures from the iOS 27.1 simulator, with sample training data. Shown in Apple’s official fully open Duo frame. Select a screen to view the original capture.</p>
+  </section>
   <section class="wrap section duo-review" aria-labelledby="review-title">
     <div>
       <p class="eyebrow">Take it for a round</p>
@@ -96,6 +118,14 @@ import '@/styles/press.css'
   .duo-demo h2 { font-size: clamp(48px, 4.8vw, 64px); }
   .duo-demo .duo-caption { color: #b4c2d1; }
   .duo-demo .text-link { color: #63d7df; }
+  .duo-open { border-bottom: 1px solid var(--dee-line); }
+  .duo-open-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px; }
+  .duo-capture-link { display: block; cursor: zoom-in; }
+  .duo-open-grid figcaption { padding-top: 30px; }
+  .duo-open-grid .eyebrow { display: block; color: var(--dee-teal-dark); margin-bottom: 12px; }
+  .duo-open-grid h3 { margin-bottom: 12px; }
+  .duo-open-grid p { font-size: 17px; color: var(--dee-muted); max-width: 45ch; }
+  .duo-open-note { margin-top: 24px !important; max-width: 80ch; }
   .duo-review { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: start; }
   .duo-review h2 { font-size: clamp(48px, 5.5vw, 72px); margin: 18px 0 24px; }
   .duo-notes { border-top: 2px solid var(--dee-ink); padding-top: 23px; }
@@ -111,7 +141,7 @@ import '@/styles/press.css'
     .duo-hero h1 { font-size: clamp(58px, 16vw, 82px); }
     .duo-art { height: auto; min-height: 300px; padding: 55px 10px; }
     .duo-benefits { padding-bottom: 55px; }
-    .duo-demo-grid, .duo-review { grid-template-columns: 1fr; gap: 35px; }
+    .duo-demo-grid, .duo-review, .duo-open-grid { grid-template-columns: 1fr; gap: 35px; }
     .duo-demo h2 { font-size: 52px; }
     .duo-demo .intro { max-width: 35ch; }
   }
