@@ -20,8 +20,8 @@ for (const path of pages) {
 }
 for (const locale of ['', 'es', 'fr', 'de', 'nl', 'pt-br', 'he']) {
   const html = readFileSync(join(root, locale, 'index.html'), 'utf8')
-  assert.equal((html.match(/href="https:\/\/play.google.com\/store\/apps\/details\?id=dev.nowham.dee"/g) || []).length, 2)
-  assert.equal((html.match(/href="https:\/\/apps.apple.com\/app\/id6788483296"/g) || []).length, 2)
+  assert.equal((html.match(/href="https:\/\/play.google.com\/store\/apps\/details\?id=dev.nowham.dee"/g) || []).length, 3)
+  assert.equal((html.match(/href="https:\/\/apps.apple.com\/app\/id6788483296"/g) || []).length, 3)
   for (const key of ['name="description"', 'property="og:description"', 'name="twitter:description"']) {
     assert(new RegExp(key + ' content="[^"]*Android').test(html), `${locale}: ${key} missing Android`)
   }
