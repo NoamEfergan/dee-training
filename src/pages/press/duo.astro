@@ -85,6 +85,22 @@ import '@/styles/press.css'
     </div>
     <p class="micro duo-open-note">Actual app captures from the iOS 27.1 simulator, with sample training data. Shown in Apple’s official fully open Duo frame. Select a screen to view the original capture.</p>
   </section>
+  <section class="wrap section duo-concept" id="concept" aria-labelledby="concept-title">
+    <div class="section-heading">
+      <p class="eyebrow">Duo / Form factor study</p>
+      <h2 id="concept-title">One workout.<br /><em>Every posture.</em></h2>
+      <p class="intro">A short film showing your plan on Duo’s open and closed displays, then exploring a workout view you could read from across the room.</p>
+      <p class="micro">21 seconds · 1920 × 1080 · music</p>
+    </div>
+    <figure>
+      <video class="duo-concept-video" controls playsinline preload="none" poster="/press/duo/form-factor-concept.jpg" aria-label="Dee for Duo form factor design concept: open plan, closed plan, and tent workout">
+        <source src="/press/duo/form-factor-concept.mp4" type="video/mp4" />
+        <p><a href="/press/duo/form-factor-concept.mp4">Download the form factor concept video</a></p>
+      </video>
+      <figcaption class="duo-caption">The open and closed screens use iOS 27.1 simulator captures. The tent workout view and angled device presentation are a design concept, not footage of a released feature or physical Duo.</figcaption>
+    </figure>
+    <a class="text-link" href="/press/duo/form-factor-concept.mp4" download>Download the concept MP4 ↓</a>
+  </section>
   <section class="wrap section duo-review" aria-labelledby="review-title">
     <div>
       <p class="eyebrow">Take it for a round</p>
@@ -126,6 +142,11 @@ import '@/styles/press.css'
   .duo-open-grid h3 { margin-bottom: 12px; }
   .duo-open-grid p { font-size: 17px; color: var(--dee-muted); max-width: 45ch; }
   .duo-open-note { margin-top: 24px !important; max-width: 80ch; }
+  .duo-concept { border-bottom: 1px solid var(--dee-line); }
+  .duo-concept .section-heading { max-width: 760px; }
+  .duo-concept-video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #101820; border-radius: 18px; }
+  .duo-concept .duo-caption { max-width: 90ch; }
+  .duo-concept > .text-link { display: inline-block; margin-top: 22px; }
   .duo-review { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: start; }
   .duo-review h2 { font-size: clamp(48px, 5.5vw, 72px); margin: 18px 0 24px; }
   .duo-notes { border-top: 2px solid var(--dee-ink); padding-top: 23px; }
