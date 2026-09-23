@@ -24,15 +24,15 @@ import '@/styles/press.css'
       <h1 id="duo-title">Your corner.<br /><em>Beside<br />the mat.</em></h1>
       <p class="intro">Prop up Duo. See your round, follow your next drill, and keep your hands free to train.</p>
       <div class="action-row"><a class="press-button" href="#live">Watch the workout <span aria-hidden="true">↓</span></a><a class="text-link" href="#open">See Duo open ↓</a><a class="text-link" href="/press/">Full Dee press kit ↗</a></div>
-      <p class="micro">Dee 1.0.12 · release preview<br />Captured in the iOS 27.1 simulator.</p>
+      <p class="micro">Dee 1.0.12 · release preview<br />Working-app demo captured in the iOS 27.1 simulator below.</p>
     </div>
     <figure>
       <div class="hero-art duo-art">
         <span class="art-label">BUILT FOR THE ROUND</span>
-        <DuoDevice><img src="/press/duo/round-timer.jpg" width="2034" height="1398" fetchpriority="high" alt="Dee’s landscape workout: 02:45 remaining, shadowboxing, next rest, and pause controls" /></DuoDevice>
-        <span class="art-foot">iPhone Duo / Outer display</span>
+        <img class="duo-tent-hero" src="/press/duo/tent-hero-concept.png" width="1920" height="1080" fetchpriority="high" alt="Concept render of iPhone Duo propped in a tent pose, showing Dee’s large 02:45 workout timer, shadowboxing drill, next rest, and controls" />
+        <span class="art-foot">iPhone Duo / Tent pose concept</span>
       </div>
-      <figcaption class="duo-caption">Actual Dee capture in Apple’s official frame. Front view; the tent angle is not shown.</figcaption>
+      <figcaption class="duo-caption">Tent pose and distance-view workout concept rendered in Matte. See the working simulator capture below.</figcaption>
     </figure>
   </section>
   <section class="wrap duo-benefits" aria-label="Workout benefits">
@@ -123,8 +123,9 @@ import '@/styles/press.css'
   .duo-hero { grid-template-columns: .92fr 1.08fr; gap: 54px; }
   .duo-hero h1 { font-size: clamp(76px, 7.7vw, 106px); }
   .duo-hero .intro { max-width: 33ch; }
-  .duo-art { height: 510px; padding: 30px 14px; }
-  .duo-art :global(.duo-device) { position: relative; z-index: 1; }
+  .duo-art { height: 510px; padding: 30px 14px; background: #e7f1f7; isolation: isolate; }
+  .duo-tent-hero { position: absolute; left: 50%; top: 50%; width: 145%; max-width: none !important; height: auto; transform: translate(-50%, -50%); mix-blend-mode: multiply; z-index: 1; }
+  .duo-art .art-label, .duo-art .art-foot { z-index: 2; }
   .duo-caption { margin-top: 17px; color: var(--dee-muted); font-size: 13px; line-height: 1.55; max-width: 580px; }
   .duo-benefits { padding-bottom: 80px; }
   .duo-benefits h2 { font-size: 35px; font-weight: 700; margin: 0 0 18px; }
