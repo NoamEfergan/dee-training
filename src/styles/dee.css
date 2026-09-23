@@ -252,8 +252,7 @@ a {
   text-transform: uppercase;
 }
 
-.status > span,
-.availability > span {
+.status > span {
   width: 8px;
   height: 8px;
   flex: 0 0 auto;
