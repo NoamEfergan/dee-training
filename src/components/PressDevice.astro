@@ -1,0 +1,24 @@
+---
+import iphoneBezel from '@/assets/dee/devices/iphone-17-pro-max-deep-blue.png'
+
+type Kind = 'iphone' | 'ipad' | 'watch' | 'android'
+
+interface Props {
+  src: string
+  alt: string
+  kind: Kind
+  width: number
+  height: number
+  loading?: 'eager' | 'lazy'
+  class?: string
+}
+
+const {src, alt, kind, width, height, loading = 'lazy', class: className = ''} = Astro.props
+const artwork = kind === 'iphone' ? iphoneBezel : null
+const ratio = (width + 24) / (height + 36)
+---
+<span class={`press-device press-device--${kind} ${className}`} style={kind === 'android' ? `aspect-ratio: ${ratio}` : undefined}>
+  <img class="press-device__screen" src={src} alt={alt} width={width} height={height} loading={loading} />
+  {artwork && <img class="press-device__artwork" src={artwork.src} alt="" aria-hidden="true" loading={loading} />}
+  {kind === 'watch' && <span class="press-device__crown" aria-hidden="true"></span>}
+</span>

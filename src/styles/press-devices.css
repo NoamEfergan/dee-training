@@ -1,0 +1,50 @@
+.press-device{position:relative;display:block;flex:none;max-width:100%;isolation:isolate}
+.press-device__screen,.press-device__artwork{position:absolute;display:block;margin:0;max-width:none!important}
+.press-device__screen{object-fit:fill}
+.press-device__artwork{inset:0;width:100%;height:100%!important;z-index:1;pointer-events:none}
+
+/* The screen openings are measured from the original device artwork. */
+.press-device--iphone{aspect-ratio:1470/3000}
+.press-device--iphone .press-device__screen{left:5.1020408163%;top:2.2%;width:89.7959183673%;height:95.6%!important;border-radius:14%/6.5%;overflow:hidden}
+
+/* The original Watch and 9:16 Android captures have no licensed model artwork. */
+.press-device--watch{aspect-ratio:0.82;padding:5.5% 6.7%;border-radius:24%/20%;background:linear-gradient(130deg,#717c87 0%,#1d242d 17%,#090d12 68%,#6f7881 100%);box-shadow:inset 0 0 0 2px #939ba3,inset 0 0 0 5px #10151a}
+.press-device--watch::before{content:"";position:absolute;inset:2.5%;border-radius:23%/19%;background:#050708;box-shadow:inset 0 0 0 2px #343b43}
+.press-device--watch .press-device__screen{position:relative;width:100%;height:100%!important;border-radius:20%/16%;overflow:hidden}
+.press-device__crown{position:absolute;right:-3.2%;top:26%;width:4%;height:13%;border-radius:2px 4px 4px 2px;background:linear-gradient(90deg,#3c4650,#9aa4ad,#303941);box-shadow:0 1px 3px #080b0f66}
+.press-device--android{padding:4% 3%;border:2px solid #5a6269;border-radius:11%/5.5%;background:#15191e;box-shadow:inset 0 0 0 3px #2c333b}
+.press-device--android .press-device__screen{position:relative;width:100%;height:100%!important;border-radius:7%/3.5%;overflow:hidden}
+.press-device--android::after{content:"";position:absolute;top:1.6%;left:50%;width:12%;height:2px;transform:translateX(-50%);border-radius:2px;background:#454e58}
+.press-device--ipad{aspect-ratio:2136/2824;padding:1.7%;border:2px solid #56616e;border-radius:5%/3.8%;background:linear-gradient(135deg,#78828d,#13191f 12%,#11161b 88%,#68737d);box-shadow:inset 0 0 0 3px #111820}
+.press-device--ipad .press-device__screen{position:relative;width:100%;height:100%!important;border-radius:3.5%/2.6%;overflow:hidden}
+.press-device--ipad::after{content:"";position:absolute;top:.55%;left:50%;width:5px;height:5px;transform:translateX(-50%);border-radius:50%;background:#06090d}
+
+/* Keep the page's existing layouts while giving every preview a complete frame. */
+.hero-art .hero-phone{width:232px;margin-right:72px;border:0;border-radius:0;box-shadow:none;transform:rotate(-5deg)}
+.hero-watch .press-device{width:100%;margin:0}
+.hero-watch .press-device__crown{margin:0}
+.hero-watch > span:last-child{display:block;margin-top:15px;font-size:11px;font-weight:700;letter-spacing:.13em;text-align:center}
+.watch-pair figure{flex:1;min-width:0}
+.watch-pair .press-device{width:100%;max-width:225px;margin-inline:auto}
+.watch-pair .press-device img,.hero-watch .press-device img{border:0;border-radius:inherit;box-shadow:none}
+.android-grid .press-device{height:620px;width:auto;margin:auto}
+.android-grid .press-device img{max-height:none;width:100%;margin:0;border-radius:inherit;box-shadow:none}
+.asset-image .press-device{height:100%;width:auto}
+.asset-image .press-device img{max-height:none;max-width:none;width:100%}
+.asset-image .press-device__screen{width:89.7959183673%}
+.asset-image .press-device--watch .press-device__screen,.asset-image .press-device--android .press-device__screen,.asset-image .press-device--ipad .press-device__screen{width:100%}
+.locale-grid a{display:flex;justify-content:center;align-items:center}
+.locale-grid .press-device{height:310px;width:auto}
+.locale-grid .press-device img{max-height:none;width:100%}
+.locale-grid .press-device__screen{width:89.7959183673%}
+
+@media(max-width:1000px){
+  .hero-art .hero-phone{width:205px;margin-right:45px}
+}
+@media(max-width:700px){
+  .hero-art .hero-phone{width:195px;margin-right:90px}
+  .hero-watch{width:118px;right:15px;bottom:74px}
+  .hero-watch > span:last-child{display:none}
+  .android-grid .press-device{height:480px}
+  .locale-grid .press-device{height:300px}
+}
