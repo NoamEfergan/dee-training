@@ -7,11 +7,20 @@ const audioContext = pageContext('https://dee.training/get/meta_audio_round_v1/?
 assert.equal(audioContext.campaign, 'meta_audio_round_v1');
 assert.equal(audioContext.url, 'https://dee.training/get/meta_audio_round_v1/');
 assert.equal(eventPayload(audioContext, 'Dee.Web.StoreClicked', 'page-only-session', 'app_store').events[0].name, 'Dee.Web.QA.Dee.Web.StoreClicked');
+for (const campaign of ['ig_one_round_20260928', 'partner_one_round_20260928']) {
+  const context = pageContext(`https://dee.training/get/${campaign}/?qa=growth&utm_source=private#private`);
+  assert.equal(context.campaign, campaign);
+  assert.equal(context.url, `https://dee.training/get/${campaign}/`);
+  assert.equal(eventPayload(context, 'page_view', 'qa-session').events[0].name, 'Dee.Web.QA.page_view');
+  assert.equal(eventPayload(context, 'Dee.Web.StoreClicked', 'qa-session', 'google_play').events[0].properties.store, 'google_play');
+  assert.ok(!JSON.stringify(eventPayload(context, 'page_view', 'qa-session')).includes('utm_source'));
+}
 assert.equal(pageContext('http://localhost:4331/'), null);
 assert.equal(pageContext('https://dee.training/private-person-name/'), null);
 assert.equal(storeDestination('https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between'), 'app_store');
 assert.equal(storeDestination('https://apps.apple.com/app/id999'), null);
 assert.equal(storeDestination('https://play.google.com/store/apps/details?id=dev.nowham.dee'), 'google_play');
+assert.equal(storeDestination('https://play.google.com/store/apps/details?id=dev.nowham.dee&referrer=utm_source%3Dinstagram%26utm_campaign%3Done_useful_round_20260928'), 'google_play');
 assert.equal(storeDestination('https://evil.example/?id=dev.nowham.dee'), null);
 const payload = eventPayload(context, 'page_view', 'page-only-session');
 assert.ok(!JSON.stringify(payload).includes('private'));

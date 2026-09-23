@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-import { deeAvailability } from '@/content/content'
 import SiteHead from '@/components/SiteHead.astro'
+import { campaignStoreURLs } from '@/lib/campaign-links.mjs'
 import appIcon from '@/assets/dee/app-icon.png'
 import androidHome from '@/assets/dee/paid/android-pixel-8a-home.png'
 import pixelBezel from '@/assets/dee/devices/pixel-8a-back.webp'
@@ -13,34 +13,43 @@ export function getStaticPaths() {
   const pages = {
     meta_guess: {
       hook: 'Still deciding what to train?',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_guess&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_guess',
     },
     meta_between: {
       hook: 'Training between classes?',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_between',
     },
     meta_heard: {
       hook: 'Hear every drill.',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_heard&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_heard',
     },
     meta_audio_round_v1: {
       hook: 'Your round has a voice.',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_audio_round_v1&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_audio_round_v1',
+    },
+    ig_one_round_20260928: {
+      hook: 'One useful round.',
+      source: 'instagram', medium: 'organic_social', campaign: 'one_useful_round_20260928', content: 'reel_bio',
+    },
+    partner_one_round_20260928: {
+      hook: 'One useful round.',
+      source: 'partner_share', medium: 'organic_social', campaign: 'one_useful_round_20260928', content: 'partner_share',
     },
   } as const
 
-  return Object.entries(pages).map(([campaign, props]) => ({
-    params: { campaign },
-    props,
+  return Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
+    params: {campaign: token},
+    props: {hook, ...campaignStoreURLs({token, ...attribution})},
   }))
 }
 
 interface Props {
   hook: string
-  storeURL: string
+  appStoreURL: string
+  googlePlayURL: string
 }
 
-const { hook, storeURL } = Astro.props as Props
+const { hook, appStoreURL, googlePlayURL } = Astro.props as Props
 const description = 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
 ---
 
@@ -71,10 +80,10 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
             <p class="proof-copy">Personalised Muay Thai workouts, with spoken drills and round cues.</p>
 
             <div class="actions">
-              <a class="store-cta" href={storeURL} aria-label="Get Dee on the App Store">
+              <a class="store-cta" href={appStoreURL} aria-label="Get Dee on the App Store">
                 <img src="/badges/app-store.svg" alt="Download on the App Store" width="144" height="48" />
               </a>
-              <a class="store-cta" href={deeAvailability.googlePlayURL} aria-label="Get Dee on Google Play">
+              <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
                 <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
               </a>
             </div>
