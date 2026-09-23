@@ -1535,8 +1535,8 @@ html[dir='rtl'] .corner-mark {
 
 /* Store choices wrap independently at narrow widths and in translated layouts. */
 .download-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.download-actions .primary-cta { max-width: 100%; text-align: center; }
-.hero__actions .availability { min-height: 48px; text-align: center; justify-content: center; }
+.store-badge { display: inline-flex; flex: 0 0 auto; border-radius: 7px; }
+.store-badge img { display: block; width: auto; height: 48px; }
 
 .proof-band--teal { overflow: clip; }
 
