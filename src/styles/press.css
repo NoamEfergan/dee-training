@@ -17,7 +17,7 @@
   backdrop-filter: blur(18px);
 }
 .press-header__actions { display: flex; align-items: center; gap: 24px; }
-.press-page .topbar-download { color: var(--dee-paper); }
+.press-page .topbar-download img { width: auto; height: 40px; max-width: none; }
 .press-contact { font-size: 14px; white-space: nowrap; }
 .press-index { position: relative; top: auto; }
 

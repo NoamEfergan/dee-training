@@ -21,7 +21,10 @@ function headerStoreLinks(html, page) {
   const anchors = [...markedHeaders[0][2].matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)]
     .map(([, attributes, contents]) => {
       const href = /\bhref="([^"]+)"/i.exec(attributes)?.[1]
-      return href ? { url: new URL(href.replaceAll('&amp;', '&'), 'https://dee.training'), label: `${attributes} ${contents}` } : null
+      const imageSources = [...contents.matchAll(/<img\b([^>]*)>/gi)]
+        .map(([, imageAttributes]) => /\bsrc="([^"]+)"/i.exec(imageAttributes)?.[1])
+        .filter(Boolean)
+      return href ? { url: new URL(href.replaceAll('&amp;', '&'), 'https://dee.training'), label: `${attributes} ${contents}`, imageSources } : null
     })
     .filter(Boolean)
 
@@ -29,6 +32,8 @@ function headerStoreLinks(html, page) {
   const play = anchors.filter(({ url }) => url.hostname === 'play.google.com')
   assert.equal(apple.length, 1, `${page}: expected one App Store button in the top bar`)
   assert.equal(play.length, 1, `${page}: expected one Google Play button in the top bar`)
+  assert(apple[0].imageSources.includes('/badges/app-store.svg'), `${page}: App Store top-bar link must contain the official badge image`)
+  assert(play[0].imageSources.includes('/badges/google-play.svg'), `${page}: Google Play top-bar link must contain the official badge image`)
   assert.match(apple[0].label, /App Store/i, `${page}: App Store button needs a readable label`)
   assert.match(play[0].label, /Google Play/i, `${page}: Google Play button needs a readable label`)
   assert.equal(apple[0].url.protocol, 'https:', `${page}: App Store link must use HTTPS`)
@@ -62,6 +67,9 @@ function checkCampaignAttribution(page, apple, play) {
 
 const pages = htmlFiles(dist)
 assert(pages.length > 0, 'No rendered HTML pages found; build the site first')
+for (const badge of ['app-store.svg', 'google-play.svg']) {
+  assert(statSync(join(dist, 'badges', badge)).isFile(), `Missing built store badge: ${badge}`)
+}
 const redirectPages = new Set(['PrivacyPolicy/index.html', 'TermsAndConditions/index.html'])
 let redirects = 0
 for (const path of pages) {
@@ -76,4 +84,4 @@ for (const path of pages) {
   checkCampaignAttribution(page, apple, play)
 }
 
-console.log(`Passed: both labelled store buttons appear in the top bar on all ${pages.length - redirects} content pages; ${redirects} redirects skipped; campaign routes retain attribution.`)
+console.log(`Passed: both official store badge images appear in the top-bar links on all ${pages.length - redirects} content pages; ${redirects} redirects skipped; campaign routes retain attribution.`)

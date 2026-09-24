@@ -1522,23 +1522,12 @@ html[dir='rtl'] .corner-mark {
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  border: 1px solid var(--dee-ink);
-  border-radius: 3px;
-  background: var(--dee-ink);
-  padding: 0 11px;
-  color: var(--dee-paper);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .015em;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 160ms ease, border-color 160ms ease;
+  flex: 0 0 auto;
+  border-radius: 7px;
 }
-.topbar-download:hover { border-color: var(--dee-teal-dark); background: var(--dee-teal-dark); }
+.topbar-download img { display: block; width: auto; height: 40px; max-width: none; }
+.topbar-download:hover { filter: brightness(1.12); }
 .topbar-download:focus-visible { outline: 3px solid var(--dee-teal); outline-offset: 3px; }
-.topbar-download span { font-size: 15px; line-height: 1; }
 
 @media (max-width: 760px) {
   html { scroll-padding-top: 126px; }
