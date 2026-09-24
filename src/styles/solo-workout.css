@@ -8,10 +8,12 @@
 }
 
 .guide-header {
-  position: relative;
-  z-index: 4;
+  position: sticky;
+  z-index: 50;
+  top: 0;
   border-bottom: 1px solid rgba(13, 18, 25, .13);
-  background: #f1f4f8;
+  background: rgba(241, 244, 248, .96);
+  backdrop-filter: blur(18px);
 }
 
 .guide-header__inner {
@@ -470,11 +472,11 @@
   .guide-shell,
   .guide-header__inner { width: min(600px, calc(100% - 32px)); }
 
-  .guide-header__inner { min-height: 66px; }
+  .guide-header__inner { min-height: 0; flex-wrap: wrap; gap: 6px; padding-block: 8px 10px; }
   .guide-brand { font-size: 1.35rem; }
   .guide-brand img { width: 38px; height: 38px; }
-  .guide-header nav { gap: 14px; }
-  .guide-header nav a { font-size: .71rem; }
+  .guide-header nav { display: none; }
+  .guide-header .topbar-downloads { width: 100%; justify-content: center; }
 
   .guide-hero__grid,
   .guide-setup { grid-template-columns: 1fr; }
@@ -506,7 +508,6 @@
 }
 
 @media (max-width: 390px) {
-  .guide-header nav a:first-child { display: none; }
   .guide-hero h1 { font-size: 3.3rem; text-wrap: normal; }
   .guide-hero__actions { align-items: flex-start; flex-direction: column; gap: 12px; }
   .guide-round__top span:last-child { display: none; }

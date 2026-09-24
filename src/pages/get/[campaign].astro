@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
 import { campaignStoreURLs } from '@/lib/campaign-links.mjs'
 import appIcon from '@/assets/dee/app-icon.png'
 import androidHome from '@/assets/dee/paid/android-pixel-8a-home.png'
@@ -57,15 +58,14 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <header class="campaign-topbar" data-download-header>
+      <a class="campaign-topbar__brand" href="/" aria-label="Dee home"><Image src={appIcon} alt="" width={40} height={40} loading="eager" /><span>DEE</span></a>
+      <DownloadLinks appStoreURL={appStoreURL} googlePlayURL={googlePlayURL} />
+    </header>
 
     <main id="main" class="campaign-page">
       <section class="campaign-shell" aria-labelledby="campaign-title">
         <div class="copy-panel">
-          <a class="brand-lockup" href="/" aria-label="Dee home">
-            <Image src={appIcon} alt="" width={40} height={40} loading="eager" />
-            <span>DEE</span>
-          </a>
-
           <div class="copy-stack">
             <p class="eyebrow">Your solo Muay Thai coach</p>
             <h1 id="campaign-title">{hook}</h1>
@@ -131,6 +131,45 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         color: var(--dee-paper);
       }
 
+      .campaign-topbar {
+        position: sticky;
+        z-index: 50;
+        top: 0;
+        display: flex;
+        min-height: 70px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid rgba(241, 244, 248, .17);
+        background: rgba(9, 13, 18, .96);
+        padding: 9px max(24px, calc((100vw - 1180px) / 2));
+        backdrop-filter: blur(18px);
+      }
+
+      .campaign-topbar__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--dee-paper);
+        font: 900 1.5rem/1 'Barlow Condensed', sans-serif;
+        letter-spacing: .1em;
+        text-decoration: none;
+      }
+
+      .campaign-topbar__brand img { border-radius: 11px; }
+      .campaign-topbar :global(.topbar-download) {
+        border-color: rgba(241, 244, 248, .5);
+        background: rgba(241, 244, 248, .08);
+        color: var(--dee-paper);
+      }
+      .campaign-topbar :global(.topbar-download:hover) { border-color: #82e1ee; background: rgba(10, 158, 184, .28); }
+
+      @media (max-width: 560px) {
+        .campaign-topbar { min-height: 0; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 8px 16px 10px; }
+        .campaign-topbar__brand { width: 100%; }
+        .campaign-topbar :global(.topbar-downloads) { justify-content: center; }
+      }
+
       .campaign-page {
         display: grid;
         min-height: calc(100vh - 88px);
@@ -169,24 +208,8 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         padding: clamp(24px, 3.4vw, 48px);
       }
 
-      .brand-lockup {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        gap: 13px;
-        color: var(--dee-paper);
-        font: 900 1.7rem/1 'Barlow Condensed', sans-serif;
-        letter-spacing: .13em;
-        text-decoration: none;
-      }
-
-      .brand-lockup img {
-        border-radius: 14px;
-        box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
-      }
-
       .copy-stack {
-        margin-top: 28px;
+        margin-top: 0;
       }
 
       .eyebrow {

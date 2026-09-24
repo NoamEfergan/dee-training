@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
+import appIcon from '@/assets/dee/app-icon.png'
 import '@/styles/dee.css'
 ---
 <!doctype html>
@@ -9,7 +12,7 @@ import '@/styles/dee.css'
     <meta name="apple-itunes-app" content="app-id=6788483296, app-clip-bundle-id=dev.nowham.Dee.Clip" />
     <style>
       .try-page {
-        min-height: 100vh;
+        min-height: calc(100svh - 74px);
         display: grid;
         place-items: center;
         padding: clamp(18px, 4vw, 56px);
@@ -214,7 +217,8 @@ import '@/styles/dee.css'
     </style>
   </head>
   <body>
-    <main class="try-page">
+    <header class="site-header simple-header" data-download-header><a class="brand" href="/" aria-label="Dee home"><Image src={appIcon} alt="" width={44} height={44} loading="eager" /><span>DEE</span></a><DownloadLinks /></header>
+    <main class="try-page" id="main">
       <section class="try-shell" aria-labelledby="try-title">
         <div class="try-copy-panel">
           <div class="try-mark" aria-hidden="true">DEE</div>

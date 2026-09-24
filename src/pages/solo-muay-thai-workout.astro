@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import PhonePreview from '@/components/PhonePreview.astro'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
 import { campaignStoreURLs } from '@/lib/campaign-links.mjs'
 import appIcon from '@/assets/dee/app-icon.png'
 import roundTimer from '@/assets/dee/paid/build33-round-timer.png'
@@ -72,7 +73,7 @@ const rounds = [
   </head>
   <body class="solo-page">
     <a class="skip-link" href="#main">Skip to workout</a>
-    <header class="guide-header">
+    <header class="guide-header" data-download-header>
       <div class="guide-header__inner">
         <a class="guide-brand" href="/" aria-label="Dee home">
           <Image src={appIcon} alt="" width={42} height={42} loading="eager" />
@@ -80,8 +81,8 @@ const rounds = [
         </a>
         <nav aria-label="Page navigation">
           <a href="#workout">The workout</a>
-          <a href="#with-dee">Get Dee</a>
         </nav>
+        <DownloadLinks appStoreURL={appStoreURL} googlePlayURL={googlePlayURL} />
       </div>
     </header>
 

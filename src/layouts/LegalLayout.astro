@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import appIcon from '@/assets/dee/app-icon.png'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
 import '@/styles/dee.css'
 
 interface Props {
@@ -21,7 +22,7 @@ const { title, description } = Astro.props
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header legal-header" aria-label="Dee">
+    <header class="site-header legal-header" data-download-header aria-label="Dee">
       <a class="brand" href="/" aria-label="Dee home">
         <Image src={appIcon} alt="" width={44} height={44} loading="eager" />
         <span>DEE</span>
@@ -32,8 +33,7 @@ const { title, description } = Astro.props
         <a href="/support/">Support</a>
         <a href="/press/">Press</a>
       </nav>
-      <a class="legal-store-link" href="https://apps.apple.com/app/id6788483296" rel="noopener noreferrer">App Store ↗</a>
-      <a class="legal-store-link" href="https://play.google.com/store/apps/details?id=dev.nowham.dee" rel="noopener noreferrer">Google Play ↗</a>
+      <DownloadLinks />
     </header>
     <main id="main" class="legal-shell">
       <article class="legal-copy">

@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
+import appIcon from '@/assets/dee/app-icon.png'
 import '@/styles/dee.css'
 const contact = 'mailto:info@dee.training?subject=Dee%20solo%20practice%20research'
 ---
@@ -8,7 +11,7 @@ const contact = 'mailto:info@dee.training?subject=Dee%20solo%20practice%20resear
   <head><SiteHead exactTitle="Help test a solo Muay Thai session | Dee" description="Five research places for UK adults who attend Muay Thai classes. Help us understand how Dee fits your solo practice." /></head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header"><a class="brand" href="/" aria-label="Dee home">DEE</a></header>
+    <header class="site-header simple-header" data-download-header><a class="brand" href="/" aria-label="Dee home"><Image src={appIcon} alt="" width={44} height={44} loading="eager" /><span>DEE</span></a><DownloadLinks /></header>
     <main id="main" class="research">
       <p class="eyebrow">Dee research · UK · Five places</p>
       <h1>What do you train between classes?</h1>

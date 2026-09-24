@@ -11,6 +11,7 @@ const guideContext = pageContext('https://dee.training/solo-muay-thai-workout/?p
 assert.equal(guideContext.pathname, '/solo-muay-thai-workout/');
 assert.equal(guideContext.campaign, 'solo_muay_thai_workout');
 assert.equal(guideContext.url, 'https://dee.training/solo-muay-thai-workout/');
+assert.equal(pageContext('https://dee.training/press/duo/').pathname, '/press/duo/');
 assert.equal(pageContext('http://localhost:4331/'), null);
 assert.equal(pageContext('https://dee.training/private-person-name/'), null);
 assert.equal(storeDestination('https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between'), 'app_store');

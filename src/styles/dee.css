@@ -1308,18 +1308,6 @@ html[dir='rtl'] .corner-mark {
   grid-template-columns: auto 1fr auto;
 }
 
-.legal-store-link {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  color: var(--dee-teal-dark);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .legal-shell {
   width: min(860px, calc(100% - 40px));
   margin: 0 auto;
@@ -1478,10 +1466,6 @@ html[dir='rtl'] .corner-mark {
     gap: 14px;
   }
 
-  .legal-store-link {
-    display: none;
-  }
-
   .legal-copy {
     box-shadow: 10px 10px 0 rgba(10, 158, 184, 0.1);
   }
@@ -1523,11 +1507,51 @@ html[dir='rtl'] .corner-mark {
 .download-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .store-badge { display: inline-flex; flex: 0 0 auto; border-radius: 7px; }
 .store-badge img { display: block; width: auto; height: 48px; }
-.header-downloads { display: flex; align-items: center; gap: 12px; }
-.header-downloads .store-badge { min-height: 44px; align-items: center; }
-.header-downloads .store-badge img { height: 40px; }
+
+/* Both download destinations stay within reach on every site template. */
+.simple-header { grid-template-columns: 1fr auto; }
+.topbar-downloads {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  direction: ltr;
+}
+.topbar-download {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--dee-ink);
+  border-radius: 3px;
+  background: var(--dee-ink);
+  padding: 0 11px;
+  color: var(--dee-paper);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.topbar-download:hover { border-color: var(--dee-teal-dark); background: var(--dee-teal-dark); }
+.topbar-download:focus-visible { outline: 3px solid var(--dee-teal); outline-offset: 3px; }
+.topbar-download span { font-size: 15px; line-height: 1; }
+
 @media (max-width: 760px) {
-  .header-downloads { display: none; }
+  html { scroll-padding-top: 126px; }
+  .site-header {
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+    padding-bottom: 10px;
+  }
+  .site-header > .brand { grid-column: 1; grid-row: 1; }
+  .site-header .header-actions { display: contents; }
+  .site-header .language-picker { grid-column: 2; grid-row: 1; justify-self: end; }
+  .site-header .topbar-downloads { grid-column: 1 / -1; grid-row: 2; justify-content: center; }
+  .legal-header .section-nav { display: none; }
 }
 
 .proof-band--teal { overflow: clip; }

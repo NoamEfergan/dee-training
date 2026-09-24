@@ -5,6 +5,7 @@ import type { DeeContent } from '@/content/content'
 import { deeAvailability, deeContent, deeLocales, deePath } from '@/content/content'
 import DeeLayout from '@/layouts/DeeLayout.astro'
 import PhonePreview from '@/components/PhonePreview.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
 
 interface Props {
   content: DeeContent
@@ -16,7 +17,7 @@ const iconPath = 'M12 2v20M5 6.2l14 11.6M19 6.2 5 17.8'
 
 <DeeLayout content={content}>
   <a class="skip-link" href="#main">{content.a11y.skip}</a>
-  <header class="site-header" aria-label="Dee">
+  <header class="site-header" data-download-header aria-label="Dee">
     <a class="brand" href={deePath(content.locale)} aria-label={content.a11y.home}>
       <Image src={appIcon} alt="" width={44} height={44} loading="eager" />
       <span>DEE</span>
@@ -38,14 +39,7 @@ const iconPath = 'M12 2v20M5 6.2l14 11.6M19 6.2 5 17.8'
           ))}
         </div>
       </details>
-      <div class="header-downloads">
-        <a class="store-badge" href={deeAvailability.appStoreURL} rel="noopener noreferrer">
-          <img src="/badges/app-store.svg" alt={content.closing.cta} width="144" height="48" />
-        </a>
-        <a class="store-badge" href={deeAvailability.googlePlayURL} rel="noopener noreferrer">
-          <img src="/badges/google-play.svg" alt={content.googlePlayCTA} width="162" height="48" />
-        </a>
-      </div>
+      <DownloadLinks />
     </div>
   </header>
 
