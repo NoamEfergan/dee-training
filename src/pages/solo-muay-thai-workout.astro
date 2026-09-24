@@ -80,7 +80,7 @@ const rounds = [
         </a>
         <nav aria-label="Page navigation">
           <a href="#workout">The workout</a>
-          <a href="#with-dee">Train with Dee</a>
+          <a href="#with-dee">Get Dee</a>
         </nav>
       </div>
     </header>
@@ -94,21 +94,13 @@ const rounds = [
             <p class="guide-hero__intro">Four shadowboxing rounds you can do between classes. All you need is clear floor space and a timer.</p>
             <div class="guide-hero__actions">
               <a class="guide-button" href="#workout">Use this workout <span aria-hidden="true">↓</span></a>
-              <a class="guide-text-link" href="#format">See the format <span aria-hidden="true">↗</span></a>
+              <a class="guide-text-link" href="#with-dee">Get Dee <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-          <aside class="session-ticket" aria-label="Session at a glance">
-            <div class="session-ticket__top"><span>Session 001</span><span>Shadowboxing</span></div>
-            <strong class="session-ticket__time">20<span>min</span></strong>
-            <p>One session. Four focused rounds.</p>
-            <dl>
-              <div><dt>Warm-up</dt><dd>03:00</dd></div>
-              <div><dt>Work</dt><dd>04 × 03:00</dd></div>
-              <div><dt>Rest</dt><dd>03 × 01:00</dd></div>
-              <div><dt>Cool-down</dt><dd>02:00</dd></div>
-            </dl>
-            <div class="session-ticket__foot"><span>No heavy bag required</span><span>DEE / MT</span></div>
-          </aside>
+          <div class="guide-hero__product">
+            <PhonePreview src={roundTimer} alt="Example Dee in-round screen showing a shadowboxing cue and a running timer" eager />
+            <p>Example Dee workout screen. Your plan and drills may differ.</p>
+          </div>
         </div>
       </section>
 
@@ -120,6 +112,15 @@ const rounds = [
         <div class="guide-setup__copy">
           <p>Clear enough space to step in each direction. Set a timer for <strong>four three-minute rounds</strong> with <strong>one minute of rest</strong> between rounds. Keep the effort controlled so you can focus on balance, guard and clean resets.</p>
           <p>Use techniques you have already practised with a coach. If a teep or kick is new to you, use jab–cross and footwork for round three instead. Pause if you feel pain or cannot keep the movement controlled.</p>
+        </div>
+        <div class="guide-format" aria-label="20-minute session format">
+          <div class="guide-format__total"><span>Session format</span><strong>20 min</strong></div>
+          <dl>
+            <div><dt>Warm-up</dt><dd>03:00</dd></div>
+            <div><dt>Work</dt><dd>04 × 03:00</dd></div>
+            <div><dt>Rest</dt><dd>03 × 01:00</dd></div>
+            <div><dt>Cool-down</dt><dd>02:00</dd></div>
+          </dl>
         </div>
       </section>
 
@@ -186,10 +187,6 @@ const rounds = [
               <a href={appStoreURL} aria-label="Get Dee on the App Store" rel="noopener noreferrer"><img src="/badges/app-store.svg" alt="Download on the App Store" width="144" height="48" /></a>
               <a href={googlePlayURL} aria-label="Get Dee on Google Play" rel="noopener noreferrer"><img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" /></a>
             </div>
-          </div>
-          <div class="guide-app__visual">
-            <PhonePreview src={roundTimer} alt="Example Dee in-round screen showing a shadowboxing cue and a running timer" />
-            <p>Example Dee workout screen. Your plan and drills may differ.</p>
           </div>
         </div>
       </section>

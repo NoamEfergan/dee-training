@@ -1,11 +1,12 @@
 // Aggregate acquisition measurement. No cookies, storage, identity joins or raw query data.
-export const pages = new Set(['/', '/practice/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/PrivacyPolicy/', '/TermsAndConditions/']);
+export const pages = new Set(['/', '/practice/', '/solo-muay-thai-workout/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/PrivacyPolicy/', '/TermsAndConditions/']);
 export function pageContext(href) {
   const url = new URL(href);
   if (url.hostname !== 'dee.training') return null;
   const pathname = url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
   if (!pages.has(pathname)) return null;
-  return { hostname: 'dee.training', pathname, url: `https://dee.training${pathname}`, campaign: pathname.startsWith('/get/') ? pathname.split('/')[2] : 'none', qa: url.searchParams.get('qa') === 'growth' };
+  const campaign = pathname.startsWith('/get/') ? pathname.split('/')[2] : pathname === '/solo-muay-thai-workout/' ? 'solo_muay_thai_workout' : 'none';
+  return { hostname: 'dee.training', pathname, url: `https://dee.training${pathname}`, campaign, qa: url.searchParams.get('qa') === 'growth' };
 }
 export function storeDestination(href) {
   const url = new URL(href);

@@ -45,6 +45,8 @@ checkStoreLinks('solo-muay-thai-workout', {
 
 const guide = readPage('solo-muay-thai-workout')
 assert.match(guide, /<h1 id="guide-title">A 20-minute solo/)
+assert.match(guide, /class="guide-text-link" href="#with-dee">Get Dee/)
+assert.match(guide, /class="guide-hero__product"/)
 assert.match(guide, /<link rel="canonical" href="https:\/\/dee\.training\/solo-muay-thai-workout\/"/)
 assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
