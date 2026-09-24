@@ -1,0 +1,22 @@
+---
+import { deeAvailability } from '@/content/content'
+
+interface Props {
+  appStoreURL?: string
+  googlePlayURL?: string
+}
+
+const {
+  appStoreURL = deeAvailability.appStoreURL,
+  googlePlayURL = deeAvailability.googlePlayURL,
+} = Astro.props
+---
+
+<div class="topbar-downloads" role="group" aria-label="Download Dee">
+  <a class="topbar-download" href={appStoreURL} aria-label="Get Dee on the App Store" rel="noopener noreferrer">
+    <img src="/badges/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+  </a>
+  <a class="topbar-download" href={googlePlayURL} aria-label="Get Dee on Google Play" rel="noopener noreferrer">
+    <img src="/badges/google-play.svg" alt="Get it on Google Play" width="135" height="40" />
+  </a>
+</div>

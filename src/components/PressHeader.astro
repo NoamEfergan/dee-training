@@ -1,8 +1,12 @@
 ---
 import press from '@/content/press.json'
+import DownloadLinks from '@/components/DownloadLinks.astro'
 ---
-<header class="press-header">
+<header class="press-header" data-download-header>
   <a class="press-brand" href="/" aria-label="Dee home"><img src="/press/assets/dee-app-icon.png" width="42" height="42" alt="" /><span>DEE</span></a>
   <span class="eyebrow">The press room</span>
-  <a href={`mailto:${press.contact}`}>Get in touch <span aria-hidden="true">↗</span></a>
+  <div class="press-header__actions">
+    <a class="press-contact" href={`mailto:${press.contact}`}>Get in touch <span aria-hidden="true">↗</span></a>
+    <DownloadLinks appStoreURL={press.appStore} googlePlayURL={press.googlePlay} />
+  </div>
 </header>

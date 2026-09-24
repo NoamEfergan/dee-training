@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets'
-import { deeAvailability } from '@/content/content'
 import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
+import { campaignStoreURLs } from '@/lib/campaign-links.mjs'
 import appIcon from '@/assets/dee/app-icon.png'
 import androidHome from '@/assets/dee/paid/android-pixel-8a-home.png'
 import pixelBezel from '@/assets/dee/devices/pixel-8a-back.webp'
@@ -13,34 +14,35 @@ export function getStaticPaths() {
   const pages = {
     meta_guess: {
       hook: 'Still deciding what to train?',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_guess&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_guess',
     },
     meta_between: {
       hook: 'Training between classes?',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_between&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_between',
     },
     meta_heard: {
       hook: 'Hear every drill.',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_heard&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_heard',
     },
     meta_audio_round_v1: {
       hook: 'Your round has a voice.',
-      storeURL: 'https://apps.apple.com/app/id6788483296?pt=125910193&ct=meta_audio_round_v1&mt=8&ppid=a8cbf41a-f2c2-4620-9142-4be86d24d96b',
+      source: 'meta', medium: 'paid_social', campaign: 'meta_audio_round_v1',
     },
   } as const
 
-  return Object.entries(pages).map(([campaign, props]) => ({
-    params: { campaign },
-    props,
+  return Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
+    params: {campaign: token},
+    props: {hook, ...campaignStoreURLs({token, ...attribution})},
   }))
 }
 
 interface Props {
   hook: string
-  storeURL: string
+  appStoreURL: string
+  googlePlayURL: string
 }
 
-const { hook, storeURL } = Astro.props as Props
+const { hook, appStoreURL, googlePlayURL } = Astro.props as Props
 const description = 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
 ---
 
@@ -56,25 +58,24 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <header class="campaign-topbar" data-download-header>
+      <a class="campaign-topbar__brand" href="/" aria-label="Dee home"><Image src={appIcon} alt="" width={40} height={40} loading="eager" /><span>DEE</span></a>
+      <DownloadLinks appStoreURL={appStoreURL} googlePlayURL={googlePlayURL} />
+    </header>
 
     <main id="main" class="campaign-page">
       <section class="campaign-shell" aria-labelledby="campaign-title">
         <div class="copy-panel">
-          <a class="brand-lockup" href="/" aria-label="Dee home">
-            <Image src={appIcon} alt="" width={40} height={40} loading="eager" />
-            <span>DEE</span>
-          </a>
-
           <div class="copy-stack">
             <p class="eyebrow">Your solo Muay Thai coach</p>
             <h1 id="campaign-title">{hook}</h1>
             <p class="proof-copy">Personalised Muay Thai workouts, with spoken drills and round cues.</p>
 
             <div class="actions">
-              <a class="store-cta" href={storeURL} aria-label="Get Dee on the App Store">
+              <a class="store-cta" href={appStoreURL} aria-label="Get Dee on the App Store">
                 <img src="/badges/app-store.svg" alt="Download on the App Store" width="144" height="48" />
               </a>
-              <a class="store-cta" href={deeAvailability.googlePlayURL} aria-label="Get Dee on Google Play">
+              <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
                 <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
               </a>
             </div>
@@ -130,6 +131,38 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         color: var(--dee-paper);
       }
 
+      .campaign-topbar {
+        position: sticky;
+        z-index: 50;
+        top: 0;
+        display: flex;
+        min-height: 70px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid rgba(241, 244, 248, .17);
+        background: rgba(9, 13, 18, .96);
+        padding: 9px max(24px, calc((100vw - 1180px) / 2));
+        backdrop-filter: blur(18px);
+      }
+
+      .campaign-topbar__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--dee-paper);
+        font: 900 1.5rem/1 'Barlow Condensed', sans-serif;
+        letter-spacing: .1em;
+        text-decoration: none;
+      }
+
+      .campaign-topbar__brand img { border-radius: 11px; }
+      @media (max-width: 560px) {
+        .campaign-topbar { min-height: 0; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 8px 16px 10px; }
+        .campaign-topbar__brand { width: 100%; }
+        .campaign-topbar :global(.topbar-downloads) { justify-content: center; }
+      }
+
       .campaign-page {
         display: grid;
         min-height: calc(100vh - 88px);
@@ -168,24 +201,8 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         padding: clamp(24px, 3.4vw, 48px);
       }
 
-      .brand-lockup {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        gap: 13px;
-        color: var(--dee-paper);
-        font: 900 1.7rem/1 'Barlow Condensed', sans-serif;
-        letter-spacing: .13em;
-        text-decoration: none;
-      }
-
-      .brand-lockup img {
-        border-radius: 14px;
-        box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
-      }
-
       .copy-stack {
-        margin-top: 28px;
+        margin-top: 0;
       }
 
       .eyebrow {

@@ -1,0 +1,204 @@
+---
+import { Image } from 'astro:assets'
+import PhonePreview from '@/components/PhonePreview.astro'
+import SiteHead from '@/components/SiteHead.astro'
+import DownloadLinks from '@/components/DownloadLinks.astro'
+import { campaignStoreURLs } from '@/lib/campaign-links.mjs'
+import appIcon from '@/assets/dee/app-icon.png'
+import roundTimer from '@/assets/dee/paid/build33-round-timer.png'
+import '@/styles/dee.css'
+import '@/styles/solo-workout.css'
+
+const {appStoreURL, googlePlayURL} = campaignStoreURLs({
+  token: 'site_solo_workout_20260924',
+  source: 'dee_training',
+  medium: 'organic_web',
+  campaign: 'solo_muay_thai_workout',
+})
+
+const rounds = [
+  {
+    number: '01',
+    title: 'Find your feet',
+    intent: 'Move without losing your stance.',
+    minutes: [
+      'Step forward and back in your stance, with your guard up.',
+      'Add a light jab as you move. Return your hand to guard.',
+      'Jab–cross, then reset your feet before the next combination.',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Build a combination',
+    intent: 'Make the reset part of the work.',
+    minutes: [
+      'Jab–cross at a controlled pace.',
+      'Jab–cross, then step out before repeating.',
+      'Repeat the sequence while keeping your balance and guard.',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Add one Muay Thai tool',
+    intent: 'Use a kick or teep only if you have learned it.',
+    minutes: [
+      'Jab, then a light lead teep; return to stance after each rep.',
+      'Jab–cross, then a controlled rear kick; reset before repeating.',
+      'Choose one of those combinations and keep it smooth.',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Put it together',
+    intent: 'Finish with clean movement, not speed.',
+    minutes: [
+      'Repeat your best combination from the earlier rounds.',
+      'Add a step or angle after each combination.',
+      'Shadowbox freely at an easy pace, returning to balance each time.',
+    ],
+  },
+] as const
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <SiteHead
+      exactTitle="20-Minute Solo Muay Thai Workout (No Bag) | Dee"
+      description="A practical 20-minute solo Muay Thai workout: warm up, shadowbox four three-minute rounds, rest, and cool down. No bag needed."
+      canonical="/solo-muay-thai-workout/"
+    />
+    <link rel="preload" href="/fonts/barlow-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-condensed-black.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body class="solo-page">
+    <a class="skip-link" href="#main">Skip to workout</a>
+    <header class="guide-header" data-download-header>
+      <div class="guide-header__inner">
+        <a class="guide-brand" href="/" aria-label="Dee home">
+          <Image src={appIcon} alt="" width={42} height={42} loading="eager" />
+          <span>DEE</span>
+        </a>
+        <nav aria-label="Page navigation">
+          <a href="#workout">The workout</a>
+        </nav>
+        <DownloadLinks appStoreURL={appStoreURL} googlePlayURL={googlePlayURL} />
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="guide-hero" aria-labelledby="guide-title">
+        <div class="guide-shell guide-hero__grid">
+          <div class="guide-hero__copy">
+            <p class="guide-kicker"><span class="guide-kicker__line"></span> Solo practice / no bag</p>
+            <h1 id="guide-title">A 20-minute solo <em>Muay Thai workout.</em></h1>
+            <p class="guide-hero__intro">Four shadowboxing rounds you can do between classes. All you need is clear floor space and a timer.</p>
+            <div class="guide-hero__actions">
+              <a class="guide-button" href="#workout">Use this workout <span aria-hidden="true">↓</span></a>
+              <a class="guide-text-link" href="#with-dee">Get Dee <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="guide-hero__product">
+            <PhonePreview src={roundTimer} alt="Example Dee in-round screen showing a shadowboxing cue and a running timer" eager />
+            <p>Example Dee workout screen. Your plan and drills may differ.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="format" class="guide-setup guide-shell" aria-labelledby="format-title">
+        <div>
+          <p class="guide-kicker guide-kicker--dark">Before the bell</p>
+          <h2 id="format-title">Set up to move.</h2>
+        </div>
+        <div class="guide-setup__copy">
+          <p>Clear enough space to step in each direction. Set a timer for <strong>four three-minute rounds</strong> with <strong>one minute of rest</strong> between rounds. Keep the effort controlled so you can focus on balance, guard and clean resets.</p>
+          <p>Use techniques you have already practised with a coach. If a teep or kick is new to you, use jab–cross and footwork for round three instead. Pause if you feel pain or cannot keep the movement controlled.</p>
+        </div>
+        <div class="guide-format" aria-label="20-minute session format">
+          <div class="guide-format__total"><span>Session format</span><strong>20 min</strong></div>
+          <dl>
+            <div><dt>Warm-up</dt><dd>03:00</dd></div>
+            <div><dt>Work</dt><dd>04 × 03:00</dd></div>
+            <div><dt>Rest</dt><dd>03 × 01:00</dd></div>
+            <div><dt>Cool-down</dt><dd>02:00</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="workout" class="guide-workout" aria-labelledby="workout-title">
+        <div class="guide-shell">
+          <div class="guide-section-heading">
+            <div>
+              <p class="guide-kicker guide-kicker--dark">The session / 20:00</p>
+              <h2 id="workout-title">Follow the clock.</h2>
+            </div>
+            <p>Each row is one minute. Take a one-minute rest after rounds one, two and three.</p>
+          </div>
+
+          <div class="guide-stage guide-stage--warmup">
+            <div class="guide-stage__header"><span>00 / Prepare</span><strong>03:00</strong></div>
+            <h3>Warm up first</h3>
+            <ol>
+              <li>Easy stepping or walking, gradually lifting the pace.</li>
+              <li>Gentle shoulder and hip movement, then light footwork.</li>
+              <li>Light jabs and crosses, returning to guard each time.</li>
+            </ol>
+          </div>
+
+          <div class="guide-rounds">
+            {rounds.map((round, index) => (
+              <article class="guide-round" aria-labelledby={`round-${round.number}`}>
+                <div class="guide-round__number" aria-hidden="true">{round.number}</div>
+                <div class="guide-round__body">
+                  <div class="guide-round__top"><span>Round {round.number} / 03:00</span><span>Shadowboxing</span></div>
+                  <h3 id={`round-${round.number}`}>{round.title}</h3>
+                  <p class="guide-round__intent">{round.intent}</p>
+                  <ol class="guide-minute-list">
+                    {round.minutes.map((minute, minuteIndex) => (
+                      <li><span>Min {minuteIndex + 1}</span><span>{minute}</span></li>
+                    ))}
+                  </ol>
+                  {index < 3 && <p class="guide-rest"><span aria-hidden="true">↳</span> Rest for 01:00, then start the next round.</p>}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="guide-stage guide-stage--cooldown">
+            <div class="guide-stage__header"><span>05 / Finish</span><strong>02:00</strong></div>
+            <h3>Cool down</h3>
+            <p>Walk easily and let your breathing settle. Make a note of which combination felt most balanced; use it as your starting point next time.</p>
+          </div>
+
+          <div class="guide-variation">
+            <h3>Only have 12 minutes?</h3>
+            <p>Warm up for three minutes, do rounds one and two with a minute of rest between them, then cool down for two minutes. Keep the same focus on clean resets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="with-dee" class="guide-app" aria-labelledby="dee-title">
+        <div class="guide-shell guide-app__grid">
+          <div class="guide-app__copy">
+            <p class="guide-kicker">When you want the next cue spoken</p>
+            <h2 id="dee-title">Keep your eyes up.</h2>
+            <p>This written session works with any timer. Dee can build a plan around your level, time and equipment, then speak drill and round cues during your workout.</p>
+            <p class="guide-app__note">The session above is a standalone guide. Dee may create a different session for you.</p>
+            <div class="guide-store-links">
+              <a href={appStoreURL} aria-label="Get Dee on the App Store" rel="noopener noreferrer"><img src="/badges/app-store.svg" alt="Download on the App Store" width="144" height="48" /></a>
+              <a href={googlePlayURL} aria-label="Get Dee on Google Play" rel="noopener noreferrer"><img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="guide-footer">
+      <div class="guide-shell guide-footer__inner">
+        <p><strong>DEE</strong> · Muay Thai Coach</p>
+        <p>Dee is for general sport and fitness. Train within your limits.</p>
+        <nav aria-label="Footer"><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav>
+      </div>
+    </footer>
+  </body>
+</html>
