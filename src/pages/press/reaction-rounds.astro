@@ -1,0 +1,129 @@
+---
+import SiteHead from '@/components/SiteHead.astro'
+import PressHeader from '@/components/PressHeader.astro'
+import PressFooter from '@/components/PressFooter.astro'
+import press from '@/content/press.json'
+import '@/styles/dee.css'
+import '@/styles/press.css'
+const assets = '/press/reaction-rounds'
+const captures = [
+  { file: 'setup.png', width: 1206, height: 2622, title: 'Make it your round.', label: '01 / Setup', description: 'Choose Muay Thai or hands-only combinations, round length and pace.', alt: 'Reaction Rounds setup on iPhone: shadowboxing, combination selection, three rounds and the Relaxed, Steady and Brisk pace options.' },
+  { file: 'live-round.png', width: 1206, height: 2622, title: 'One call. One combination.', label: '02 / Live workout', description: 'The current call and timer stay in view. Pause whenever you need.', alt: 'A paused Reaction round on iPhone showing Jab, Cross and a 1:59 timer in large text.' },
+  { file: 'hebrew-duo.png', width: 2007, height: 2853, title: 'Room for larger text.', label: '03 / Hebrew on Duo', description: 'Hebrew, right to left, at the largest accessibility text size.', alt: 'Reaction Rounds in Hebrew on the iPhone Duo Book display, paused at 1:46, with large Jab and Cross labels and visible controls.' },
+]
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <SiteHead exactTitle="Reaction Rounds — your next move, called out | Dee" description="An upcoming Dee update brings spoken Muay Thai combinations to shadowboxing. Explore the preview, real app demonstration and editorial images." image={{ src: `${assets}/artwork-landscape.png`, alt: 'Painted illustration of a woman shadowboxing with an earbud against a navy, teal and ivory background.', width: 1920, height: 1080, type: 'image/png' }} />
+  <link rel="preload" href="/fonts/barlow-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/barlow-condensed-black.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body class="press-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<PressHeader />
+<main id="main">
+  <section class="wrap reaction-intro" aria-labelledby="reaction-title">
+    <div class="intro-line"><p class="eyebrow">Dee / Reaction Rounds</p><span class="preview-label">Upcoming update</span></div>
+    <div class="title-grid">
+      <h1 id="reaction-title">Your next move.<br /><em>Called out.</em></h1>
+      <div class="hero-copy"><p class="intro">A pad holder in your ears. Dee calls the combination. You throw it, reset, and get ready for the next.</p>
+        <div class="action-row"><a class="press-button" href="#film">See it in action <span aria-hidden="true">↓</span></a><a class="text-link" href="#downloads">Editorial images ↓</a></div>
+        <p class="micro">Reaction Rounds is an upcoming feature. Release is pending review; a launch date has not been announced.</p>
+      </div>
+    </div>
+    <figure class="painted-hero"><img src={`${assets}/artwork-landscape.png`} width="1920" height="1080" fetchpriority="high" alt="Painted editorial illustration of a woman listening through an earbud and throwing a straight shadowboxing punch, with the other hand guarding her face." /><figcaption>Reaction Rounds / Editorial illustration</figcaption></figure>
+  </section>
+
+  <section class="wrap reaction-story" aria-label="How Reaction Rounds works">
+    <div class="story-grid">
+      <article><span class="story-number">01</span><h2>Hear the call.</h2><p>Spoken moves and combinations give solo shadowboxing a clear next instruction. Find some space to move. No bag or equipment needed.</p></article>
+      <article><span class="story-number">02</span><h2>Find your pace.</h2><p>Choose Relaxed, Steady or Brisk, then change the space between calls during your round. Follow each combination once and return to guard.</p></article>
+      <article><span class="story-number">03</span><h2>Keep showing up.</h2><p>Saved rounds join workout history and count towards weekly training goals and Fight Camp. An impromptu practice becomes part of the same habit.</p></article>
+    </div>
+  </section>
+
+  <section class="film-band" id="film" aria-labelledby="film-title">
+    <div class="wrap">
+      <div class="film-heading"><div><p class="eyebrow">The app, in motion</p><h2 id="film-title">Listen. Move.<br /><em>Reset.</em></h2></div><p>From setting up a round to hearing the first call, adjusting the pace and following larger text.</p></div>
+      <figure>
+        <video controls playsinline preload="none" poster={`${assets}/poster.png`} aria-label="Reaction Rounds editorial demonstration with English and Hebrew coaching samples">
+          <source src={`${assets}/editorial-demo.mp4`} type="video/mp4" />
+          <track kind="captions" src={`${assets}/captions.vtt`} srclang="en" label="English captions" default />
+          <p><a href={`${assets}/editorial-demo.mp4`}>Download the demonstration</a></p>
+        </video>
+        <figcaption>38 seconds · Edited native app captures with production coaching samples added in the edit. The Duo and Watch sections are still captures. Watch shows Dee’s existing standalone plan workouts, separate from Reaction Rounds.</figcaption>
+      </figure>
+      <div class="film-links"><a href={`${assets}/editorial-demo.mp4`} download>Download MP4 ↓</a><a href={`${assets}/captions.vtt`} download>Download captions ↓</a></div>
+      <details class="transcript"><summary>Read the film description and transcript</summary><div><p><strong>0:00–0:06:</strong> Reaction Rounds setup. Choose your round; Dee calls the combination.</p><p><strong>0:06–0:14:</strong> The countdown leads into a live round. The coaching sample says “Jab, cross”. The round is then paused.</p><p><strong>0:14–0:20:</strong> Controls show the Relaxed, Steady and Brisk pace choices.</p><p><strong>0:20–0:28:</strong> A still capture shows Hebrew, right to left, at the largest accessibility text size on Duo in Book posture. The Hebrew coaching sample says <span lang="he" dir="rtl">ג׳אב, קרוס</span> — “Jab, cross”.</p><p><strong>0:28–0:38:</strong> Existing Apple Watch library and standalone workout screens. Sync a plan from iPhone, then train without your phone. These are September simulator captures with sample data.</p></div></details>
+    </div>
+  </section>
+
+  <section class="wrap section" id="downloads" aria-labelledby="captures-title">
+    <div class="section-heading"><p class="eyebrow">A closer look</p><h2 id="captures-title">Built for<br /><em>the round.</em></h2><p class="intro">Seven languages, three coaching voices, and recorded calls that work offline. Large text, VoiceOver and reduced-motion settings are part of the native experience.</p></div>
+    <div class="capture-grid">{captures.map(c => <figure><a class="capture-image" href={`${assets}/${c.file}`} aria-label={`View original capture: ${c.title}`}><img src={`${assets}/${c.file}`} width={c.width} height={c.height} loading="lazy" alt={c.alt} /></a><figcaption><span class="eyebrow">{c.label}</span><h3>{c.title}</h3><p>{c.description}</p><a class="text-link" href={`${assets}/${c.file}`} download>Download original PNG ↓</a></figcaption></figure>)}</div>
+    <p class="micro capture-note">Actual Apple app captures from the local release candidate, recorded on 1 October 2026 in the simulator with sample data. These show the upcoming iPhone and iPad feature, including Duo’s Book display; they are not physical-device footage or proof of a public release.</p>
+    <div class="art-downloads"><div><p class="eyebrow">The painted artwork</p><h3>For your story.</h3><p>Use the approved text-free illustrations alongside the original app images.</p></div><a class="press-button" href={`${assets}/artwork-landscape.png`} download>Landscape PNG <span>1920 × 1080 ↓</span></a><a class="press-button" href={`${assets}/artwork-portrait.png`} download>Portrait PNG <span>1080 × 1920 ↓</span></a></div>
+    <p class="micro">Images and film supplied by Dee for editorial coverage of Dee. Please credit “Dee”. The artwork is an original generated illustration; app screenshots are real captures. Keep product screens accurate and do not imply Apple or Google endorsement.</p>
+  </section>
+
+  <section class="watch-context" aria-labelledby="watch-title"><div class="wrap watch-context-grid"><div><p class="eyebrow">Already part of Dee / Apple Watch</p><h2 id="watch-title">Your workout.<br /><em>On your wrist.</em></h2><p class="intro">Sync a Dee Pro plan and its coaching audio from iPhone, then run those plan workouts offline on Apple Watch. Use headphones for spoken coaching.</p><p>These are Dee’s existing standalone Watch workouts. Reaction Rounds is the upcoming phone and tablet experience shown above.</p><a class="text-link" href="/press/#watch">Explore Dee on Apple Watch ↗</a></div><div class="watch-images"><figure><img src="/press/screenshots/watch-library.png" width="368" height="448" loading="lazy" alt="Existing Apple Watch library with a synced sample workout ready to start." /><figcaption>Choose a saved workout.</figcaption></figure><figure><img src="/press/screenshots/watch-active.png" width="368" height="448" loading="lazy" alt="Existing standalone Watch workout showing a heavy bag round and its 2:53 timer." /><figcaption>Train from your wrist.</figcaption></figure></div></div></section>
+
+  <section class="wrap section reviewer" aria-labelledby="review-title"><div><p class="eyebrow">Independent app. Personal training need.</p><h2 id="review-title">In your corner.</h2><p class="intro">Dee is made by Noam Efergan, an independent developer who wanted spoken guidance for his own Muay Thai practice.</p><div class="action-row"><a class="press-button" href={`mailto:${press.contact}?subject=Reaction%20Rounds%20review%20access`}>Request a walkthrough ↗</a><a class="text-link" href="/press/">Full Dee press kit ↗</a></div></div><aside><p class="eyebrow">Preview availability</p><p>Reaction Rounds is upcoming, with release pending review. There is no announced launch date. Contact us for the latest review-build availability.</p><p>The store links in this page’s header open the current Dee releases for iPhone and Android; they do not establish availability of this preview feature.</p><p class="micro">Preview material prepared 1 October 2026.</p></aside></section>
+</main>
+<PressFooter />
+</body>
+</html>
+<style>
+  .reaction-intro { padding-block: 46px 0; }
+  .intro-line { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  .intro-line p { margin: 0; }
+  .preview-label { font-size: 12px; font-weight: 600; border: 1px solid var(--dee-line); padding: 5px 12px; }
+  .title-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; margin: 36px 0 46px; }
+  h1 { font-size: clamp(66px, 7.8vw, 106px); line-height: .9; margin: 0; }
+  .hero-copy .intro { max-width: 35ch; }
+  .hero-copy .micro { max-width: 47ch; margin-bottom: 0; }
+  .painted-hero { background: #0b1d33; }
+  .painted-hero img { width: 100%; }
+  .painted-hero figcaption { padding: 11px 18px; color: #c2d2df; font-size: 12px; letter-spacing: .04em; border-top: 1px solid #263749; }
+  .reaction-story { padding-block: 64px 84px; }
+  .reaction-story h2 { font-size: 35px; margin: 0 0 16px; font-weight: 700; text-transform: none; }
+  .reaction-story .story-number { margin-bottom: 24px; }
+  .film-band { background: #0d1822; color: #f4f8fb; padding-block: 76px; scroll-margin-top: 108px; }
+  .film-band em, .watch-context em { color: #63d7df; }
+  .film-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 32px; }
+  .film-heading h2 { font-size: clamp(52px, 6vw, 76px); margin: 0; }
+  .film-heading > p { color: #b9c8d4; max-width: 40ch; margin: 0; }
+  video { display: block; width: 100%; aspect-ratio: 16/9; background: #0a131b; }
+  .film-band figcaption { color: #b9c8d4; font-size: 14px; margin-top: 18px; max-width: 100ch; }
+  .film-links { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 20px; font-size: 16px; }
+  .transcript { border-block: 1px solid #364551; margin-top: 32px; font-size: 16px; }
+  .transcript summary { padding: 18px 0; cursor: pointer; }
+  .transcript > div { max-width: 85ch; padding-block: 10px; color: #c6d2db; }
+  .capture-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; }
+  .capture-image { display: flex; align-items: center; justify-content: center; height: 510px; background: #e1e8ee; padding: 28px; }
+  .capture-image img { width: auto; max-height: 100%; object-fit: contain; }
+  .capture-grid figcaption { padding-top: 25px; }
+  .capture-grid .eyebrow { color: var(--dee-teal-dark); }
+  .capture-grid h3 { margin: 12px 0; font-size: 30px; }
+  .capture-grid p { font-size: 16px; color: var(--dee-muted); }
+  .capture-note { margin-top: 30px !important; max-width: 100ch; }
+  .art-downloads { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; align-items: center; border-top: 1px solid var(--dee-line); margin-top: 56px; padding-block: 30px; }
+  .art-downloads h3 { margin-bottom: 12px; }
+  .art-downloads p:not(.eyebrow) { font-size: 16px; margin-bottom: 0; color: var(--dee-muted); }
+  .art-downloads .press-button { display: flex; flex-direction: column; align-items: start; gap: 10px; }
+  .art-downloads .press-button span { font-size: 13px; font-weight: 400; }
+  .watch-context { background: #152332; color: #f4f8fb; padding-block: 70px; }
+  .watch-context-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: center; }
+  .watch-context h2 { font-size: clamp(48px,5.5vw,70px); margin: 22px 0; }
+  .watch-context p:not(.eyebrow) { color: #c2cfd9; }
+  .watch-context .text-link { display: inline-block; padding-block: 12px; }
+  .watch-images { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .watch-images img { width: 100%; }
+  .watch-images figcaption { font-size: 13px; color: #c2cfd9; margin-top: 14px; }
+  .reviewer { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .reviewer h2 { font-size: 64px; margin: 18px 0 25px; }
+  .reviewer aside { border-top: 2px solid var(--dee-ink); padding-top: 24px; font-size: 16px; }
+  @media(max-width:1000px) { .title-grid,.watch-context-grid,.reviewer { gap: 36px; } .capture-grid { gap: 20px; } .capture-image { height: 430px; padding: 18px; } .art-downloads { grid-template-columns: 1fr 1fr; } .art-downloads > div { grid-column: 1/-1; } }
+  @media(max-width:700px) { .reaction-intro { padding-top: 30px; } .title-grid,.film-heading,.watch-context-grid,.reviewer { grid-template-columns: 1fr; gap: 28px; } .title-grid { margin-block: 32px; } h1 { font-size: clamp(56px,16vw,82px); } .reaction-story { padding-block: 45px 55px; } .film-band { padding-block: 54px; } .capture-grid { grid-template-columns: 1fr; gap: 40px; } .capture-image { height: 510px; } .capture-grid h3 { font-size: 32px; } .art-downloads { gap: 14px; } .art-downloads .press-button { padding: 14px; font-size: 15px; } .watch-images { max-width: 440px; } .reviewer h2 { font-size: 54px; } }
+</style>
