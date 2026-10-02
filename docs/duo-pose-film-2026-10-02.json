@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-02",
+  "page": "https://dee.training/press/duo/",
+  "approval": {
+    "quote": "Looks good, put it in the duo press kit as well",
+    "scope": "Exact brush video approved; publication to the Duo press kit authorized."
+  },
+  "video": {
+    "source": "Dee repository: AppStoreMarketing/exports/duo-matte-2026-10-02/dee-duo-brush-19.5s.mp4",
+    "encoding": "Unmodified approved H.264/AAC export",
+    "duration_seconds": 19.5,
+    "width": 1920,
+    "height": 1080,
+    "frames_per_second": 60
+  },
+  "poster": {
+    "source": "Dee repository: AppStoreMarketing/exports/duo-matte-2026-10-02/brush-poster.png",
+    "operation": "JPEG encoding at quality85, native1920x1080; composition unchanged"
+  },
+  "provenance": "Native simulator captures with sample/frozen workout fixtures; device poses animated in Matte. New native distance-view UI implemented locally but not yet released. Painted abstract background generated using built-in imagegen from approved Reaction Rounds style reference.",
+  "music": "Existing licensed Mixkit Need for speed by Arulo, track369. Full license/provenance in source Dee export folder.",
+  "delivery": "Click-to-play video with controls, playsinline and preload=none; explicit16:9dimensions, compressed poster and direct MP4 download. Older concept assets preserved at their existing URLs.",
+  "files": [
+    {
+      "path": "public/press/duo/duo-five-poses-2026-10-02.mp4",
+      "bytes": 16408437,
+      "sha256": "4bb9d78f1fd02f80eb86b6d9730456ec276ef306737288282f703b6489b3f612"
+    },
+    {
+      "path": "public/press/duo/duo-five-poses-2026-10-02.jpg",
+      "bytes": 464032,
+      "sha256": "0e3652207830103ffce865230705a0396fa40bf80b900110eac56d7f422e2dae"
+    }
+  ]
+}
