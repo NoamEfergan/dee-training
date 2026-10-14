@@ -84,8 +84,14 @@ import '@/styles/dee.css'
       .try-actions {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         gap: 14px 22px;
         margin-top: 36px;
+      }
+
+      .store-badge:focus-visible {
+        outline: 3px solid #8be5f1;
+        outline-offset: 4px;
       }
 
       .try-button {
@@ -184,16 +190,6 @@ import '@/styles/dee.css'
         .try-shell::before { inset-inline-end: 0; }
         .try-copy-panel { min-height: auto; }
         .try-button--app-clip { display: inline-flex; }
-        .try-button--store {
-          border: 1px solid rgba(241, 244, 248, .32);
-          background: transparent;
-          color: var(--dee-paper);
-        }
-        .try-button--store:hover,
-        .try-button--store:focus-visible {
-          border-color: #8be5f1;
-          background: rgba(139, 229, 241, .08);
-        }
         .mobile-launch-note {
           display: block;
           max-width: 34rem;
@@ -228,8 +224,14 @@ import '@/styles/dee.css'
           <p class="try-copy">Dee is available on iOS and Android. The App Clip taster requires an iPhone.</p>
           <div class="try-actions">
             <a class="try-button try-button--app-clip" href="https://appclip.apple.com/id?p=dev.nowham.Dee.Clip">Open Dee App Clip ↗</a>
-            <a class="try-button try-button--store" href="https://apps.apple.com/app/apple-store/id6788483296" rel="noopener noreferrer">Get Dee on the App Store ↗</a>
-            <a class="try-button try-button--store" href="https://play.google.com/store/apps/details?id=dev.nowham.dee">Get Dee on Google Play ↗</a>
+            <div class="download-actions" role="group" aria-label="Download Dee">
+              <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6788483296" rel="noopener noreferrer">
+                <img src="/badges/app-store.svg" alt="Download on the App Store" width="144" height="48" />
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=dev.nowham.dee" rel="noopener noreferrer">
+                <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
+              </a>
+            </div>
             <a class="try-link" href="/">Explore the full Dee site</a>
           </div>
           <p class="mobile-launch-note">Already on your iPhone? No camera needed—tap “Open Dee App Clip” to start.</p>
