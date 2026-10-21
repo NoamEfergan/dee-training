@@ -4,7 +4,7 @@ import LegalLayout from '@/layouts/LegalLayout.astro'
 
 # Dee Privacy Policy
 
-Last updated: September 15, 2026
+Last updated: October 21, 2026
 
 This Privacy Policy explains how Dee handles information when you use the Dee app on iOS or Android.
 
@@ -14,7 +14,7 @@ Dee is provided by Noam Efergan. If you have questions about this policy or your
 
 Dee is a Muay Thai training planner and workout companion. The app stores your training profile, plans, settings, and workout history on your device. On iOS, that data can also sync through your private iCloud database when iCloud is available. The Android app currently keeps this app data on the device and does not sync it to iCloud or another Dee account.
 
-Dee does not require a Dee account, sell your personal information, or include advertising or cross-app tracking SDKs.
+Dee does not require a Dee account, sell your personal information, or include advertising or cross-app tracking SDKs. You may optionally provide an email address for occasional Dee updates. You can use Dee without sharing an email address.
 
 When you open Dee's App Clip, the same privacy commitments apply. The App Clip may send TelemetryDeck limited, pseudonymous product signals such as the controlled source or placement that opened it, selections you make, flow milestones, and whether the taster completed. It does not send the full invocation URL, query parameters, your name, email address, or other free-form personal information. Signals can be queued on the device while offline and sent when connectivity returns. App Clip data remains governed by this policy and is kept separate from any Dee app data unless you choose to continue into the full app.
 
@@ -27,8 +27,21 @@ Dee may store the information you enter or generate in the app, including:
 - Workout history, such as completed workout title, completion date, duration, completed block count, and related session identifier.
 - App settings, such as voice cues, countdowns, sound, haptics, speech rate, and speech volume.
 - A local app user identifier used for app data structure and migration support.
+- If you opt in to Dee updates, your email address and a record of that choice, including the consent time and copy version.
 
 Dee does not require you to provide a name or email address for app identity. It does not use Sign in with Apple or Google Sign-In for a Dee account.
+
+## Optional Dee Email Updates
+
+If you enter an email address and choose Continue in the optional onboarding email step, you subscribe to occasional Dee updates. Skipping the step or continuing with an empty field does not subscribe you. Dee checks the address format without requiring you to verify ownership or confirm a signup email.
+
+The app saves your choice locally and sends your email address, consent time, consent-copy version, platform, and language over HTTPS to Dee's email collector hosted on Cloudflare. Kit receives and stores the address and consent details to manage the mailing list and deliver updates. If the device is offline, the choice stays on the device and can be submitted when you next open or return to the app. On iOS, this settings record can also sync through your private iCloud database.
+
+The email collector does not receive your training profile, workout history, injury notes, purchase identifier, or analytics identifier. Dee does not add the email address to its AI, purchase, or product analytics requests. Cloudflare receives network information such as your IP address to process requests and limit abuse. The collector uses short-lived hashed rate-limit keys and does not log email addresses or request bodies.
+
+We will never spam you. Every update includes an unsubscribe link. Kit may process delivery information, email opens, link clicks, and unsubscribe requests as part of operating the mailing list. Read [Kit's privacy policy](https://kit.com/privacy) and [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/) for their processing practices.
+
+Unsubscribing stops future Dee updates. Dee's collector preserves existing unsubscribe and delivery-suppression states rather than automatically resubscribing those addresses. Contact [info@dee.training](mailto:info@dee.training) to request deletion of your mailing-list data.
 
 ## Local Storage and Platform Sync
 
@@ -78,6 +91,7 @@ Dee and RevenueCat do not use subscription or attribution information to serve t
 
 Depending on your platform and the features you use, Dee relies on:
 
+- Cloudflare for the optional Dee email collector and Kit for mailing-list management and delivery of Dee updates.
 - Apple iCloud and CloudKit for optional private-database sync on iOS.
 - Apple Foundation Models and translation technologies for supported iOS operations. Active Private Cloud Compute use is not claimed for the current release.
 - Apple HealthKit for optional workout recording and available health metrics on Apple devices.
@@ -93,6 +107,8 @@ Dee does not use advertising networks or tracking SDKs that profile users across
 
 You can delete Dee app data from the app's Settings screen. This removes your Dee profile, plans, settings, and workout history from that device. On iOS, if iCloud sync is active, the deletion is also intended to sync to your private iCloud database. On Android, Dee's training data is local to the device, so the in-app control removes the locally stored data.
 
+Deleting app data also removes the local email choice and any pending submission. It does not unsubscribe or erase a contact already received by Kit. Use the unsubscribe link in an update to stop emails, or contact [info@dee.training](mailto:info@dee.training) to request deletion.
+
 You can also remove local app data by uninstalling Dee or using the storage controls provided by iOS or Android. On iOS, Apple may also provide controls for managing app data in iCloud settings.
 
 Analytics signals sent to Mostly Good Metrics or by the App Clip to TelemetryDeck, and historical full-app signals previously sent to TelemetryDeck, are pseudonymous and are retained according to those providers' retention practices. Subscription and attribution records already received by Apple, Google, or RevenueCat are not deleted by Dee's in-app Delete Data control and may be retained under those providers' policies. Contact [info@dee.training](mailto:info@dee.training) for a privacy request concerning those records.
@@ -100,6 +116,8 @@ Analytics signals sent to Mostly Good Metrics or by the App Clip to TelemetryDec
 ## Retention
 
 Dee keeps locally stored app data until you delete it, clear the app's storage, or uninstall the app. On iOS, iCloud-synced app data remains until you delete it, remove the relevant iCloud data, or Apple platform retention behavior removes it.
+
+Mailing-list and consent records are kept in Kit while needed to provide the updates you requested. Unsubscribed addresses may remain in a suppression record to honor your choice and prevent automatic resubscription; you can request deletion through the contact address above.
 
 When iOS remote AI fallback is used, remote providers may process requests according to their service operations and policies. Apple, Google, RevenueCat, Mostly Good Metrics, and TelemetryDeck (for App Clip and historical full-app analytics) may retain the records they process according to their own legal obligations, service operations, and retention policies.
 
