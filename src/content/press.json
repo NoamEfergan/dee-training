@@ -1,14 +1,14 @@
 {
   "name": "Dee: Muay Thai Coach",
-  "updated": "15 September 2026",
+  "updated": "28 October 2026",
   "creator": "Noam Efergan",
   "contact": "info@dee.training",
   "url": "https://dee.training/press/",
   "appStore": "https://apps.apple.com/app/id6788483296",
   "googlePlay": "https://play.google.com/store/apps/details?id=dev.nowham.dee",
   "tagline": "Your plan. Your round. Your corner.",
-  "shortDescription": "Dee builds Muay Thai training around your goals, time and equipment, then guides every round with spoken cues. Sync a plan to Apple Watch and train without your phone. Available for iPhone, iPad, Apple Watch and Android.",
-  "extendedDescription": "Dee is an independent Muay Thai training app for the sessions between coached classes. Choose your goals, experience, schedule and equipment, then follow a structured plan with shadowboxing, heavy-bag work, technique and conditioning. Adjust a workout when your time or equipment changes. During training, timed rounds, drill instructions, spoken cues, bells and haptics help you stay with the session. On Apple Watch, sync your plan from the iPhone app first, then start and run a workout without the phone. Saved workouts play offline. Training history, weekly progress and Fight Camp milestones make it easier to return for the next session. Dee is available in seven languages, including Hebrew with a right-to-left interface. Built by Noam Efergan, Dee is available on the App Store and Google Play.",
+  "shortDescription": "Dee guides solo Muay Thai practice with spoken rounds. Start with three free-forever starter weeks, or choose Dee Pro for personal plans and customisation. Available for iPhone, iPad and Android, with synced workouts that run independently on Apple Watch.",
+  "extendedDescription": "Dee is an independent Muay Thai training app for the sessions between coached classes. On iOS and Android, begin with Foundations, Shadowboxing or Heavy bag: three fixed sessions per starter week, free forever, with no expiry and unlimited replays. Profile answers help check suitability; free starters use ready-made plans without AI generation. Dee Pro unlocks personal plan generation and customisation, ad hoc workouts, Reaction Rounds and Monthly Wrapped. A simpler Home screen brings your plan and streak together, while larger iPhones have a full-screen landscape player. Timed rounds, drill instructions, spoken cues, bells and haptics help you stay with the session. Sync a plan from iPhone to Apple Watch, then start and run a workout without the phone. Saved workouts play offline; personal generation may use an online service. Training history and Fight Camp milestones help you return for the next session. Available in seven languages, including Hebrew with right-to-left layouts. Built by Noam Efergan, Dee is available on the App Store and Google Play; access and features differ by platform.",
   "storyAngles": [
     {
       "title": "Leave the phone in your bag.",
@@ -39,11 +39,12 @@
       "id": "planning",
       "title": "Planning & customization",
       "platform": "iPhone · iPad",
-      "body": "Build a plan around goals, experience, days per week, available equipment and session duration. A curated drill library covers shadowboxing, bag work, technique and conditioning. Adjust a session’s equipment, duration or intensity as your day changes.",
+      "body": "Dee Pro builds a personal plan around goals, experience, days per week, available equipment and session duration. A curated drill library covers shadowboxing, bag work, technique and conditioning. Adjust a session’s equipment, duration or intensity as your day changes.",
       "details": [
-        "Goal, experience, schedule and equipment choices during setup.",
-        "Structured weeks and sessions, drill instructions and work/rest prescriptions.",
-        "Session adjustments and plan customization; generated plans are checked against the drill library."
+        "On iOS and Android, Foundations, Shadowboxing and Heavy bag each contain three fixed sessions, free forever and replayable with no expiry.",
+        "Sessions are about 15 minutes in Foundations, 20 in Shadowboxing and 25 in Heavy bag. Profile answers help check suitability without AI generation.",
+        "Dee Pro is required for personal plan generation and customisation. Starters stay free whether or not you subscribe.",
+        "Structured weeks and sessions include drill instructions and work/rest prescriptions; generated plans are checked against the drill library."
       ]
     },
     {
@@ -53,6 +54,7 @@
       "body": "Timed work and rest rounds combine readable drill instructions with spoken cues, bells and haptics. Choose Warm, Energetic or Focused coaching. Saved workouts and bundled coaching audio can play offline.",
       "details": [
         "Pause, resume, move between blocks and finish early.",
+        "On larger iPhones, rotate to landscape for a full-screen workout player.",
         "Next-round previews keep the next drill in view.",
         "Audio and workout sounds have separate controls. Internet is needed for online plan generation and purchases, not for playing a saved workout."
       ]
@@ -72,11 +74,12 @@
       "id": "progress",
       "title": "Progress that brings you back",
       "platform": "iPhone · iPad",
-      "body": "See training history, weekly activity and the next session in your plan. Fight Camp brings streaks, ranks and milestones together; reminders help you make time, and shareable summaries mark completed workouts.",
+      "body": "See training history, weekly activity and the next session in your plan. Fight Camp brings streaks, ranks and milestones together. Dee Pro adds Monthly Wrapped: your workouts, training time and focus as a story you can share.",
       "details": [
-        "Training history and weekly progress.",
-        "Fight Camp streaks, ranks and milestone moments.",
-        "Optional reminders and shareable workout recaps."
+        "A simpler Home screen brings your plan and streak together.",
+        "Training history, weekly progress, Fight Camp ranks and milestone moments.",
+        "Optional reminders and shareable workout recaps.",
+        "Monthly Wrapped is a Dee Pro feature and uses your recorded training history."
       ]
     },
     {
@@ -130,25 +133,27 @@
   ],
   "android": {
     "title": "Dee on Android",
-    "body": "The same idea, built for Android: a plan that fits your goals and a guided round timer that lets you focus on training. Android uses an on-device rules-based planner, rather than the Apple app’s online AI route.",
+    "body": "Start with three free starter plans: Foundations, Shadowboxing and Heavy bag, each with three ready-made sessions. Dee Pro adds personal plans and customisation, ad hoc workouts, Reaction Rounds and Monthly Wrapped. Spoken rounds and an ongoing workout notification help you keep training.",
     "features": [
-      "Goals, experience, schedule and equipment-based plans.",
-      "Timed rounds, drill instructions and spoken coaching, with saved workouts available offline.",
-      "Training progress and workout history, with seven-language interface and coaching coverage.",
-      "No separate Dee account. Data is stored on the device."
+      "Three free starter plans, replayable with no trial or expiry; profile answers help check suitability.",
+      "Timed rounds, drill instructions and spoken coaching. Saved workouts and voice cues work offline; personal plan generation may use an online service.",
+      "Fight Camp streaks and ranks, a Home card for your plan and training days, and a home-screen widget.",
+      "Monthly Wrapped is included with Dee Pro. Finished workouts can optionally be saved to Health Connect.",
+      "Seven-language interface and coaching. No separate Dee account; training data is stored on your phone and included in Android backup."
     ],
-    "requirements": "Android 9 or later. Current release: 1.0.4.",
-    "access": "Free download with optional Dee Pro subscriptions through Google Play. Check the in-app offer for current local prices and included access. Google Play purchases are separate from App Store purchases.",
+    "requirements": "Android 9 or later. Current release: 1.1.0, updated 23 October 2026.",
+    "access": "Foundations, Shadowboxing and Heavy bag stay free whether or not you subscribe. Dee Pro subscriptions are purchased through Google Play. See the in-app offer for current local prices and renewal terms. Google Play purchases are separate from App Store purchases.",
     "differences": "Apple Watch, HealthKit, iCloud, Live Activities, Dynamic Island and the App Clip are Apple-platform features."
   },
   "release": {
-    "ios": "1.0.11",
-    "iosDate": "14 September 2026",
-    "android": "1.0.4",
+    "ios": "1.1.0",
+    "iosDate": "23 October 2026",
     "requirements": "iOS / iPadOS 26 or later; watchOS 26 or later. Android 9 or later.",
-    "news": "Dee 1.0.11 shortens onboarding and gives eligible new users one full workout before subscribing. Existing access is preserved.",
-    "access": "On iOS, eligible new users can complete one full workout free. Saving a workout, including an early finish, uses that allowance. Further workouts require a monthly or annual Dee Pro subscription unless you already have access. Trying the free workout does not start a subscription. Prices, offers and eligibility are shown in your local store and in the app.",
-    "pricingNote": "App Store and Google Play subscriptions are purchased and managed separately. Local prices and offers can change; the current purchase screen is authoritative."
+    "news": "Dee 1.1.0 introduces three free-forever starter weeks, Monthly Wrapped with Dee Pro, a simpler Home screen that brings your plan and streak together, and a full-screen landscape player on larger iPhones.",
+    "access": "On iOS and Android, Foundations, Shadowboxing and Heavy bag are free forever, with three ready-made sessions each (about 15, 20 and 25 minutes respectively). Replay any starter with no subscription, trial or expiry; “week” describes the three-session sequence, not a seven-day deadline. Profile answers help check suitability without AI generation. Dee Pro unlocks personal plan generation and customisation, ad hoc workouts, Reaction Rounds and Monthly Wrapped. Dee Pro is monthly or annual; the starter weeks remain free.",
+    "pricingNote": "App Store and Google Play subscriptions are purchased and managed separately. Local prices and offers can change; the current purchase screen is authoritative.",
+    "android": "1.1.0",
+    "androidDate": "23 October 2026"
   },
   "founder": {
     "title": "Built from a real training need.",
@@ -165,16 +170,16 @@
   },
   "reviewer": [
     {
-      "title": "Set up a plan",
-      "body": "Download from the App Store or Google Play. Choose your goals, experience, available days and equipment. On Apple devices, keep an internet connection available while generating a plan."
+      "title": "Start with a free starter week",
+      "body": "Download Dee from the App Store or Google Play and answer the profile questions to check suitability. Choose Foundations, Shadowboxing or Heavy bag, each with three ready-made sessions. No subscription is required and there is no seven-day deadline."
     },
     {
-      "title": "Make it fit today",
-      "body": "Open the plan and inspect a session’s drills. Explore the available customization controls for time, equipment and intensity."
+      "title": "Inspect the plan and Pro options",
+      "body": "Open the starter and inspect its sessions and drills. Starter plans are fixed. Personal plan generation and customisation, ad hoc workouts and Reaction Rounds require Dee Pro; arrange review access below to explore them."
     },
     {
       "title": "Run a round",
-      "body": "Start a workout. Listen to a coaching voice, inspect the next-round preview, pause and resume. Try a saved workout without an internet connection."
+      "body": "Start a starter session. Listen to a coaching voice, inspect the next-round preview, pause and resume. On a larger iPhone, rotate to landscape. Try a saved workout without an internet connection."
     },
     {
       "title": "Leave the phone behind",
@@ -182,7 +187,7 @@
     },
     {
       "title": "Finish and explore",
-      "body": "Complete or save a workout, view the recap and training history, and explore Fight Camp. On iOS, saving an early finish uses the eligible free-workout allowance."
+      "body": "Complete or save a workout, view the recap and training history, and explore Fight Camp. Starter sessions remain replayable with no expiry. With Dee Pro, explore Monthly Wrapped using recorded training history."
     },
     {
       "title": "Try your preferred settings",
@@ -191,7 +196,7 @@
   ],
   "reviewerAccess": "For additional review access, interviews or a specific capture, email info@dee.training. We will arrange the appropriate access directly. The public store releases are the recommended starting point.",
   "credits": "These assets are supplied by Dee for editorial coverage of Dee. Please credit “Dee” for app images and “Noam Efergan / Dee” for the creator image. Screenshots use illustrative training data. Keep app screens accurate; do not imply Apple or Google endorsement. Cropping for layout is welcome. Contact info@dee.training for other uses.",
-  "captureNote": "Apple app images and demonstrations use simulator captures with sample workout data. Android images are app-rendered sample screens. Presentation images are labelled separately; original screenshots are also provided.",
+  "captureNote": "Apple app images and demonstrations use simulator captures with sample workout data. Android images are app-rendered sample screens. The starter-selection image shows the free starter flow; other assets include earlier interface captures. Presentation images are labelled separately; original screenshots are also provided.",
   "assets": [
     {
       "id": "iphone-goals",
@@ -229,7 +234,7 @@
     {
       "id": "iphone-home",
       "title": "Today’s training",
-      "caption": "A sample plan and the next sessions on the home screen.",
+      "caption": "A sample plan and upcoming sessions in an earlier Home interface, retained for reference.",
       "platform": "iPhone",
       "language": "en",
       "group": "core",
@@ -269,6 +274,17 @@
       "file": "/press/screenshots/iphone-larger-text.png",
       "width": 1206,
       "height": 2622
+    },
+    {
+      "id": "ipad-starter-selection",
+      "title": "Choose a free starter week",
+      "caption": "Foundations, Shadowboxing and Heavy bag in the starter selector. Original iPad simulator capture, 14 October 2026, with a sample profile.",
+      "platform": "iPad",
+      "language": "en",
+      "group": "core",
+      "file": "/press/screenshots/ipad-starter-selection.png",
+      "width": 2064,
+      "height": 2752
     },
     {
       "id": "ipad-plan",
@@ -543,7 +559,8 @@
   ],
   "factSheet": {
     "ai": "iOS plans can use OpenAI through AIProxy, with a local rules-based fallback. Full plans do not use the on-device Apple model in this release; active PCC use is not claimed. Saved workouts play offline.",
-    "android": "Android uses an on-device rules-based planner. Goals, equipment, guided rounds, spoken coaching, progress and seven languages are available. Free download with optional Google Play subscriptions; see the app for local prices and included access.",
-    "account": "No separate Dee account. Store purchases use your platform account. iCloud sync is optional. Standalone Watch workouts require Health workout-recording permission. See dee.training/privacy for data controls and provider details."
+    "android": "Android offers three free, replayable starter plans and Dee Pro personal plans, customisation, Reaction Rounds and Monthly Wrapped. Saved workouts and voice cues play offline; personal generation may use an online service. Optional Health Connect recording and Android backup are supported.",
+    "account": "No separate Dee account. Store purchases use your platform account. iCloud sync is optional. Standalone Watch workouts require Health workout-recording permission. See dee.training/privacy for data controls and provider details.",
+    "reviewer": "Choose a free starter, train and review your progress. Personal plans, customisation and Monthly Wrapped require Dee Pro. Sync from iPhone before a Watch workout. Try your preferred accessibility and language settings."
   }
 }

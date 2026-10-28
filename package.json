@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build:press": "python3 scripts/prepare-press-fonts.py --output .press-build/fonts && DEE_PRESS_FONT_DIR=.press-build/fonts python3 scripts/build-press-downloads.py && node scripts/check-press.mjs",
+    "build": "npm run build:press && astro check && astro build",
     "preview": "astro preview",
     "test:links": "npm run build && node scripts/check-campaign-links.mjs && node scripts/check-header-downloads.mjs"
   },

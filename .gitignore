@@ -4,3 +4,10 @@ dist/
 .DS_Store
 
 /node_modules
+
+# Rebuilt from src/content/press.json before every site build.
+.press-build/
+public/press/dee-fact-sheet.pdf
+public/press/dee-editorial-copy.txt
+public/press/dee-press-kit.zip
+public/press/asset-manifest.json

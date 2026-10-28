@@ -7,12 +7,18 @@ const c=JSON.parse(readFileSync(join(root,'src/content/press.json'),'utf8'));
 const dir=join(root,'public/press');
 const editorial=readFileSync(join(dir,'dee-editorial-copy.txt'),'utf8');
 const manifest=JSON.parse(readFileSync(join(dir,'asset-manifest.json'),'utf8'));
+assert.equal(manifest.updated,c.updated,'Press manifest date is stale');
+assert.equal(manifest.iosVersion,c.release.ios,'Press manifest release is stale');
+assert.equal(manifest.iosReleaseDate,c.release.iosDate,'Press manifest release date is stale');
+assert.equal(manifest.androidVersion,c.release.android,'Android manifest release is stale');
+assert.equal(manifest.androidReleaseDate,c.release.androidDate,'Android manifest release date is stale');
 for(const entry of manifest.files){
  const file=join(dir,entry.path);assert.equal(statSync(file).size,entry.bytes,entry.path);
  assert.equal(createHash('sha256').update(readFileSync(file)).digest('hex'),entry.sha256,entry.path);
  assert(!/contacts|evidence|diagnostic|followup|send-results|credentials/i.test(entry.path));
 }
 assert(editorial.includes(c.shortDescription));assert(editorial.includes(c.extendedDescription));
+for(const text of [c.updated,c.release.ios,c.release.iosDate,c.release.news,c.release.access,c.release.pricingNote,...c.reviewer.map(s=>s.body)])assert(editorial.includes(text),'Editorial download is stale');
 for(const f of c.features){assert(editorial.includes(f.body));for(const d of f.details)assert(editorial.includes(d));}
 assert.equal(c.assets.filter(a=>a.group==='localized').length,6);
 for(const a of c.assets){
