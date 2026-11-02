@@ -4,7 +4,7 @@ import LegalLayout from '@/layouts/LegalLayout.astro'
 
 # Dee Privacy Policy
 
-Last updated: October 21, 2026
+Last updated: November 2, 2026
 
 This Privacy Policy explains how Dee handles information when you use the Dee app on iOS or Android.
 
@@ -55,21 +55,21 @@ On Android, Dee currently stores this app data locally on your device. The Andro
 
 How Dee generates or adapts training plans depends on the platform and available features.
 
-In the current iOS release, full-plan generation and workout customization can use AIProxy, which forwards structured generation requests to an OpenAI-compatible model service. A local rules-based planner provides a fallback when online plan generation is unavailable. Full multi-week plans do not use the on-device Apple model in this release, and active Apple Private Cloud Compute use is not claimed. Dee also contains Apple Foundation Models integration for supported operations. Those requests can include training-planning context needed to generate or adapt a plan, such as your level, goals, preferred schedule, equipment, stance, obstacles, limitations or injury notes, current session blocks, and allowed exercise options. When that fallback is used, AIProxy also receives a device-level identifier supplied by iOS and network information such as an IP address so it can enforce usage limits, prevent abuse, operate the service, and measure its performance. Dee treats that context and technical information as potentially associated with the device, but does not use it to identify you by name, create a Dee account, advertise to you, or track you across apps.
+In the current iOS release, Dee Pro personal plan generation, plan changes, and workout customization use AIProxy, which forwards structured generation requests to OpenAI models. The rules-based planner included in the app creates the plan when online generation is unavailable or does not finish in time, and free starter weeks never use AI. Dee does not use Apple Foundation Models or Apple Private Cloud Compute. Online requests can include training-planning context needed to generate or adapt a plan, such as your level, goals, preferred schedule, equipment, stance, obstacles, limitations or injury notes, current session blocks, and allowed exercise options. AIProxy also receives a device-level identifier supplied by iOS and network information such as an IP address so it can enforce usage limits, prevent abuse, operate the service, and measure its performance. Dee treats that context and technical information as potentially associated with the device, but does not use it to identify you by name, create a Dee account, advertise to you, or track you across apps.
 
-When the iOS app uses remote translation for Hebrew plan text, the request includes only the text needed to produce the translation. It does not include your Apple Account details.
+When the iOS app shows a plan in Hebrew, Apple’s Translation framework translates the plan text on the device. Apple may download language assets for this. Dee does not send the plan to its own servers for translation, and your Apple Account details are not involved.
 
-In the current Android release, plan creation uses logic included in the app. The Android remote AI route is disabled, so the Android app does not send your training profile or limitation notes to Cloudflare, OpenAI, or another remote AI provider for plan generation.
+In the current Android release, Dee Pro personal plan generation and plan changes send the same kind of structured request to Dee's own AI proxy, a Cloudflare Worker, which verifies the request with Google Play Integrity and forwards it to OpenAI. The request carries a random per-install identifier that Dee generates to enforce a daily usage limit; it is separate from the analytics identifier and is not an Android device or advertising ID. Cloudflare and Google receive network information such as an IP address while processing the request. If online generation is unavailable or takes longer than 30 seconds, the planner included in the app creates the plan on the device. Free starter plans never use AI, and Dee does not use the Android advertising ID for plan generation.
 
 Do not enter information in Dee that you do not want handled for training-plan generation. Dee is designed for general sport and fitness planning, not medical diagnosis or treatment.
 
 ## Analytics
 
-The full iOS app uses Mostly Good Metrics (MGM), a privacy-focused analytics service, to understand how the app is used so it can be improved. Earlier full-app releases used TelemetryDeck; new full-app releases do not send analytics events to TelemetryDeck. Dee's separate App Clip uses TelemetryDeck only for the limited App Clip signals described in the Summary above.
+The full Dee apps on iOS and Android use Mostly Good Metrics (MGM), a privacy-focused analytics service, to understand how the app is used so it can be improved. Earlier full-app releases used TelemetryDeck; new full-app releases do not send analytics events to TelemetryDeck. Dee's separate App Clip uses TelemetryDeck only for the limited App Clip signals described in the Summary above.
 
-MGM generates and stores a random analytics-only installation identifier for Dee and creates a new identifier for each app session. Dee does not reuse its former TelemetryDeck identifier and does not call MGM's user-identification feature. MGM receives app lifecycle events; device model and type; locale and timezone; app, platform, operating-system, and version information; and Dee's explicit product-usage events and properties. Examples include which tab was selected, which plan engine produced a plan, workout duration in seconds, whether Dee Pro is active, the app locale, and the source revision. The installation identifier is not derived from an advertising identifier or from the device identifier used by Dee's remote AI fallback. MGM does not receive your name, email address, or free-form text you enter in the app, and Dee does not connect MGM's anonymous identifiers to your training profile.
+MGM generates and stores a random analytics-only installation identifier for Dee and creates a new identifier for each app session. Dee does not reuse its former TelemetryDeck identifier and does not call MGM's user-identification feature. MGM receives app lifecycle events; device model and type; locale and timezone; app, platform, operating-system, and version information; and Dee's explicit product-usage events and properties. Examples include which tab was selected, which plan engine produced a plan, workout duration in seconds, whether Dee Pro is active, the app locale, and the source revision. The installation identifier is not derived from an advertising identifier or from the identifiers used for online plan generation. MGM does not receive your name, email address, or free-form text you enter in the app, and Dee does not connect MGM's anonymous identifiers to your training profile.
 
-Existing pseudonymous analytics signals sent by earlier releases may remain in TelemetryDeck during the provider transition under TelemetryDeck's retention practices. The new iOS integration starts with fresh MGM analytics history and does not import those historical events.
+Existing pseudonymous analytics signals sent by earlier releases may remain in TelemetryDeck during the provider transition under TelemetryDeck's retention practices. The MGM integration starts with fresh analytics history and does not import those historical events.
 
 These analytics are not used for advertising, cross-app tracking, or profiling you across other companies' apps or websites. Dee does not request App Tracking Transparency permission on iOS for this analytics use and does not use the Android advertising ID for it.
 
@@ -93,10 +93,12 @@ Depending on your platform and the features you use, Dee relies on:
 
 - Cloudflare for the optional Dee email collector and Kit for mailing-list management and delivery of Dee updates.
 - Apple iCloud and CloudKit for optional private-database sync on iOS.
-- Apple Foundation Models and translation technologies for supported iOS operations. Active Private Cloud Compute use is not claimed for the current release.
+- Apple’s Translation framework for on-device Hebrew plan translation on iOS.
 - Apple HealthKit for optional workout recording and available health metrics on Apple devices.
-- AIProxy and an OpenAI-compatible model service for remote AI fallback on iOS when Apple generation is unavailable or fails.
-- Mostly Good Metrics for pseudonymous product analytics in the current full iOS app; TelemetryDeck for limited App Clip analytics and historical signals from earlier full-app releases.
+- Google Health Connect for optional saving of finished workouts on Android.
+- AIProxy and OpenAI for online plan generation on iOS.
+- Cloudflare, which hosts Dee's own AI proxy, Google Play Integrity, and OpenAI for online plan generation on Android.
+- Mostly Good Metrics for pseudonymous product analytics in the full iOS and Android apps; TelemetryDeck for limited App Clip analytics and historical signals from earlier full-app releases.
 - Apple's App Store / StoreKit for purchases and AdServices for Dee's own Apple Ads attribution on iOS.
 - Google Play Billing for subscription purchases on Android.
 - RevenueCat for purchase validation, Dee Pro entitlements, subscription analytics, and Apple Ads attribution on iOS.
@@ -105,7 +107,7 @@ Dee does not use advertising networks or tracking SDKs that profile users across
 
 ## Deleting Your Data
 
-You can delete Dee app data from the app's Settings screen. This removes your Dee profile, plans, settings, and workout history from that device. On iOS, if iCloud sync is active, the deletion is also intended to sync to your private iCloud database. On Android, Dee's training data is local to the device, so the in-app control removes the locally stored data.
+You can delete Dee app data from the app's Settings screen. This removes your Dee profile, plans, settings, and workout history from that device. On iOS, if iCloud sync is active, the deletion is also intended to sync to your private iCloud database. On Android, Dee's training data is local to the device, so the in-app control removes the locally stored data. Workouts you already saved to Apple Health or Health Connect remain there until you remove them in those apps.
 
 Deleting app data also removes the local email choice and any pending submission. It does not unsubscribe or erase a contact already received by Kit. Use the unsubscribe link in an update to stop emails, or contact [info@dee.training](mailto:info@dee.training) to request deletion.
 
@@ -119,7 +121,7 @@ Dee keeps locally stored app data until you delete it, clear the app's storage, 
 
 Mailing-list and consent records are kept in Kit while needed to provide the updates you requested. Unsubscribed addresses may remain in a suppression record to honor your choice and prevent automatic resubscription; you can request deletion through the contact address above.
 
-When iOS remote AI fallback is used, remote providers may process requests according to their service operations and policies. Apple, Google, RevenueCat, Mostly Good Metrics, and TelemetryDeck (for App Clip and historical full-app analytics) may retain the records they process according to their own legal obligations, service operations, and retention policies.
+When online plan generation is used, AIProxy, Cloudflare, and OpenAI may process requests according to their service operations and policies. Apple, Google, RevenueCat, Mostly Good Metrics, and TelemetryDeck (for App Clip and historical full-app analytics) may retain the records they process according to their own legal obligations, service operations, and retention policies.
 
 ## Children's Privacy
 
@@ -127,9 +129,9 @@ Dee is not directed to children under 13. If you are under the age of majority i
 
 ## Health and Fitness Information
 
-Dee may handle fitness-related preferences and limitation notes that you choose to enter. On iOS, when remote AI fallback is used, those preferences and notes can be included in the structured plan-generation request described above. In the current Android release, that information remains in the app's local storage and is not sent through a remote AI route.
+Dee may handle fitness-related preferences and limitation notes that you choose to enter. On iOS and Android, when Dee Pro online plan generation is used, those preferences and notes can be included in the structured plan-generation request described above. Free starter plans do not send them anywhere.
 
-On Apple devices, Dee can connect to Apple Health with your permission to record workouts and read available workout, heart-rate and active-energy information. Apple Watch supplies supported sensor measurements during workouts. Standalone Watch workouts require permission to save workouts in Apple Health. Health recording is optional for iPhone workouts. You can manage or revoke Health permissions in Apple’s system settings. Dee does not currently connect to Google Health Connect on Android. Dee is not a medical device; its training plans are for general sport and fitness purposes only.
+On Apple devices, Dee can connect to Apple Health with your permission to record workouts and read available workout, heart-rate and active-energy information. Apple Watch supplies supported sensor measurements during workouts. Standalone Watch workouts require permission to save workouts in Apple Health. Health recording is optional for iPhone workouts. You can manage or revoke Health permissions in Apple’s system settings. On Android, Dee can save finished workouts to Google Health Connect as exercise sessions with your permission; you can manage or revoke that permission in Health Connect. Dee is not a medical device; its training plans are for general sport and fitness purposes only.
 
 ## Changes to This Policy
 
