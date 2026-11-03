@@ -161,7 +161,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'Yours, privately',
         title: 'Saved plans, ready to train.',
-        body: 'Saved plans and workout playback work offline. On iOS, plan generation may use an online service. Android builds plans in the app.',
+        body: 'Saved plans and workout playback work offline. Dee Pro plan generation may use an online service on iOS and Android; a built-in planner takes over when it cannot run.',
         points: ['No sign-in, ever', 'Train at home or at the gym without a connection', 'Private iCloud (iOS) sync across your devices'],
       },
     },
@@ -175,7 +175,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'Is Dee only for beginners?', answer: 'No. Dee shapes training around your real level, from your first Muay Thai session to experienced practice.' },
       { question: 'Do I need a heavy bag or other equipment?', answer: 'No. Tell Dee what you have. Without a bag, it swaps bag work for shadowboxing and bodyweight drills.' },
-      { question: 'Does Dee work offline, and is my plan private?', answer: 'Saved plans and workout playback work offline. On iOS, plan generation may use an online service. Android builds plans in the app.' },
+      { question: 'Does Dee work offline, and is my plan private?', answer: 'Saved plans and workout playback work offline. Dee Pro plan generation may use an online service on iOS and Android; a built-in planner takes over when it cannot run.' },
       { question: 'Which devices and languages are supported?', answer: 'Dee is available on iOS and Android. See the App Store or Google Play listing for device compatibility and supported languages.' },
       { question: 'Does Dee replace a coach or clinician?', answer: 'No. Dee is for general sport and fitness. Train within your limits, and consult a qualified coach or clinician about technique, pain, or injuries.' },
     ],
@@ -231,7 +231,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'Tuyo, en privado',
         title: 'Tu plan se queda en tu dispositivo.',
-        body: 'Los planes guardados y los entrenamientos funcionan sin conexión. En iOS, la creación de planes puede usar un servicio en línea. Android crea los planes en la app.',
+        body: 'Los planes guardados y los entrenamientos funcionan sin conexión. En iOS y Android, la creación de planes con Dee Pro puede usar un servicio en línea; si no está disponible, un planificador integrado crea el plan.',
         points: ['Sin registro, nunca', 'Entrena en casa o en el gimnasio sin conexión', 'Sincronización privada con iCloud (iOS)'],
       },
     },
@@ -245,7 +245,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: '¿Dee es solo para principiantes?', answer: 'No. Dee adapta el entrenamiento a tu nivel real, desde tu primera sesión de Muay Thai hasta la práctica experimentada.' },
       { question: '¿Necesito saco pesado u otro material?', answer: 'No. Dile a Dee qué tienes. Sin saco, cambia el trabajo de saco por shadowboxing y ejercicios con peso corporal.' },
-      { question: '¿Funciona sin conexión y mi plan es privado?', answer: 'Los planes guardados y los entrenamientos funcionan sin conexión. En iOS, la creación de planes puede usar un servicio en línea. Android crea los planes en la app.' },
+      { question: '¿Funciona sin conexión y mi plan es privado?', answer: 'Los planes guardados y los entrenamientos funcionan sin conexión. En iOS y Android, la creación de planes con Dee Pro puede usar un servicio en línea; si no está disponible, un planificador integrado crea el plan.' },
       { question: '¿Qué dispositivos e idiomas son compatibles?', answer: 'Dee está disponible en iOS y Android. Consulta la compatibilidad y los idiomas en App Store o Google Play.' },
       { question: '¿Dee sustituye a un entrenador o profesional sanitario?', answer: 'No. Dee es para deporte y forma física en general. Entrena dentro de tus límites y consulta a un entrenador o profesional sanitario cualificado sobre técnica, dolor o lesiones.' },
     ],
@@ -296,7 +296,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'À toi, en privé',
         title: 'Ton plan reste sur ton appareil.',
-        body: 'Les plans enregistrés et les entraînements fonctionnent hors ligne. Sur iOS, la création de plans peut utiliser un service en ligne. Android crée les plans dans l’application.',
+        body: 'Les plans enregistrés et les entraînements fonctionnent hors ligne. Sur iOS et Android, la création de plans avec Dee Pro peut utiliser un service en ligne ; sinon, un planificateur intégré prend le relais.',
         points: ['Aucune connexion, jamais', 'Entraîne-toi sans réseau, chez toi ou à la salle', 'Synchronisation privée iCloud (iOS)'],
       },
     },
@@ -310,7 +310,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'Dee est-elle réservée aux débutants ?', answer: "Non. Dee adapte l'entraînement à ton vrai niveau, de ta première séance de Muay Thai à une pratique confirmée." },
       { question: "Ai-je besoin d'un sac de frappe ou de matériel ?", answer: "Non. Indique à Dee ce que tu as. Sans sac, elle remplace les exercices au sac par du shadowboxing et du travail au poids du corps." },
-      { question: 'Dee fonctionne-t-elle hors ligne et mon plan est-il privé ?', answer: 'Les plans enregistrés et les entraînements fonctionnent hors ligne. Sur iOS, la création de plans peut utiliser un service en ligne. Android crée les plans dans l’application.' },
+      { question: 'Dee fonctionne-t-elle hors ligne et mon plan est-il privé ?', answer: 'Les plans enregistrés et les entraînements fonctionnent hors ligne. Sur iOS et Android, la création de plans avec Dee Pro peut utiliser un service en ligne ; sinon, un planificateur intégré prend le relais.' },
       { question: 'Quels appareils et langues sont compatibles ?', answer: 'Dee est disponible sur iOS et Android. Consultez la compatibilité et les langues sur l’App Store ou Google Play.' },
       { question: 'Dee remplace-t-elle un coach ou un professionnel de santé ?', answer: "Non. Dee est destinée au sport et à la remise en forme en général. Entraîne-toi dans tes limites et consulte un coach ou professionnel de santé qualifié pour la technique, la douleur ou les blessures." },
     ],
@@ -361,7 +361,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'Deins, privat',
         title: 'Dein Plan bleibt auf deinem Gerät.',
-        body: 'Gespeicherte Pläne und Trainings funktionieren offline. Unter iOS kann die Planerstellung einen Online-Dienst nutzen. Android erstellt Pläne in der App.',
+        body: 'Gespeicherte Pläne und Trainings funktionieren offline. Unter iOS und Android kann die Planerstellung mit Dee Pro einen Online-Dienst nutzen; sonst übernimmt der integrierte Planer.',
         points: ['Keine Anmeldung, niemals', 'Ohne Verbindung zu Hause oder im Gym trainieren', 'Private iCloud (iOS)-Synchronisierung'],
       },
     },
@@ -375,7 +375,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'Ist Dee nur für Anfänger?', answer: 'Nein. Dee passt dein Training an dein echtes Level an – von deiner ersten Muay-Thai-Einheit bis zu fortgeschrittener Praxis.' },
       { question: 'Brauche ich einen Sandsack oder andere Ausrüstung?', answer: 'Nein. Sag Dee, was du hast. Ohne Sandsack tauscht Dee Sackarbeit gegen Schattenboxen und Übungen mit dem eigenen Körpergewicht.' },
-      { question: 'Funktioniert Dee offline und bleibt mein Plan privat?', answer: 'Gespeicherte Pläne und Trainings funktionieren offline. Unter iOS kann die Planerstellung einen Online-Dienst nutzen. Android erstellt Pläne in der App.' },
+      { question: 'Funktioniert Dee offline und bleibt mein Plan privat?', answer: 'Gespeicherte Pläne und Trainings funktionieren offline. Unter iOS und Android kann die Planerstellung mit Dee Pro einen Online-Dienst nutzen; sonst übernimmt der integrierte Planer.' },
       { question: 'Welche Geräte und Sprachen werden unterstützt?', answer: 'Dee ist für iOS und Android verfügbar. Kompatible Geräte und unterstützte Sprachen findest du im App Store oder bei Google Play.' },
       { question: 'Ersetzt Dee einen Coach oder medizinisches Fachpersonal?', answer: 'Nein. Dee ist für allgemeinen Sport und Fitness gedacht. Trainiere im Rahmen deiner Grenzen und sprich bei Technik, Schmerzen oder Verletzungen mit qualifiziertem Fachpersonal.' },
     ],
@@ -426,7 +426,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'Van jou, privé',
         title: 'Je plan blijft op je toestel.',
-        body: 'Opgeslagen plannen en trainingen werken offline. Op iOS kan het maken van plannen een onlinedienst gebruiken. Android maakt plannen in de app.',
+        body: 'Opgeslagen plannen en trainingen werken offline. Op iOS en Android kan het maken van plannen met Dee Pro een onlinedienst gebruiken; anders neemt de ingebouwde planner het over.',
         points: ['Nooit inloggen', 'Train zonder verbinding, thuis of in de sportschool', 'Privé iCloud (iOS)-synchronisatie'],
       },
     },
@@ -440,7 +440,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'Is Dee alleen voor beginners?', answer: 'Nee. Dee vormt de training rond jouw echte niveau, van je eerste Muay Thai sessie tot ervaren training.' },
       { question: 'Heb ik een bokszak of andere spullen nodig?', answer: 'Nee. Vertel Dee wat je hebt. Zonder bokszak wisselt Dee zakoefeningen voor shadowboxing en oefeningen met eigen gewicht.' },
-      { question: 'Werkt Dee offline en blijft mijn plan privé?', answer: 'Opgeslagen plannen en trainingen werken offline. Op iOS kan het maken van plannen een onlinedienst gebruiken. Android maakt plannen in de app.' },
+      { question: 'Werkt Dee offline en blijft mijn plan privé?', answer: 'Opgeslagen plannen en trainingen werken offline. Op iOS en Android kan het maken van plannen met Dee Pro een onlinedienst gebruiken; anders neemt de ingebouwde planner het over.' },
       { question: 'Welke apparaten en talen worden ondersteund?', answer: 'Dee is beschikbaar voor iOS en Android. Bekijk de App Store of Google Play voor ondersteunde apparaten en talen.' },
       { question: 'Vervangt Dee een coach of zorgverlener?', answer: 'Nee. Dee is voor algemene sport en fitness. Train binnen je grenzen en raadpleeg een gekwalificeerde coach of zorgverlener bij vragen over techniek, pijn of blessures.' },
     ],
@@ -491,7 +491,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'Seu, com privacidade',
         title: 'Seu plano fica no seu aparelho.',
-        body: 'Planos salvos e treinos funcionam offline. No iOS, a criação de planos pode usar um serviço online. O Android cria os planos no app.',
+        body: 'Planos salvos e treinos funcionam offline. No iOS e no Android, a criação de planos com o Dee Pro pode usar um serviço online; se não estiver disponível, um planejador integrado assume.',
         points: ['Sem login, nunca', 'Treine offline em casa ou na academia', 'Sincronização privada pelo iCloud (iOS)'],
       },
     },
@@ -505,7 +505,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'O Dee é só para iniciantes?', answer: 'Não. O Dee adapta o treino ao seu nível real, desde a sua primeira sessão de Muay Thai até a prática avançada.' },
       { question: 'Preciso de saco de pancada ou outro equipamento?', answer: 'Não. Diga ao Dee o que você tem. Sem saco, ele troca o trabalho de saco por shadowboxing e exercícios com o peso do corpo.' },
-      { question: 'O Dee funciona offline e meu plano é privado?', answer: 'Planos salvos e treinos funcionam offline. No iOS, a criação de planos pode usar um serviço online. O Android cria os planos no app.' },
+      { question: 'O Dee funciona offline e meu plano é privado?', answer: 'Planos salvos e treinos funcionam offline. No iOS e no Android, a criação de planos com o Dee Pro pode usar um serviço online; se não estiver disponível, um planejador integrado assume.' },
       { question: 'Quais aparelhos e idiomas são compatíveis?', answer: 'O Dee está disponível para iOS e Android. Consulte os aparelhos e idiomas compatíveis na App Store ou no Google Play.' },
       { question: 'O Dee substitui um treinador ou profissional de saúde?', answer: 'Não. O Dee é para esporte e condicionamento em geral. Treine dentro dos seus limites e consulte um treinador ou profissional de saúde qualificado sobre técnica, dor ou lesões.' },
     ],
@@ -564,7 +564,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
       privacy: {
         eyebrow: 'שלך, בפרטיות',
         title: 'התוכנית נשארת במכשיר שלך.',
-        body: 'תוכניות שמורות ואימונים פועלים ללא חיבור. ב-iOS, יצירת תוכניות עשויה להשתמש בשירות מקוון. ב-Android התוכניות נוצרות באפליקציה.',
+        body: 'תוכניות שמורות ואימונים פועלים ללא חיבור. ב-iOS וב-Android, יצירת תוכניות עם Dee Pro עשויה להשתמש בשירות מקוון; אם הוא לא זמין, מתכנן מובנה יוצר את התוכנית.',
         points: ['בלי התחברות, לעולם', 'אימון בבית או בחדר כושר בלי חיבור', 'סנכרון iCloud (iOS) פרטי בין המכשירים שלך'],
       },
     },
@@ -578,7 +578,7 @@ export const deeContent: Record<DeeLocale, DeeContent> = {
     faqs: [
       { question: 'האם דִי מיועדת רק למתחילים?', answer: 'לא. דִי מעצבת את האימון סביב הרמה האמיתית שלך, מהאימון הראשון במואי תאי ועד לתרגול מנוסה.' },
       { question: 'האם צריך שק כבד או ציוד אחר?', answer: 'לא. מספרים לדִי מה יש לך. בלי שק, היא מחליפה עבודת שק באגרוף צללים ובתרגילי משקל גוף.' },
-      { question: 'האם דִי עובדת ללא חיבור והאם התוכנית שלי פרטית?', answer: 'תוכניות שמורות ואימונים פועלים ללא חיבור. ב-iOS, יצירת תוכניות עשויה להשתמש בשירות מקוון. ב-Android התוכניות נוצרות באפליקציה.' },
+      { question: 'האם דִי עובדת ללא חיבור והאם התוכנית שלי פרטית?', answer: 'תוכניות שמורות ואימונים פועלים ללא חיבור. ב-iOS וב-Android, יצירת תוכניות עם Dee Pro עשויה להשתמש בשירות מקוון; אם הוא לא זמין, מתכנן מובנה יוצר את התוכנית.' },
       { question: 'אילו מכשירים ושפות נתמכים?', answer: 'דִי זמינה ב-iOS וב-Android. פרטים על מכשירים ושפות נתמכים מופיעים ב-App Store וב-Google Play.' },
       { question: 'האם דִי מחליפה מאמן או איש מקצוע רפואי?', answer: 'לא. דִי מיועדת לספורט ולכושר באופן כללי. יש להתאמן במסגרת היכולת ולהתייעץ עם מאמן מוסמך או איש מקצוע רפואי לגבי טכניקה, כאב או פציעות.' },
     ],
