@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { pageContext, storeDestination, eventPayload, startAnalytics } from '../src/lib/web-analytics.mjs';
+import { readFileSync } from 'node:fs';
+import { pageContext, storeDestination, eventPayload, startAnalytics, creatorSlugs } from '../src/lib/web-analytics.mjs';
 const context = pageContext('https://dee.training/get/meta_between/?email=private@example.com&token=secret#private');
 assert.equal(context.campaign, 'meta_between');
 assert.equal(context.url, 'https://dee.training/get/meta_between/');
@@ -55,4 +56,33 @@ for (const config of [{apiKey:''},{apiKey:'test-only',navigator:{doNotTrack:'1'}
  startAnalytics({apiKey:config.apiKey,window:{...win,navigator:config.navigator||{}},document:doc,fetch:send});
 }
 assert.equal(requests.length,2);
-console.log('Passed: controlled paths, no query/hash data, exact store destinations, QA separation, page-scoped identity, keepalive, missing-key and privacy-signal controls.');
+const campaignSource = readFileSync(new URL('../src/pages/get/[campaign].astro', import.meta.url), 'utf8');
+const creatorsBlock = campaignSource.slice(campaignSource.indexOf('const creators = {'), campaignSource.indexOf('} as const', campaignSource.indexOf('const creators = {')));
+const pageCreators = [...creatorsBlock.matchAll(/^\s+(\w+): \{handle:/gm)].map(match => match[1]);
+assert.ok(pageCreators.length > 0);
+assert.deepEqual([...pageCreators].sort(), [...creatorSlugs].sort(), 'Every creator page must be in creatorSlugs in src/lib/web-analytics.mjs');
+const liamContext = pageContext('https://dee.training/get/liam/?code=LIAM#private');
+assert.equal(liamContext.campaign, 'creator_liam');
+assert.equal(liamContext.url, 'https://dee.training/get/liam/');
+assert.equal(pageContext('https://dee.training/get/neks').campaign, 'creator_neks');
+assert.equal(pageContext('https://dee.training/get/someone_else/'), null);
+assert.equal(storeDestination('https://apps.apple.com/redeem?ctx=offercodes&id=6788483296&code=LIAM'), 'app_store_redeem');
+assert.equal(storeDestination('https://apps.apple.com/redeem?ctx=offercodes&id=999&code=LIAM'), null);
+assert.equal(storeDestination('https://evil.example/redeem?id=6788483296'), null);
+const creatorRequests=[]; let creatorListener;
+class RedeemElement { closest(){ return {href:'https://apps.apple.com/redeem?ctx=offercodes&id=6788483296&code=NEKS'}; } }
+startAnalytics({
+ apiKey:'test-only',
+ window:{...win,location:{href:'https://dee.training/get/neks/?utm_source=instagram'},Element:RedeemElement},
+ document:{addEventListener:(_,handler)=>{creatorListener=handler}},
+ fetch:async (...args)=>{creatorRequests.push(args);return {ok:true}},
+});
+creatorListener({target:new RedeemElement()});
+const creatorEvents=creatorRequests.map(r=>JSON.parse(r[1].body).events[0]);
+assert.equal(creatorEvents.length,2);
+assert.equal(creatorEvents[0].name,'page_view');
+assert.equal(creatorEvents[0].properties.campaign,'creator_neks');
+assert.equal(creatorEvents[1].name,'Dee.Web.StoreClicked');
+assert.equal(creatorEvents[1].properties.store,'app_store_redeem');
+assert.ok(!creatorRequests.some(r=>r[1].body.includes('NEKS') || r[1].body.includes('utm_source')));
+console.log('Passed: controlled paths, creator pages and offer-code clicks, no query/hash data, exact store destinations, QA separation, page-scoped identity, keepalive, missing-key and privacy-signal controls.');
