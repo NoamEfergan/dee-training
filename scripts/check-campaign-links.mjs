@@ -59,9 +59,24 @@ const aidanPage = readPage('get/aidan')
 assert.match(aidanPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=AIDAN"/)
 assert.match(aidanPage, /For @muaythaistoic(&#39;|')s followers/)
 for (const [slug, code] of Object.entries({nikita: 'NIKITA', liam: 'LIAM', tiernan: 'TIERNAN', sami: 'SAMI', aidan: 'AIDAN'})) {
-  assert.match(readPage(`get/${slug}`), new RegExp(`enter <strong[^>]*>${code}</strong>\\.</li>`), `${slug} shows its code in the Google Play steps`)
+  const page = readPage(`get/${slug}`)
+  assert.match(page, /tap <strong[^>]*>Got a creator code\?<\/strong>/, `${slug} shows the in-app steps`)
+  assert.match(page, new RegExp(`Enter <strong[^>]*>${code}</strong>, then tap <strong[^>]*>Start free month</strong>`), `${slug} shows its code in the in-app steps`)
+  assert.match(page, new RegExp(`<strong[^>]*>Redeem code</strong>, and enter <strong[^>]*>${code}</strong>\\. Google Play codes only work for people who have never subscribed\\.`), `${slug} keeps the Google Play fallback`)
+  assert.match(page, /<html lang="en-GB"/)
 }
 assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
+
+// Brazilian Portuguese page, in-app Android route only (no Google Play promo code).
+checkStoreLinks('get/neks', {token: 'creator_neks', source: 'instagram', medium: 'creator', campaign: 'creator_neks'})
+const neksPage = readPage('get/neks')
+assert.match(neksPage, /<html lang="pt-BR"/)
+assert.match(neksPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=NEKS"/)
+assert.match(neksPage, /Para quem segue @neks_muaythai/)
+assert.match(neksPage, /toque em <strong[^>]*>Tem um código de criador\?<\/strong>/)
+assert.match(neksPage, /Digite <strong[^>]*>NEKS<\/strong> e toque em <strong[^>]*>Começar mês grátis<\/strong>/)
+assert.match(neksPage, /Válido até 3 de maio de 2027\./)
+assert.doesNotMatch(neksPage, /Redeem code/, 'neks has no Google Play promo code')
 
 checkStoreLinks('solo-muay-thai-workout', {
   token: 'site_solo_workout_20260924',
@@ -79,4 +94,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, five creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, six creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
