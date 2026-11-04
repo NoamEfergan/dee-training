@@ -50,6 +50,10 @@ checkStoreLinks('get/tiernan', {token: 'creator_tiernan', source: 'instagram', m
 const tiernanPage = readPage('get/tiernan')
 assert.match(tiernanPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=TIERNAN"/)
 assert.match(tiernanPage, /For @tiernan_kiatphontip(&#39;|')s followers/)
+checkStoreLinks('get/sami', {token: 'creator_sami', source: 'instagram', medium: 'creator', campaign: 'creator_sami'})
+const samiPage = readPage('get/sami')
+assert.match(samiPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=SAMI"/)
+assert.match(samiPage, /For @samihayes___(&#39;|')s followers/)
 assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
 
 checkStoreLinks('solo-muay-thai-workout', {
@@ -68,4 +72,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, three creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, four creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
