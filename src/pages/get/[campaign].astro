@@ -35,6 +35,7 @@ export function getStaticPaths() {
   const creators = {
     nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027'},
     liam: {handle: 'liamnolan100', code: 'LIAM', validUntil: '3 May 2027', audience: "Liam Nolan's students"},
+    tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', validUntil: '3 May 2027'},
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
