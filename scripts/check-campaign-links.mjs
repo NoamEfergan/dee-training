@@ -42,6 +42,12 @@ assert.match(creatorPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offerco
 assert.match(creatorPage, /Valid until 3 May 2027\./)
 assert.match(creatorPage, /<meta name="robots" content="noindex/)
 
+checkStoreLinks('get/liam', {token: 'creator_liam', source: 'instagram', medium: 'creator', campaign: 'creator_liam'})
+const liamPage = readPage('get/liam')
+assert.match(liamPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=LIAM"/)
+assert.match(liamPage, /For Liam Nolan(&#39;|')s students/)
+assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
+
 checkStoreLinks('solo-muay-thai-workout', {
   token: 'site_solo_workout_20260924',
   source: 'dee_training',
@@ -58,4 +64,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, the creator code page and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, two creator code pages and the solo guide have attributed store links; guide is indexable and linked.')

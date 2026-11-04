@@ -34,6 +34,7 @@ export function getStaticPaths() {
   // promotion per creator, so each creator's redemptions can be counted.
   const creators = {
     nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027'},
+    liam: {handle: 'liamnolan100', code: 'LIAM', validUntil: '3 May 2027', audience: "Liam Nolan's students"},
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -61,6 +62,7 @@ export function getStaticPaths() {
 
 interface CreatorOffer {
   handle: string
+  audience?: string
   code: string
   validUntil: string
   redeemURL: string
@@ -101,7 +103,7 @@ const description = creator
         <div class="copy-panel">
           {creator ? (
           <div class="copy-stack">
-            <p class="eyebrow">For @{creator.handle}'s followers</p>
+            <p class="eyebrow">For {creator.audience ?? `@${creator.handle}'s followers`}</p>
             <h1 id="campaign-title">{hook}</h1>
             <p class="proof-copy">Dee is your Muay Thai coach for solo training: personalised workouts, with spoken drills and round cues. Use code <strong>{creator.code}</strong> for your first month of Dee Pro free.</p>
 
