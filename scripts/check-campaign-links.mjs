@@ -58,8 +58,8 @@ checkStoreLinks('get/aidan', {token: 'creator_aidan', source: 'instagram', mediu
 const aidanPage = readPage('get/aidan')
 assert.match(aidanPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=AIDAN"/)
 assert.match(aidanPage, /For @muaythaistoic(&#39;|')s followers/)
-for (const [slug, playCode] of Object.entries({nikita: 'N1K1TA', liam: 'L1AM', tiernan: 'T1ERNAN', sami: 'SAM1', aidan: 'A1DAN'})) {
-  assert.match(readPage(`get/${slug}`), new RegExp(`enter <strong[^>]*>${playCode}</strong> \\(with the number 1, not the letter I\\)`), `${slug} shows its Google Play code`)
+for (const [slug, code] of Object.entries({nikita: 'NIKITA', liam: 'LIAM', tiernan: 'TIERNAN', sami: 'SAMI', aidan: 'AIDAN'})) {
+  assert.match(readPage(`get/${slug}`), new RegExp(`enter <strong[^>]*>${code}</strong>\\.</li>`), `${slug} shows its code in the Google Play steps`)
 }
 assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
 
