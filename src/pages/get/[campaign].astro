@@ -30,8 +30,11 @@ export function getStaticPaths() {
     },
   } as const
 
-  // Creator follower offers: one App Store offer code and one Google Play
-  // promotion per creator, so each creator's redemptions can be counted.
+  // Creator follower offers: one App Store offer code per creator, so each
+  // creator's redemptions can be counted. On Android a creator either has a
+  // Google Play promo code (`android: 'play'`, redeemed on Google Play's
+  // payment screen) or uses Dee's in-app creator code entry (`android: 'app'`,
+  // Dee 1.2.3 and later), which isn't limited by Google's promo code quota.
   const creators = {
     // Google Play stores custom codes with the digit 1 in place of the letter I
     // (N1K1TA), but redeeming with the letter I works (checked 4 November 2026),
@@ -41,6 +44,7 @@ export function getStaticPaths() {
     tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', validUntil: '3 May 2027'},
     sami: {handle: 'samihayes___', code: 'SAMI', validUntil: '3 May 2027'},
     aidan: {handle: 'muaythaistoic', code: 'AIDAN', validUntil: '3 May 2027'},
+    neks: {handle: 'neks_muaythai', code: 'NEKS', validUntil: '3 May 2027', android: 'app'},
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -72,6 +76,8 @@ interface CreatorOffer {
   code: string
   validUntil: string
   redeemURL: string
+  /** How Android followers redeem: Google Play promo code, or Dee's in-app entry. Default 'play'. */
+  android?: 'play' | 'app'
 }
 
 interface Props {
@@ -121,11 +127,19 @@ const description = creator
               </section>
               <section class="redeem-card" aria-labelledby="redeem-android">
                 <h2 id="redeem-android">On Android</h2>
+                {creator.android === 'app' ? (
+                <ol>
+                  <li>Get Dee on Google Play, or update it to the latest version.</li>
+                  <li>When Dee shows the plans, tap <strong>Got a creator code?</strong></li>
+                  <li>Enter <strong>{creator.code}</strong>, then tap <strong>Start free month</strong>.</li>
+                </ol>
+                ) : (
                 <ol>
                   <li>Get Dee on Google Play.</li>
                   <li>In Dee, choose the yearly plan.</li>
                   <li>On the Google Play payment screen, tap the payment method, then <strong>Redeem code</strong>, and enter <strong>{creator.code}</strong>.</li>
                 </ol>
+                )}
                 <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
                   <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
                 </a>

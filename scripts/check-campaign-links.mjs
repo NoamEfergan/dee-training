@@ -63,6 +63,18 @@ for (const [slug, code] of Object.entries({nikita: 'NIKITA', liam: 'LIAM', tiern
 }
 assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
 
+// In-app Android route (Dee 1.2.3+): no Google Play promo code, no quota.
+checkStoreLinks('get/neks', {token: 'creator_neks', source: 'instagram', medium: 'creator', campaign: 'creator_neks'})
+const neksPage = readPage('get/neks')
+assert.match(neksPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=NEKS"/)
+assert.match(neksPage, /For @neks_muaythai(&#39;|')s followers/)
+assert.match(neksPage, /tap <strong[^>]*>Got a creator code\?<\/strong>/)
+assert.match(neksPage, /Enter <strong[^>]*>NEKS<\/strong>, then tap <strong[^>]*>Start free month<\/strong>/)
+assert.doesNotMatch(neksPage, /Redeem code/, 'neks has no Google Play promo code')
+for (const slug of ['nikita', 'liam', 'tiernan', 'sami', 'aidan']) {
+  assert.doesNotMatch(readPage(`get/${slug}`), /Got a creator code\?/, `${slug} keeps the Google Play steps`)
+}
+
 checkStoreLinks('solo-muay-thai-workout', {
   token: 'site_solo_workout_20260924',
   source: 'dee_training',
@@ -79,4 +91,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, five creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, six creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
