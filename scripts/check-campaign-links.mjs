@@ -54,6 +54,13 @@ checkStoreLinks('get/sami', {token: 'creator_sami', source: 'instagram', medium:
 const samiPage = readPage('get/sami')
 assert.match(samiPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=SAMI"/)
 assert.match(samiPage, /For @samihayes___(&#39;|')s followers/)
+checkStoreLinks('get/aidan', {token: 'creator_aidan', source: 'instagram', medium: 'creator', campaign: 'creator_aidan'})
+const aidanPage = readPage('get/aidan')
+assert.match(aidanPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=AIDAN"/)
+assert.match(aidanPage, /For @muaythaistoic(&#39;|')s followers/)
+for (const [slug, playCode] of Object.entries({nikita: 'N1K1TA', liam: 'L1AM', tiernan: 'T1ERNAN', sami: 'SAM1', aidan: 'A1DAN'})) {
+  assert.match(readPage(`get/${slug}`), new RegExp(`enter <strong[^>]*>${playCode}</strong> \\(with the number 1, not the letter I\\)`), `${slug} shows its Google Play code`)
+}
 assert.match(creatorPage, /For @nikita_parlevliet(&#39;|')s followers/)
 
 checkStoreLinks('solo-muay-thai-workout', {
@@ -72,4 +79,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, four creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, five creator code pages and the solo guide have attributed store links; guide is indexable and linked.')

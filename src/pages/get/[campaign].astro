@@ -33,10 +33,13 @@ export function getStaticPaths() {
   // Creator follower offers: one App Store offer code and one Google Play
   // promotion per creator, so each creator's redemptions can be counted.
   const creators = {
-    nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027'},
-    liam: {handle: 'liamnolan100', code: 'LIAM', validUntil: '3 May 2027', audience: "Liam Nolan's students"},
-    tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', validUntil: '3 May 2027'},
-    sami: {handle: 'samihayes___', code: 'SAMI', validUntil: '3 May 2027'},
+    // Google Play stores custom codes with the digit 1 in place of the letter I,
+    // so the Android code is listed separately from the App Store code.
+    nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', playCode: 'N1K1TA', validUntil: '3 May 2027'},
+    liam: {handle: 'liamnolan100', code: 'LIAM', playCode: 'L1AM', validUntil: '3 May 2027', audience: "Liam Nolan's students"},
+    tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', playCode: 'T1ERNAN', validUntil: '3 May 2027'},
+    sami: {handle: 'samihayes___', code: 'SAMI', playCode: 'SAM1', validUntil: '3 May 2027'},
+    aidan: {handle: 'muaythaistoic', code: 'AIDAN', playCode: 'A1DAN', validUntil: '3 May 2027'},
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -66,6 +69,7 @@ interface CreatorOffer {
   handle: string
   audience?: string
   code: string
+  playCode: string
   validUntil: string
   redeemURL: string
 }
@@ -120,7 +124,7 @@ const description = creator
                 <ol>
                   <li>Get Dee on Google Play.</li>
                   <li>In Dee, choose the yearly plan.</li>
-                  <li>On the Google Play payment screen, tap the payment method, then <strong>Redeem code</strong>, and enter <strong>{creator.code}</strong>.</li>
+                  <li>On the Google Play payment screen, tap the payment method, then <strong>Redeem code</strong>, and enter <strong>{creator.playCode}</strong>{creator.playCode !== creator.code && creator.playCode.includes('1') ? ' (with the number 1, not the letter I)' : ''}.</li>
                 </ol>
                 <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
                   <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
