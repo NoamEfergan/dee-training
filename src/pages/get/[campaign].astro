@@ -30,20 +30,53 @@ export function getStaticPaths() {
     },
   } as const
 
-  return Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
+  // Creator follower offers: one App Store offer code and one Google Play
+  // promotion per creator, so each creator's redemptions can be counted.
+  const creators = {
+    nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027'},
+  } as const
+
+  const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
     params: {campaign: token},
     props: {hook, ...campaignStoreURLs({token, ...attribution})},
   }))
+
+  const creatorPaths = Object.entries(creators).map(([slug, creator]) => {
+    const token = `creator_${slug}`
+    return {
+      params: {campaign: slug},
+      props: {
+        hook: 'Your first month free',
+        creator: {
+          ...creator,
+          redeemURL: `https://apps.apple.com/redeem?ctx=offercodes&id=6788483296&code=${creator.code}`,
+        },
+        ...campaignStoreURLs({token, source: 'instagram', medium: 'creator', campaign: token}),
+      },
+    }
+  })
+
+  return [...campaignPaths, ...creatorPaths]
+}
+
+interface CreatorOffer {
+  handle: string
+  code: string
+  validUntil: string
+  redeemURL: string
 }
 
 interface Props {
   hook: string
   appStoreURL: string
   googlePlayURL: string
+  creator?: CreatorOffer
 }
 
-const { hook, appStoreURL, googlePlayURL } = Astro.props as Props
-const description = 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
+const { hook, appStoreURL, googlePlayURL, creator } = Astro.props as Props
+const description = creator
+  ? `Use code ${creator.code} for your first month of Dee Pro free. Dee is a Muay Thai coach for iPhone and Android, with personalised workouts, spoken drills and round cues.`
+  : 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
 ---
 
 <!doctype html>
@@ -66,6 +99,33 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
     <main id="main" class="campaign-page">
       <section class="campaign-shell" aria-labelledby="campaign-title">
         <div class="copy-panel">
+          {creator ? (
+          <div class="copy-stack">
+            <p class="eyebrow">For @{creator.handle}'s followers</p>
+            <h1 id="campaign-title">{hook}</h1>
+            <p class="proof-copy">Dee is your Muay Thai coach for solo training: personalised workouts, with spoken drills and round cues. Use code <strong>{creator.code}</strong> for your first month of Dee Pro free.</p>
+
+            <div class="redeem-grid">
+              <section class="redeem-card" aria-labelledby="redeem-iphone">
+                <h2 id="redeem-iphone">On iPhone</h2>
+                <a class="redeem-cta" href={creator.redeemURL} rel="noopener noreferrer">Claim your free month</a>
+                <p>Confirm in the App Store, then open Dee.</p>
+              </section>
+              <section class="redeem-card" aria-labelledby="redeem-android">
+                <h2 id="redeem-android">On Android</h2>
+                <ol>
+                  <li>Get Dee on Google Play.</li>
+                  <li>In Dee, choose the yearly plan.</li>
+                  <li>On the Google Play payment screen, tap the payment method, then <strong>Redeem code</strong>, and enter <strong>{creator.code}</strong>.</li>
+                </ol>
+                <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
+                  <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
+                </a>
+              </section>
+            </div>
+            <p class="offer-note">For new subscribers. Valid until {creator.validUntil}. After the free month, Dee Pro renews at the normal yearly price unless you cancel. You can cancel any time in your App Store or Google Play subscriptions.</p>
+          </div>
+          ) : (
           <div class="copy-stack">
             <p class="eyebrow">Your solo Muay Thai coach</p>
             <h1 id="campaign-title">{hook}</h1>
@@ -85,6 +145,7 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
               <p>No subscription starts automatically. Saving a finish, including an early finish, uses the free workout. Existing users keep their current access arrangements.</p>
             </details>
           </div>
+          )}
         </div>
 
         <div class="product-panel" aria-label="Dee app interface">
@@ -269,6 +330,72 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
       .offer-details summary:focus-visible { outline: 2px solid #82e1ee; outline-offset: 4px; }
       .offer-details p { margin: 8px 0 0; }
 
+      .proof-copy strong,
+      .redeem-card strong {
+        color: var(--dee-paper);
+      }
+
+      .redeem-grid {
+        display: grid;
+        max-width: 40rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .redeem-card {
+        border: 1px solid rgba(241, 244, 248, .17);
+        background: rgba(241, 244, 248, .035);
+        padding: 16px 18px 18px;
+      }
+
+      .redeem-card h2 {
+        margin: 0 0 12px;
+        font: 800 1.15rem/1.1 'Barlow Condensed', sans-serif;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      .redeem-card p,
+      .redeem-card ol {
+        margin: 12px 0 0;
+        color: rgba(241, 244, 248, .76);
+        font-size: .9rem;
+        line-height: 1.5;
+      }
+
+      .redeem-card ol {
+        padding-inline-start: 1.2em;
+      }
+
+      .redeem-card .store-cta {
+        margin-top: 14px;
+      }
+
+      .redeem-card .store-cta img {
+        height: 44px;
+      }
+
+      .redeem-cta {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: var(--dee-teal);
+        color: var(--dee-ink);
+        font-weight: 700;
+        padding: 0 20px;
+        text-decoration: none;
+      }
+
+      .redeem-cta:hover { background: #2bb7cf; }
+
+      .redeem-cta:focus-visible {
+        outline: 2px solid #82e1ee;
+        outline-offset: 4px;
+      }
+
       .product-panel {
         position: relative;
         min-width: 0;
@@ -426,6 +553,8 @@ const description = 'Dee is available on iOS and Android. Build your next solo M
         }
 
         .proof-copy { margin-top: 16px; }
+
+        .redeem-grid { grid-template-columns: 1fr; }
 
         .store-cta img { height: 44px; }
 

@@ -36,6 +36,12 @@ for (const token of ['meta_guess', 'meta_between', 'meta_heard', 'meta_audio_rou
   checkStoreLinks(`get/${token}`, {token, source: 'meta', medium: 'paid_social', campaign: token})
 }
 
+checkStoreLinks('get/nikita', {token: 'creator_nikita', source: 'instagram', medium: 'creator', campaign: 'creator_nikita'})
+const creatorPage = readPage('get/nikita')
+assert.match(creatorPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=NIKITA"/)
+assert.match(creatorPage, /Valid until 3 May 2027\./)
+assert.match(creatorPage, /<meta name="robots" content="noindex/)
+
 checkStoreLinks('solo-muay-thai-workout', {
   token: 'site_solo_workout_20260924',
   source: 'dee_training',
@@ -52,4 +58,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four existing campaign routes and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, the creator code page and the solo guide have attributed store links; guide is indexable and linked.')
