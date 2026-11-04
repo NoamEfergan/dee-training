@@ -26,7 +26,7 @@ const softwareApplicationSchema = {
   description: content.seo.description,
   url: canonical.toString(),
   installUrl: [deeAvailability.appStoreURL, deeAvailability.googlePlayURL],
-  image: new URL('/social-card-app-icon.png', Astro.site).toString(),
+  image: new URL('/social-card-2026-11.png', Astro.site).toString(),
   availableLanguage: deeLocales.map((locale) => deeContent[locale].htmlLang),
 }
 ---
@@ -37,7 +37,7 @@ const softwareApplicationSchema = {
     <SiteHead
       exactTitle={content.seo.title}
       description={content.seo.description}
-      image={{ src: '/social-card-app-icon.png', alt: 'Dee: Muay Thai Coach app icon' }}
+      image={{ src: '/social-card-2026-11.png', alt: 'Dee: Muay Thai Coach on Android and iPhone, showing the training home screen', width: 1200, height: 630, type: 'image/png' }}
       canonical={canonical}
       locale={content.htmlLang}
       localeAlternates={localeAlternates}
