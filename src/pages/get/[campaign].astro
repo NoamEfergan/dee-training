@@ -31,20 +31,21 @@ export function getStaticPaths() {
   } as const
 
   // Creator follower offers: one App Store offer code per creator, so each
-  // creator's redemptions can be counted. On Android a creator either has a
-  // Google Play promo code (`android: 'play'`, redeemed on Google Play's
-  // payment screen) or uses Dee's in-app creator code entry (`android: 'app'`,
-  // Dee 1.2.3 and later), which isn't limited by Google's promo code quota.
+  // creator's redemptions can be counted. Android followers enter the same
+  // code in Dee (1.2.3 and later: "Got a creator code?" on the plans screen),
+  // which isn't limited by Google's promo code quota. The first five creators
+  // also have a Google Play promo code (`playPromo`), shown as a fallback for
+  // older app versions. `lang` picks the page language (default English).
   const creators = {
     // Google Play stores custom codes with the digit 1 in place of the letter I
     // (N1K1TA), but redeeming with the letter I works (checked 4 November 2026),
-    // so both stores use the same code.
-    nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027'},
-    liam: {handle: 'liamnolan100', code: 'LIAM', validUntil: '3 May 2027', audience: "Liam Nolan's students"},
-    tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', validUntil: '3 May 2027'},
-    sami: {handle: 'samihayes___', code: 'SAMI', validUntil: '3 May 2027'},
-    aidan: {handle: 'muaythaistoic', code: 'AIDAN', validUntil: '3 May 2027'},
-    neks: {handle: 'neks_muaythai', code: 'NEKS', validUntil: '3 May 2027', android: 'app'},
+    // and Dee's in-app entry treats I and 1 the same too.
+    nikita: {handle: 'nikita_parlevliet', code: 'NIKITA', validUntil: '3 May 2027', playPromo: true},
+    liam: {handle: 'liamnolan100', code: 'LIAM', validUntil: '3 May 2027', audience: "Liam Nolan's students", playPromo: true},
+    tiernan: {handle: 'tiernan_kiatphontip', code: 'TIERNAN', validUntil: '3 May 2027', playPromo: true},
+    sami: {handle: 'samihayes___', code: 'SAMI', validUntil: '3 May 2027', playPromo: true},
+    aidan: {handle: 'muaythaistoic', code: 'AIDAN', validUntil: '3 May 2027', playPromo: true},
+    neks: {handle: 'neks_muaythai', code: 'NEKS', validUntil: '3 de maio de 2027', lang: 'pt-BR'},
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -57,7 +58,7 @@ export function getStaticPaths() {
     return {
       params: {campaign: slug},
       props: {
-        hook: 'Your first month free',
+        hook: 'lang' in creator && creator.lang === 'pt-BR' ? 'Seu primeiro mês grátis' : 'Your first month free',
         creator: {
           ...creator,
           redeemURL: `https://apps.apple.com/redeem?ctx=offercodes&id=6788483296&code=${creator.code}`,
@@ -76,8 +77,9 @@ interface CreatorOffer {
   code: string
   validUntil: string
   redeemURL: string
-  /** How Android followers redeem: Google Play promo code, or Dee's in-app entry. Default 'play'. */
-  android?: 'play' | 'app'
+  /** Also has a Google Play promo code, shown as a fallback for older Dee versions. */
+  playPromo?: boolean
+  lang?: 'en' | 'pt-BR'
 }
 
 interface Props {
@@ -88,13 +90,86 @@ interface Props {
 }
 
 const { hook, appStoreURL, googlePlayURL, creator } = Astro.props as Props
+
+// Page copy for creator pages. The in-app labels must match Dee's own
+// strings in that language ("Got a creator code?", "Start free month").
+const pageCopy = {
+  en: {
+    htmlLang: 'en-GB',
+    skip: 'Skip to content',
+    home: 'Dee home',
+    description: (code: string) => `Use code ${code} for your first month of Dee Pro free. Dee is a Muay Thai coach for iPhone and Android, with personalised workouts, spoken drills and round cues.`,
+    eyebrow: (handle: string) => `For @${handle}'s followers`,
+    proofBefore: 'Dee is your Muay Thai coach for solo training: personalised workouts, with spoken drills and round cues. Use code ',
+    proofAfter: ' for your first month of Dee Pro free.',
+    iphoneTitle: 'On iPhone',
+    iphoneCTA: 'Claim your free month',
+    iphoneNote: 'Confirm in the App Store, then open Dee.',
+    androidTitle: 'On Android',
+    step1: 'Get Dee on Google Play, or update it to the latest version.',
+    step2: 'When Dee shows the plans, tap ',
+    codeLabel: 'Got a creator code?',
+    step3Before: 'Enter ',
+    step3Middle: ', then tap ',
+    startLabel: 'Start free month',
+    playFallbackBefore: 'On an older version of Dee? Choose the yearly plan, then on the Google Play payment screen tap the payment method, then ',
+    playFallbackMiddle: ', and enter ',
+    playFallbackAfter: '. Google Play codes only work for people who have never subscribed.',
+    googlePlayLabel: 'Get Dee on Google Play',
+    googlePlayAlt: 'Get it on Google Play',
+    offerNote: (validUntil: string) => `For new and returning subscribers. Valid until ${validUntil}. After the free month, Dee Pro renews at the normal yearly price unless you cancel. You can cancel any time in your App Store or Google Play subscriptions.`,
+    productPanel: 'Dee app interface',
+    androidAlt: 'Dee on Android: weekly training plan and start-session button',
+    iphoneAlt: 'Dee on iPhone: guided round timer',
+    legal: 'Legal',
+    privacy: 'Privacy',
+    terms: 'Terms',
+    disclaimer: 'Dee provides general sport and fitness information, not medical advice.',
+    credits: 'Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries. Android, Google Pixel, Google Play and the Google Play logo are trademarks of Google LLC.',
+  },
+  'pt-BR': {
+    htmlLang: 'pt-BR',
+    skip: 'Pular para o conteúdo',
+    home: 'Início do Dee',
+    description: (code: string) => `Use o código ${code} e ganhe o primeiro mês do Dee Pro grátis. O Dee é um treinador de Muay Thai para iPhone e Android, com treinos personalizados, exercícios guiados por voz e sinais de round.`,
+    eyebrow: (handle: string) => `Para quem segue @${handle}`,
+    proofBefore: 'O Dee é seu treinador de Muay Thai para treinar sozinho: treinos personalizados, com exercícios guiados por voz e sinais de round. Use o código ',
+    proofAfter: ' e ganhe o primeiro mês do Dee Pro grátis.',
+    iphoneTitle: 'No iPhone',
+    iphoneCTA: 'Resgatar mês grátis',
+    iphoneNote: 'Confirme na App Store e depois abra o Dee.',
+    androidTitle: 'No Android',
+    step1: 'Baixe o Dee no Google Play ou atualize para a versão mais recente.',
+    step2: 'Quando o Dee mostrar os planos, toque em ',
+    codeLabel: 'Tem um código de criador?',
+    step3Before: 'Digite ',
+    step3Middle: ' e toque em ',
+    startLabel: 'Começar mês grátis',
+    playFallbackBefore: '',
+    playFallbackMiddle: '',
+    playFallbackAfter: '',
+    googlePlayLabel: 'Baixe o Dee no Google Play',
+    googlePlayAlt: 'Disponível no Google Play',
+    offerNote: (validUntil: string) => `Para novos assinantes e para quem está voltando. Válido até ${validUntil}. Depois do mês grátis, o Dee Pro é renovado pelo preço anual normal, a menos que você cancele. Você pode cancelar quando quiser nas assinaturas da App Store ou do Google Play.`,
+    productPanel: 'Interface do app Dee',
+    androidAlt: 'O Dee no Android: plano de treino semanal e botão para iniciar a sessão',
+    iphoneAlt: 'O Dee no iPhone: timer de round guiado',
+    legal: 'Informações legais',
+    privacy: 'Privacidade',
+    terms: 'Termos',
+    disclaimer: 'O Dee oferece informações gerais sobre esporte e condicionamento físico, não orientação médica.',
+    credits: 'Apple, o logotipo da Apple, iPhone e App Store são marcas comerciais da Apple Inc., registradas nos EUA e em outros países. Android, Google Pixel, Google Play e o logotipo do Google Play são marcas comerciais da Google LLC.',
+  },
+} as const
+
+const copy = pageCopy[creator?.lang ?? 'en']
 const description = creator
-  ? `Use code ${creator.code} for your first month of Dee Pro free. Dee is a Muay Thai coach for iPhone and Android, with personalised workouts, spoken drills and round cues.`
+  ? copy.description(creator.code)
   : 'Dee is available on iOS and Android. Build your next solo Muay Thai session with Dee, then train with spoken drills, round cues, bells and haptics.'
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang={copy.htmlLang}>
   <head>
     <SiteHead
       exactTitle={`${hook} | Dee`}
@@ -104,9 +179,9 @@ const description = creator
     />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{copy.skip}</a>
     <header class="campaign-topbar" data-download-header>
-      <a class="campaign-topbar__brand" href="/" aria-label="Dee home"><Image src={appIcon} alt="" width={40} height={40} loading="eager" /><span>DEE</span></a>
+      <a class="campaign-topbar__brand" href="/" aria-label={copy.home}><Image src={appIcon} alt="" width={40} height={40} loading="eager" /><span>DEE</span></a>
       <DownloadLinks appStoreURL={appStoreURL} googlePlayURL={googlePlayURL} />
     </header>
 
@@ -115,37 +190,32 @@ const description = creator
         <div class="copy-panel">
           {creator ? (
           <div class="copy-stack">
-            <p class="eyebrow">For {creator.audience ?? `@${creator.handle}'s followers`}</p>
+            <p class="eyebrow">{creator.audience ? `For ${creator.audience}` : copy.eyebrow(creator.handle)}</p>
             <h1 id="campaign-title">{hook}</h1>
-            <p class="proof-copy">Dee is your Muay Thai coach for solo training: personalised workouts, with spoken drills and round cues. Use code <strong>{creator.code}</strong> for your first month of Dee Pro free.</p>
+            <p class="proof-copy">{copy.proofBefore}<strong>{creator.code}</strong>{copy.proofAfter}</p>
 
             <div class="redeem-grid">
               <section class="redeem-card" aria-labelledby="redeem-iphone">
-                <h2 id="redeem-iphone">On iPhone</h2>
-                <a class="redeem-cta" href={creator.redeemURL} rel="noopener noreferrer">Claim your free month</a>
-                <p>Confirm in the App Store, then open Dee.</p>
+                <h2 id="redeem-iphone">{copy.iphoneTitle}</h2>
+                <a class="redeem-cta" href={creator.redeemURL} rel="noopener noreferrer">{copy.iphoneCTA}</a>
+                <p>{copy.iphoneNote}</p>
               </section>
               <section class="redeem-card" aria-labelledby="redeem-android">
-                <h2 id="redeem-android">On Android</h2>
-                {creator.android === 'app' ? (
+                <h2 id="redeem-android">{copy.androidTitle}</h2>
                 <ol>
-                  <li>Get Dee on Google Play, or update it to the latest version.</li>
-                  <li>When Dee shows the plans, tap <strong>Got a creator code?</strong></li>
-                  <li>Enter <strong>{creator.code}</strong>, then tap <strong>Start free month</strong>.</li>
+                  <li>{copy.step1}</li>
+                  <li>{copy.step2}<strong>{copy.codeLabel}</strong></li>
+                  <li>{copy.step3Before}<strong>{creator.code}</strong>{copy.step3Middle}<strong>{copy.startLabel}</strong>.</li>
                 </ol>
-                ) : (
-                <ol>
-                  <li>Get Dee on Google Play.</li>
-                  <li>In Dee, choose the yearly plan.</li>
-                  <li>On the Google Play payment screen, tap the payment method, then <strong>Redeem code</strong>, and enter <strong>{creator.code}</strong>.</li>
-                </ol>
+                {creator.playPromo && (
+                <p class="redeem-fallback">{copy.playFallbackBefore}<strong>Redeem code</strong>{copy.playFallbackMiddle}<strong>{creator.code}</strong>{copy.playFallbackAfter}</p>
                 )}
-                <a class="store-cta" href={googlePlayURL} aria-label="Get Dee on Google Play">
-                  <img src="/badges/google-play.svg" alt="Get it on Google Play" width="162" height="48" />
+                <a class="store-cta" href={googlePlayURL} aria-label={copy.googlePlayLabel}>
+                  <img src="/badges/google-play.svg" alt={copy.googlePlayAlt} width="162" height="48" />
                 </a>
               </section>
             </div>
-            <p class="offer-note">For new subscribers. Valid until {creator.validUntil}. After the free month, Dee Pro renews at the normal yearly price unless you cancel. You can cancel any time in your App Store or Google Play subscriptions.</p>
+            <p class="offer-note">{copy.offerNote(creator.validUntil)}</p>
           </div>
           ) : (
           <div class="copy-stack">
@@ -170,16 +240,16 @@ const description = creator
           )}
         </div>
 
-        <div class="product-panel" aria-label="Dee app interface">
+        <div class="product-panel" aria-label={copy.productPanel}>
           <div class="glow glow-one"></div>
           <div class="glow glow-two"></div>
           <figure class="phone phone-summary phone-android">
             <Image class="phone-bezel" src={pixelBezel} alt="" width={600} loading="eager" />
-            <Image class="android-screen" src={androidHome} alt="Dee on Android: weekly training plan and start-session button" loading="eager" />
+            <Image class="android-screen" src={androidHome} alt={copy.androidAlt} loading="eager" />
             <figcaption>Android</figcaption>
           </figure>
           <figure class="phone phone-round">
-            <Image class="phone-screen" src={roundTimer} alt="Dee on iPhone: guided round timer" loading="eager" />
+            <Image class="phone-screen" src={roundTimer} alt={copy.iphoneAlt} loading="eager" />
             <Image class="phone-bezel" src={iphoneBezel} alt="" width={588} loading="eager" />
             <figcaption>iPhone</figcaption>
           </figure>
@@ -189,12 +259,12 @@ const description = creator
 
     <footer class="campaign-footer">
       <span>© 2026 Dee</span>
-      <nav aria-label="Legal">
-        <a href="/PrivacyPolicy/">Privacy</a>
-        <a href="/TermsAndConditions/">Terms</a>
+      <nav aria-label={copy.legal}>
+        <a href="/PrivacyPolicy/">{copy.privacy}</a>
+        <a href="/TermsAndConditions/">{copy.terms}</a>
       </nav>
-      <p>Dee provides general sport and fitness information, not medical advice.</p>
-      <p class="store-credits">Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries. Android, Google Pixel, Google Play and the Google Play logo are trademarks of Google LLC.</p>
+      <p>{copy.disclaimer}</p>
+      <p class="store-credits">{copy.credits}</p>
     </footer>
 
     <style>
@@ -396,6 +466,11 @@ const description = creator
 
       .redeem-card .store-cta img {
         height: 44px;
+      }
+
+      .redeem-fallback {
+        font-size: 0.875rem;
+        opacity: 0.85;
       }
 
       .redeem-cta {
