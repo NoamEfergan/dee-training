@@ -11,3 +11,7 @@ On `https://dee.training/get/meta_between/?qa=growth`, page and click events hav
 Acceptance: build and `node scripts/check-web-analytics.mjs`; inspect a real QA page and click, confirm both events in MGM, check campaign and store fields and absence of raw query values, then validate a controlled public event separately and record the QA timestamp before any paid flight. No live event acceptance has yet been claimed. The policy disclosure ships together with activation.
 
 A single connector create-key request on 14 September timed out after 300 seconds. Its result was an error and no raw key was returned. Reconcile the account’s key list by name before creating or retrying anything.
+
+## Creator pages (added 4 November 2026)
+
+Creator follower pages (`/get/nikita/`, `/get/liam/`, `/get/tiernan/`, `/get/sami/`, `/get/aidan/`, `/get/neks/`) send `page_view` and `Dee.Web.StoreClicked` like the campaign pages. They were missing from the allowlist until now, so they had no web events before this date. Their `campaign` property is `creator_<slug>`, the same token their store links carry in `ct` and `utm_campaign`. The iPhone offer-code button (`apps.apple.com/redeem`) counts as a store click with `store=app_store_redeem`; only that label is sent, never the code. `creatorSlugs` in `src/lib/web-analytics.mjs` must list every entry of the `creators` map in `src/pages/get/[campaign].astro`, and `scripts/check-web-analytics.mjs` fails when they differ.

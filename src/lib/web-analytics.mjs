@@ -1,17 +1,24 @@
 // Aggregate acquisition measurement. No cookies, storage, identity joins or raw query data.
-export const pages = new Set(['/', '/practice/', '/solo-muay-thai-workout/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/press/duo/', '/press/reaction-rounds/', '/PrivacyPolicy/', '/TermsAndConditions/']);
+// Creator follower pages from the `creators` map in src/pages/get/[campaign].astro.
+// scripts/check-web-analytics.mjs fails when the two lists differ.
+export const creatorSlugs = ['nikita', 'liam', 'tiernan', 'sami', 'aidan', 'neks'];
+export const pages = new Set([...creatorSlugs.map(slug => `/get/${slug}/`), '/', '/practice/', '/solo-muay-thai-workout/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/press/duo/', '/press/reaction-rounds/', '/PrivacyPolicy/', '/TermsAndConditions/']);
 export function pageContext(href) {
   const url = new URL(href);
   if (url.hostname !== 'dee.training') return null;
   const pathname = url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
   if (!pages.has(pathname)) return null;
-  const campaign = pathname.startsWith('/get/') ? pathname.split('/')[2] : pathname === '/solo-muay-thai-workout/' ? 'solo_muay_thai_workout' : 'none';
+  const slug = pathname.startsWith('/get/') ? pathname.split('/')[2] : null;
+  // Creator pages use the same creator_<slug> token as their store links.
+  const campaign = slug ? (creatorSlugs.includes(slug) ? `creator_${slug}` : slug) : pathname === '/solo-muay-thai-workout/' ? 'solo_muay_thai_workout' : 'none';
   return { hostname: 'dee.training', pathname, url: `https://dee.training${pathname}`, campaign, qa: url.searchParams.get('qa') === 'growth' };
 }
 export function storeDestination(href) {
   const url = new URL(href);
   if (url.protocol !== 'https:') return null;
   if (url.hostname === 'apps.apple.com' && /\/id6788483296\/?$/.test(url.pathname)) return 'app_store';
+  // A creator page's iPhone offer-code link. Only the label is sent, never the code.
+  if (url.hostname === 'apps.apple.com' && /^\/redeem\/?$/.test(url.pathname) && url.searchParams.get('id') === '6788483296') return 'app_store_redeem';
   if (url.hostname === 'play.google.com' && url.pathname === '/store/apps/details' && url.searchParams.get('id') === 'dev.nowham.dee') return 'google_play';
   return null;
 }
