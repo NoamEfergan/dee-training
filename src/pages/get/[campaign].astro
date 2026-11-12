@@ -46,6 +46,13 @@ export function getStaticPaths() {
     sami: {handle: 'samihayes___', code: 'SAMI', validUntil: '3 May 2027', playPromo: true},
     aidan: {handle: 'muaythaistoic', code: 'AIDAN', validUntil: '3 May 2027', playPromo: true},
     neks: {handle: 'neks_muaythai', code: 'NEKS', validUntil: '3 de maio de 2027', lang: 'pt-BR'},
+    zoee: {handle: 'zoeehablot', code: 'ZOEE', validUntil: '11 mai 2027', lang: 'fr'},
+  } as const
+
+  const creatorHooks = {
+    en: 'Your first month free',
+    'pt-BR': 'Seu primeiro mês grátis',
+    fr: 'Votre premier mois offert',
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -58,7 +65,7 @@ export function getStaticPaths() {
     return {
       params: {campaign: slug},
       props: {
-        hook: 'lang' in creator && creator.lang === 'pt-BR' ? 'Seu primeiro mês grátis' : 'Your first month free',
+        hook: creatorHooks['lang' in creator ? creator.lang : 'en'],
         creator: {
           ...creator,
           redeemURL: `https://apps.apple.com/redeem?ctx=offercodes&id=6788483296&code=${creator.code}`,
@@ -79,7 +86,7 @@ interface CreatorOffer {
   redeemURL: string
   /** Also has a Google Play promo code, shown as a fallback for older Dee versions. */
   playPromo?: boolean
-  lang?: 'en' | 'pt-BR'
+  lang?: 'en' | 'pt-BR' | 'fr'
 }
 
 interface Props {
@@ -159,6 +166,39 @@ const pageCopy = {
     terms: 'Termos',
     disclaimer: 'O Dee oferece informações gerais sobre esporte e condicionamento físico, não orientação médica.',
     credits: 'Apple, o logotipo da Apple, iPhone e App Store são marcas comerciais da Apple Inc., registradas nos EUA e em outros países. Android, Google Pixel, Google Play e o logotipo do Google Play são marcas comerciais da Google LLC.',
+  },
+  fr: {
+    htmlLang: 'fr',
+    skip: 'Aller au contenu',
+    home: 'Accueil Dee',
+    description: (code: string) => `Utilisez le code ${code} pour profiter de votre premier mois de Dee Pro offert. Dee est un coach de Muay Thai pour iPhone et Android, avec des entraînements personnalisés, des exercices guidés à la voix et des signaux de round.`,
+    eyebrow: (handle: string) => `Pour les abonnés de @${handle}`,
+    proofBefore: 'Dee est votre coach de Muay Thai pour vous entraîner en solo : des entraînements personnalisés, avec des exercices guidés à la voix et des signaux de round. Utilisez le code ',
+    proofAfter: ' pour profiter de votre premier mois de Dee Pro offert.',
+    iphoneTitle: 'Sur iPhone',
+    iphoneCTA: 'Obtenir mon mois offert',
+    iphoneNote: "Confirmez dans l'App Store, puis ouvrez Dee.",
+    androidTitle: 'Sur Android',
+    step1: 'Téléchargez Dee sur Google Play, ou mettez-le à jour vers la dernière version.',
+    step2: "Quand Dee affiche les offres d'abonnement, touchez ",
+    codeLabel: 'Vous avez un code créateur ?',
+    step3Before: 'Saisissez ',
+    step3Middle: ', puis touchez ',
+    startLabel: 'Commencer le mois offert',
+    playFallbackBefore: '',
+    playFallbackMiddle: '',
+    playFallbackAfter: '',
+    googlePlayLabel: 'Télécharger Dee sur Google Play',
+    googlePlayAlt: 'Disponible sur Google Play',
+    offerNote: (validUntil: string) => `Pour les nouveaux abonnés et ceux qui reviennent. Valable jusqu'au ${validUntil}. Après le mois offert, Dee Pro se renouvelle au prix annuel habituel, sauf si vous résiliez. Vous pouvez résilier à tout moment dans vos abonnements App Store ou Google Play.`,
+    productPanel: "Interface de l'app Dee",
+    androidAlt: "Dee sur Android : plan d'entraînement de la semaine et bouton pour démarrer la séance",
+    iphoneAlt: 'Dee sur iPhone : minuteur de round guidé',
+    legal: 'Mentions légales',
+    privacy: 'Confidentialité',
+    terms: 'Conditions',
+    disclaimer: 'Dee fournit des informations générales sur le sport et la condition physique, pas des conseils médicaux.',
+    credits: "Apple, le logo Apple, iPhone et App Store sont des marques d'Apple Inc., déposées aux États-Unis et dans d'autres pays. Android, Google Pixel, Google Play et le logo Google Play sont des marques de Google LLC.",
   },
 } as const
 
