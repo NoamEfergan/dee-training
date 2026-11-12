@@ -78,6 +78,18 @@ assert.match(neksPage, /Digite <strong[^>]*>NEKS<\/strong> e toque em <strong[^>
 assert.match(neksPage, /Válido até 3 de maio de 2027\./)
 assert.doesNotMatch(neksPage, /Redeem code/, 'neks has no Google Play promo code')
 
+// French page, in-app Android route only (no Google Play promo code).
+checkStoreLinks('get/zoee', {token: 'creator_zoee', source: 'instagram', medium: 'creator', campaign: 'creator_zoee'})
+const zoeePage = readPage('get/zoee')
+assert.match(zoeePage, /<html lang="fr"/)
+assert.match(zoeePage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=ZOEE"/)
+assert.match(zoeePage, /Pour les abonnés de @zoeehablot/)
+assert.match(zoeePage, /Votre premier mois offert/)
+assert.match(zoeePage, /touchez <strong[^>]*>Vous avez un code créateur \?<\/strong>/)
+assert.match(zoeePage, /Saisissez <strong[^>]*>ZOEE<\/strong>, puis touchez <strong[^>]*>Commencer le mois offert<\/strong>/)
+assert.match(zoeePage, /Valable jusqu&#39;au 11 mai 2027\.|Valable jusqu'au 11 mai 2027\./)
+assert.doesNotMatch(zoeePage, /Redeem code/, 'zoee has no Google Play promo code')
+
 checkStoreLinks('solo-muay-thai-workout', {
   token: 'site_solo_workout_20260924',
   source: 'dee_training',
@@ -94,4 +106,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, six creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, seven creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
