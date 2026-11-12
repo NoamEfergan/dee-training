@@ -1,7 +1,7 @@
 // Aggregate acquisition measurement. No cookies, storage, identity joins or raw query data.
 // Creator follower pages from the `creators` map in src/pages/get/[campaign].astro.
 // scripts/check-web-analytics.mjs fails when the two lists differ.
-export const creatorSlugs = ['nikita', 'liam', 'tiernan', 'sami', 'aidan', 'neks'];
+export const creatorSlugs = ['nikita', 'liam', 'tiernan', 'sami', 'aidan', 'neks', 'zoee'];
 export const pages = new Set([...creatorSlugs.map(slug => `/get/${slug}/`), '/', '/practice/', '/solo-muay-thai-workout/', '/get/meta_guess/', '/get/meta_between/', '/get/meta_heard/', '/get/meta_audio_round_v1/', '/es/', '/fr/', '/de/', '/nl/', '/pt-br/', '/he/', '/try/', '/privacy/', '/terms/', '/support/', '/press/', '/press/duo/', '/press/reaction-rounds/', '/PrivacyPolicy/', '/TermsAndConditions/']);
 export function pageContext(href) {
   const url = new URL(href);
