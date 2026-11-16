@@ -90,6 +90,12 @@ assert.match(zoeePage, /Saisissez <strong[^>]*>ZOEE<\/strong>, puis touchez <str
 assert.match(zoeePage, /Valable jusqu&#39;au 11 mai 2027\.|Valable jusqu'au 11 mai 2027\./)
 assert.doesNotMatch(zoeePage, /Redeem code/, 'zoee has no Google Play promo code')
 
+checkStoreLinks('get/gregg', {token: 'creator_gregg', source: 'instagram', medium: 'creator', campaign: 'creator_gregg'})
+const greggPage = readPage('get/gregg')
+assert.match(greggPage, /href="https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6788483296&amp;code=GREGG"/)
+assert.match(greggPage, /For @greggappletonmuaythai(&#39;|')s followers/)
+assert.match(greggPage, /tap <strong[^>]*>Got a creator code\?<\/strong>/)
+assert.match(greggPage, /Enter <strong[^>]*>GREGG<\/strong>, then tap <strong[^>]*>Start free month<\/strong>/)
 checkStoreLinks('get/franck', {token: 'creator_franck', source: 'instagram', medium: 'creator', campaign: 'creator_franck'})
 const franckPage = readPage('get/franck')
 assert.match(franckPage, /<html lang="fr"/)
@@ -113,4 +119,4 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, eight creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, nine creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
