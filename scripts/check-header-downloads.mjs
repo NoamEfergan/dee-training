@@ -48,6 +48,8 @@ function checkCampaignAttribution(page, apple, play) {
   const campaign = page.match(/^get\/(meta_(?:guess|between|heard|audio_round_v1))\/index\.html$/)?.[1]
   const expected = campaign
     ? { token: campaign, source: 'meta', medium: 'paid_social', campaign }
+    : /^(?:(?:es|fr|de|nl|pt-br|he)\/)?coaches\/index\.html$/.test(page)
+      ? { token: 'site_coaches', source: 'dee_training', medium: 'organic_web', campaign: 'coaches' }
     : page === 'solo-muay-thai-workout/index.html'
       ? { token: 'site_solo_workout_20260924', source: 'dee_training', medium: 'organic_web', campaign: 'solo_muay_thai_workout' }
       : null

@@ -125,4 +125,35 @@ assert.doesNotMatch(guide, /<meta name="robots" content="noindex/)
 assert.match(readPage(''), /href="\/solo-muay-thai-workout\/"/)
 assert.match(readFileSync(join(dist, 'sitemap-0.xml'), 'utf8'), /https:\/\/dee\.training\/solo-muay-thai-workout\//)
 
-console.log('Passed: four paid campaign routes, ten creator code pages and the solo guide have attributed store links; guide is indexable and linked.')
+const coachLocales = [
+  {slug: '', path: 'coaches', lang: 'en-GB', dir: 'ltr'},
+  {slug: 'es', path: 'es/coaches', lang: 'es-ES', dir: 'ltr'},
+  {slug: 'fr', path: 'fr/coaches', lang: 'fr-FR', dir: 'ltr'},
+  {slug: 'de', path: 'de/coaches', lang: 'de-DE', dir: 'ltr'},
+  {slug: 'nl', path: 'nl/coaches', lang: 'nl-NL', dir: 'ltr'},
+  {slug: 'pt-br', path: 'pt-br/coaches', lang: 'pt-BR', dir: 'ltr'},
+  {slug: 'he', path: 'he/coaches', lang: 'he-IL', dir: 'rtl'},
+]
+for (const {path, lang, dir} of coachLocales) {
+  const page = readPage(path)
+  checkStoreLinks(path, {token: 'site_coaches', source: 'dee_training', medium: 'organic_web', campaign: 'coaches'})
+  assert.match(page, new RegExp(`<html lang="${lang}" dir="${dir}"`), `${path}: wrong lang or dir`)
+  assert.equal((page.match(/<h1\b/g) ?? []).length, 1, `${path}: expected one h1`)
+  assert(page.includes('href="https://ig.me/m/deemuaythai"'), `${path}: missing Instagram DM link`)
+  assert.match(page, /href="mailto:support@dee\.training\?subject=[^"]+"/, `${path}: missing mailto link`)
+  assert(!page.includes('\u2014'), `${path}: contains an em dash`)
+  for (const {slug, lang: alternate} of coachLocales) {
+    const href = slug ? `https://dee.training/${slug}/coaches/` : 'https://dee.training/coaches/'
+    assert(page.includes(`hreflang="${alternate}" href="${href}"`), `${path}: missing hreflang ${alternate}`)
+    assert(page.includes(`href="${href.replace('https://dee.training', '')}"`), `${path}: missing language switcher link to ${href}`)
+  }
+  assert.doesNotMatch(page, /<meta name="robots" content="noindex/, `${path}: should be indexable`)
+}
+assert.match(readPage('coaches'), /<h1 id="coaches-title">Coach Muay Thai\? Dee Pro is free for you\./)
+assert.match(readPage('coaches'), /subject=Dee%20coach%20programme/)
+const sitemap = readFileSync(join(dist, 'sitemap-0.xml'), 'utf8')
+for (const {slug} of coachLocales) {
+  assert(sitemap.includes(slug ? `https://dee.training/${slug}/coaches/` : 'https://dee.training/coaches/'), `sitemap missing coaches page ${slug}`)
+}
+
+console.log('Passed: four paid campaign routes, ten creator code pages the solo guide and seven coaches pages have attributed store links; guide is indexable and linked.')
