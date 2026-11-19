@@ -156,4 +156,4 @@ for (const {slug} of coachLocales) {
   assert(sitemap.includes(slug ? `https://dee.training/${slug}/coaches/` : 'https://dee.training/coaches/'), `sitemap missing coaches page ${slug}`)
 }
 
-console.log('Passed: four paid campaign routes, ten creator code pages the solo guide and seven coaches pages have attributed store links; guide is indexable and linked.')
+console.log('Passed: four paid campaign routes, ten creator code pages, the solo guide and seven coaches pages have attributed store links; guide is indexable and linked.')
