@@ -50,12 +50,14 @@ export function getStaticPaths() {
     franck: {handle: 'franckmaccabi', code: 'FRANCK', validUntil: '11 mai 2027', lang: 'fr'},
     gregg: {handle: 'greggappletonmuaythai', code: 'GREGG', validUntil: '15 May 2027'},
     kevin: {handle: 'dasoulassassin', code: 'KEVIN', validUntil: '17 May 2027'},
+    alberto: {handle: 'alf_bert', code: 'ALBERTO', validUntil: '27 de mayo de 2027', lang: 'es'},
   } as const
 
   const creatorHooks = {
     en: 'Your first month free',
     'pt-BR': 'Seu primeiro mês grátis',
     fr: 'Votre premier mois offert',
+    es: 'Tu primer mes gratis',
   } as const
 
   const campaignPaths = Object.entries(pages).map(([token, {hook, ...attribution}]) => ({
@@ -89,7 +91,7 @@ interface CreatorOffer {
   redeemURL: string
   /** Also has a Google Play promo code, shown as a fallback for older Dee versions. */
   playPromo?: boolean
-  lang?: 'en' | 'pt-BR' | 'fr'
+  lang?: 'en' | 'pt-BR' | 'fr' | 'es'
 }
 
 interface Props {
@@ -202,6 +204,39 @@ const pageCopy = {
     terms: 'Conditions',
     disclaimer: 'Dee fournit des informations générales sur le sport et la condition physique, pas des conseils médicaux.',
     credits: "Apple, le logo Apple, iPhone et App Store sont des marques d'Apple Inc., déposées aux États-Unis et dans d'autres pays. Android, Google Pixel, Google Play et le logo Google Play sont des marques de Google LLC.",
+  },
+  es: {
+    htmlLang: 'es-ES',
+    skip: 'Saltar al contenido',
+    home: 'Inicio de Dee',
+    description: (code: string) => `Usa el código ${code} y consigue tu primer mes de Dee Pro gratis. Dee es un entrenador de Muay Thai para iPhone y Android, con entrenamientos personalizados, ejercicios guiados por voz y avisos de asalto.`,
+    eyebrow: (handle: string) => `Para los seguidores de @${handle}`,
+    proofBefore: 'Dee es tu entrenador de Muay Thai para entrenar solo: entrenamientos personalizados, con ejercicios guiados por voz y avisos de asalto. Usa el código ',
+    proofAfter: ' y consigue tu primer mes de Dee Pro gratis.',
+    iphoneTitle: 'En iPhone',
+    iphoneCTA: 'Consigue tu mes gratis',
+    iphoneNote: 'Confirma en el App Store y abre Dee.',
+    androidTitle: 'En Android',
+    step1: 'Descarga Dee en Google Play o actualízala a la última versión.',
+    step2: 'Cuando Dee te muestre los planes, toca ',
+    codeLabel: '¿Tienes un código de creador?',
+    step3Before: 'Introduce ',
+    step3Middle: ' y toca ',
+    startLabel: 'Empezar el mes gratis',
+    playFallbackBefore: '',
+    playFallbackMiddle: '',
+    playFallbackAfter: '',
+    googlePlayLabel: 'Descargar Dee en Google Play',
+    googlePlayAlt: 'Disponible en Google Play',
+    offerNote: (validUntil: string) => `Para suscriptores nuevos y para quienes vuelven. Válido hasta el ${validUntil}. Después del mes gratis, Dee Pro se renueva al precio anual habitual, salvo que canceles. Puedes cancelar cuando quieras en tus suscripciones de App Store o Google Play.`,
+    productPanel: 'Interfaz de la app Dee',
+    androidAlt: 'Dee en Android: plan de entrenamiento semanal y botón para empezar la sesión',
+    iphoneAlt: 'Dee en iPhone: temporizador de asaltos guiado',
+    legal: 'Avisos legales',
+    privacy: 'Privacidad',
+    terms: 'Condiciones',
+    disclaimer: 'Dee ofrece información general sobre deporte y forma física, no consejo médico.',
+    credits: 'Apple, el logotipo de Apple, iPhone y App Store son marcas comerciales de Apple Inc., registradas en EE. UU. y otros países. Android, Google Pixel, Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.',
   },
 } as const
 
